@@ -1,0 +1,58 @@
+@import "../variables";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: $wod-blue;
+    background-color: $wod-gray;
+}
+
+h1, h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    margin: 0;
+}
+
+p {
+    font-size: 14px;
+}
+
+.highlighted-text {
+    font-weight: 600;
+}
+
+@mixin block-element {
+    height: 36px;
+    margin: 0 0 12px;
+    padding: 0 18px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    @include block-element();
+    border: none;  
+    background-color: $wod-gray;
+    font-weight: 500;
+
+    &.action {
+        background-color: $wod-red;
+        color: white;
+    }
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    @include block-element();
+    width: 100%;
+    border: 1px solid $wod-gray;
+    background-color: white;
+}

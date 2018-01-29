@@ -4,12 +4,9 @@ cover: "https://unsplash.it/1152/300/?random?TheButterflyoftheEdge"
 category: "tech"
 date: "17/03/2017"
 tags:
-    - programming
-    - more tags
-    - testing
-    - another one
-    - stuff
-    - other
+    - arduino
+    - javascript
+    - project idea
 ---
 # Hanc indeploratum seram Amphitryoniadae tremulis pauperque manum
 

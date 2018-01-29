@@ -1,5 +1,6 @@
 import React from "react";
-import Link from "gatsby-link";
+import HomePostCard from "../HomePostCard/HomePostCard";
+import "./PostListing.scss";
 
 class PostListing extends React.Component {
   getPostList() {
@@ -20,14 +21,11 @@ class PostListing extends React.Component {
   render() {
     const postList = this.getPostList();
     return (
-      <div>
-        {/* Your post list here. */
-        postList.map(post => (
-          <Link to={post.path} key={post.title}>
-            <h1>{post.title}</h1>
-          </Link>
+      <section className="post-listing-cards">
+        {postList.map(post => (
+          <HomePostCard post={post} />
         ))}
-      </div>
+      </section>
     );
   }
 }

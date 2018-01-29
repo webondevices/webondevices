@@ -1,0 +1,30 @@
+@import "../../variables";
+
+.home-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+    padding-bottom: 100px;
+    background-color: $wod-aqua;
+    text-align: center;
+}
+
+.home-header-logo {
+    width: 150px;
+    height: 150px;
+}
+
+.home-header-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 56px;
+    font-weight: 100;
+    color: white;
+}
+
+.home-header-subtitle {
+    width: 400px;
+    font-size: 20px;
+}

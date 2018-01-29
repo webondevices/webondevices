@@ -1,0 +1,29 @@
+.index-card {
+    width: 400px;
+    height: auto;
+    margin: 12px 6px;
+    padding: 24px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+
+    button {
+        margin-bottom: 0;
+    }
+}
+
+.book-content {
+    display: flex;
+
+    & > div:nth-child(1) {
+        padding-right: 12px;
+        width: 60%;
+    }
+
+    & > div:nth-child(2) {
+        width: 40%;
+    }
+
+    img {
+        width: 100%;
+    }
+}

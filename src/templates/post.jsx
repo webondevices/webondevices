@@ -6,8 +6,8 @@ import PostTags from "../components/PostTags/PostTags";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-import "./b16-tomorrow-dark.css";
-import "./post.css";
+import "./b16-tomorrow-dark.scss";
+import "./post.scss";
 
 export default class PostTemplate extends React.Component {
   render() {
