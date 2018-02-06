@@ -1,0 +1,14 @@
+@import "../../variables";
+
+.email-form {
+    &.submitted {
+        display: none;
+    }
+}
+
+.cta-button {
+    &.invalid {
+        background-color: $wod-gray;
+        cursor: not-allowed;
+    }
+}

@@ -1,0 +1,121 @@
+@import "../../variables";
+
+footer.sub-bar-active {
+    margin-bottom: 54px;
+}
+
+.footer-about-us {
+	width: 100%;
+	background-color: $wod-aqua;
+	padding: 32px 16px;
+    text-align: center;
+
+	> .footer-light-bulb {
+		width: 100px;
+		height: 100px;
+		display: inline-block;
+		text-align: initial;
+
+		> img {
+			width: 100%;
+			height: 100%;
+		}
+    }
+    
+    > .footer-title {
+        font-size: 48px;
+        font-weight: 100;
+        color: white;
+    }
+
+	> .footer-main-message {
+        margin-top: -4px;
+        font-size: 18px;
+	}
+
+	> a {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+        display: inline-block;
+        min-width: 128px;
+        height: 32px;
+        padding: 6px 16px;
+        border-radius: 4px;
+        border: none;
+        background-color: $wod-blue;
+        color: white;
+        text-decoration: none;
+        transition: background-color .4s;
+
+        &:hover {
+            background-color: $wod-red;
+        }
+
+		&:nth-child(2n) {
+			margin-right: 4px;
+		}
+
+		&:nth-child(2n+1) {
+			margin-left: 4px;
+		}
+	}
+}
+
+.about-author {
+	width: 100%;
+	background-color: $wod-blue;
+	padding: 32px 16px;
+	text-align: center;
+
+	.author {
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height: 100px;
+		border-radius: 100px;
+		display: inline-block;
+		text-align: initial;
+	}
+
+	& > .about-me {
+		width: 100%;
+		margin: 0 auto;
+
+		@media (min-width: 768px) {
+			width: 40%;
+		}
+	}
+}
+
+.legal {
+	padding: 16px;
+    text-align: center;
+    font-family: 'Lato', sans-sans;
+    font-weight: 300;
+    font-size: 14px;
+    background-color: white;
+
+    > a {
+        font-weight: 700;
+        color: $wod-blue;
+        text-decoration: none;
+    }
+}
+
+.about-author {
+    > h2 {
+        font-size: 18px;
+        color: white;
+        font-weight: 700;
+        margin-top: 16px;
+        margin-bottom: 8px;
+   }
+
+   > .about-me {
+       font-family: 'Lato', sans-sans;
+       font-weight: 300;
+       font-size: 14px;
+       line-height: 1.5;
+       color: white;
+   }
+}

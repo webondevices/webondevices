@@ -6,7 +6,7 @@
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 
-    button {
+    .cta-button {
         margin-bottom: 0;
     }
 }
@@ -22,8 +22,8 @@
     & > div:nth-child(2) {
         width: 40%;
     }
+}
 
-    img {
-        width: 100%;
-    }
+.index-card-book {
+    width: 100%;
 }

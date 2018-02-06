@@ -18,6 +18,10 @@
         position: absolute;
         left: 12px;
         top: 12px;
+
+        a {
+            text-decoration: none;
+        }
     }
 
     & > .post-title {

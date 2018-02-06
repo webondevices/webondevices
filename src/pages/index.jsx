@@ -5,6 +5,8 @@ import HomeHeader from "../components/HomeHeader/HomeHeader";
 import FreeBook from "../components/HomeBookCard/FreeBook";
 import CompleteBook from "../components/HomeBookCard/CompleteBook";
 import HomeBookCard from "../components/HomeBookCard/HomeBookCard";
+import HomeFooter from "../components/HomeFooter/HomeFooter";
+import SubscriptionBar from "../components/SubscriptionBar/SubscriptionBar";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
@@ -21,7 +23,7 @@ class Index extends React.Component {
         <HomeHeader />
 
         <main className="index-main-container">
-          <section className="index-main-card-area">
+          <section className="index-main-card-area" id="subscription">
 
             <HomeBookCard>
               <FreeBook />
@@ -36,6 +38,10 @@ class Index extends React.Component {
           <h1 className="index-recent-posts-title">Recent posts</h1>
 
           <PostListing postEdges={postEdges} />
+
+          <HomeFooter />
+
+          <SubscriptionBar />
 
         </main>
 

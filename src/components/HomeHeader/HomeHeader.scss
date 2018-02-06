@@ -1,4 +1,12 @@
 @import "../../variables";
+body {
+    transition: filter 1s, background-color 1s;
+}
+
+body.lights-off {
+    filter: grayscale(0.8) brightness(0.3);
+    background-color: #424242;
+}
 
 .home-header {
     display: flex;
@@ -15,6 +23,13 @@
 .home-header-logo {
     width: 150px;
     height: 150px;
+    transition: transform 300ms, filter 300ms;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 20px white) brightness(1.2);
+    }
 }
 
 .home-header-title {
