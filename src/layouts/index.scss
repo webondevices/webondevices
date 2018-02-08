@@ -57,4 +57,12 @@ input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;
     border: 1px solid $wod-gray;
     background-color: white;
+
+    &:focus {
+        border: 1px solid $wod-aqua;
+    }
+}
+
+button, input {
+    outline: none;
 }

@@ -1,14 +1,53 @@
 @import "../../variables";
 
 .email-form {
+    transition: height 600ms, opacity 600ms;
+    height: 84px;
+    opacity: 1;
+
     &.submitted {
-        display: none;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    input {
+        transition: height 300ms, opacity 300ms;
     }
 }
 
-.cta-button {
-    &.invalid {
-        background-color: $wod-gray;
-        cursor: not-allowed;
-    }
+.thank-you-message,
+.pending-message,
+.error-message {
+    transition: height 300ms;
+    height: 0;
+    overflow: hidden;
+    font-weight: 600;
+    margin: 0;
+}
+
+.pending-message {
+    color: $wod-aqua;
+}
+
+.error-message {
+    color: $wod-red;
+}
+
+.submitted.email-form + .thank-you-message,
+.error.email-form > .error-message,
+.pending.email-form > .pending-message {
+    height: 28px;
+}
+
+.pending.email-form > input,
+.submitted.email-form > input {
+    height: 0;
+    opacity: 0;
+}
+
+.invalid.email-form > .cta-button,
+.pending.email-form > .cta-button {
+    background-color: $wod-gray;
+    cursor: not-allowed;
 }
