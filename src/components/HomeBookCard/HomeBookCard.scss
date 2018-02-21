@@ -22,8 +22,13 @@
     & > div:nth-child(2) {
         width: 40%;
     }
+
+    & p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .index-card-book {
     width: 100%;
+    display: block;
 }

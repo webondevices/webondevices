@@ -9,8 +9,8 @@ class HomeFooter extends Component {
               <div className="footer-light-bulb"><img src="webondevices-logo.png" alt="light bulb logo" /></div>
               <h2 className="footer-title">Web on Devices</h2>
               <p className="footer-main-message">Electronics Hacking with Javascript<br />and other Web Technologies</p>
-              <a className="connect twitter" href="https://twitter.com/web_on_devices">Twitter</a>
-              <a className="connect facebook" href="https://www.facebook.com/webondevices">Facebook</a>
+              <a className="connect twitter" rel="noopener noreferrer" target="_blank" href="https://twitter.com/web_on_devices">Twitter</a>
+              <a className="connect facebook" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/webondevices">Facebook</a>
             </section>
 
             <section className="about-author">

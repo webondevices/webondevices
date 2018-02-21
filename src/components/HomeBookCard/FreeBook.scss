@@ -4,6 +4,7 @@
     transition: height 600ms, opacity 600ms;
     height: 84px;
     opacity: 1;
+    margin-top: 24px;
 
     &.submitted {
         height: 0;
@@ -32,6 +33,10 @@
 
 .error-message {
     color: $wod-red;
+}
+
+.submit-email {
+    width: calc(50% - 6px);
 }
 
 .submitted.email-form + .thank-you-message,

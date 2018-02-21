@@ -13,7 +13,7 @@ class FreeBook extends Component {
     this.state = {
       email: '',
       valid: false,
-      submitted: localStorage.getItem('submitted') !== null,
+      submitted: false,
       pending: false,
       error: false
     };
@@ -44,16 +44,15 @@ class FreeBook extends Component {
         // Successfully submitted
         if (request.status === 200) {
           this.setState({submitted: true});
-          localStorage.setItem('submitted', true);
         
-          // Server error
+        // Server error
         } else {  
-          this.setState({submitted: false, pending: false, error: true});
+          this.setState({pending: false, submitted: false, error: true});
         }
       };
 
       request.onerror = () => {
-        this.setState({submitted: false, pending: false, error: true});
+        this.setState({pending: false, submitted: false, error: true});
       };
 
       request.send();
@@ -64,22 +63,24 @@ class FreeBook extends Component {
 
   render () {
       return(
-        <div className="book-content">
-          <div>
-            <h2>Free Ebook</h2>
-            <p className="highlighted-text">Learn hardware prototyping and become a better developer.</p>
-            <p>This ebook will get you started with JavaScript Arduino electronics in no time.</p>
-            <form className={`email-form${this.state.submitted ? ' submitted' : ''}${this.state.pending ? ' pending' : ''}${this.state.error ? ' error' : ''}${this.state.valid ? ' valid' : ' invalid'}`}>
-              <input type="email" placeholder="Email address" onChange={this.handleInput} />
-              <p className="pending-message">Submitting...</p>
-              <p className="error-message">Please try again!</p>
-              <button className="cta-button action" onClick={this.submit} type="submit">Send me the PDF</button>
-            </form>
-            <p className="thank-you-message">Check your emails!</p>
+        <div>
+          <div className="book-content">
+            <div>
+              <h2>Free Ebook</h2>
+              <p className="highlighted-text">Get started with hardware prototyping and learn the basiscs in a few hours.</p>
+              <p>This ebook will introduce you to JavaScript Arduino Electronics: blink an LED light and read simple sensors!</p>
+            </div>
+            <div>
+              <img className="index-card-book" alt="Introduction to JavaScript Electronics" src="intro-to-js-electronics.png" />
+            </div>
           </div>
-          <div>
-            <img className="index-card-book" alt="Introduction to JavaScript Electronics" src="intro-to-js-electronics.png" />
-          </div>
+          <form className={`email-form${this.state.submitted ? ' submitted' : ''}${this.state.pending ? ' pending' : ''}${this.state.error ? ' error' : ''}${this.state.valid ? ' valid' : ' invalid'}`}>
+            <input type="email" placeholder="Email address" onChange={this.handleInput} />
+            <p className="pending-message">Submitting...</p>
+            <p className="error-message">Please try again!</p>
+            <button className="cta-button submit-email action" onClick={this.submit} type="submit">Send me the PDF</button>
+          </form>
+          <p className="thank-you-message">Check your emails!</p>
         </div>
       );
   }
