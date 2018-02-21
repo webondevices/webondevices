@@ -23,12 +23,11 @@ body.lights-off {
 .home-header-logo {
     width: 150px;
     height: 150px;
-    transition: transform 300ms, filter 300ms;
+    transition: transform 300ms;
     cursor: pointer;
 
     &:hover {
         transform: scale(1.1);
-        filter: drop-shadow(0 0 20px white) brightness(1.2);
     }
 }
 

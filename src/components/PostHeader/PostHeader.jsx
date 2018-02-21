@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./HomeHeader.scss";
+import "./PostHeader.scss";
 
 class HomeHeader extends Component {
     constructor () {
@@ -22,10 +22,9 @@ class HomeHeader extends Component {
         }
 
         return(
-          <header className="home-header">
-            <img onClick={this.switchLight} className="home-header-logo" alt="Web on Devices logo" src="/webondevices-logo.png" />
-            <span className="home-header-title">Web on Devices</span>
-            <span className="home-header-subtitle">Electronics Hacking with JavaScript and other Web Technologies</span>
+          <header className="post-header">
+            <img onClick={this.switchLight} className="post-header-logo" alt="Web on Devices logo" src="/webondevices-logo.png" />
+            <a className="post-back-button" href="/">&lt; Back</a>
           </header>
         );
     }

@@ -6,32 +6,6 @@
     justify-content: center;
 }
 
-.post-header {
-    width: 100%;
-    height: 200px;
-    padding: 15px;
-    background-color: $wod-aqua;
-}
-
-.post-back-button {
-    text-decoration: none;
-    font-family: 'Lato', sans-serif;
-    font-size: 20px;
-    color: $wod-blue;
-    width: auto;
-    position: fixed;
-    left: 48px;
-    top: 36px;
-    background-color: $wod-aqua;
-    padding: 5px 10px 7px 10px;
-}
-
-.post-header-logo {
-    height: 70px;
-    margin: auto;
-    display: block;
-}
-
 .post-container {
     width: 75%;
     max-width: 728px;
@@ -50,4 +24,8 @@
         width: 100%;
         margin-left: 0;
     }
+}
+
+.tags-container {
+    margin: -100px auto 0;
 }

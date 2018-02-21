@@ -13,6 +13,7 @@ import SubscriptionBar from "../components/SubscriptionBar/SubscriptionBar";
 import HomeBookCard from "../components/HomeBookCard/HomeBookCard";
 import FreeBook from "../components/HomeBookCard/FreeBook";
 import CompleteBook from "../components/HomeBookCard/CompleteBook";
+import PostHeader from "../components/PostHeader/PostHeader";
 
 export default class PostTemplate extends React.Component {
   constructor () {
@@ -25,12 +26,6 @@ export default class PostTemplate extends React.Component {
 
   switchLight () {
     this.setState({on: !this.state.on});
-
-    if (this.state.on) {
-      document.body.classList.remove('lights-off');
-    } else {
-      document.body.classList.add('lights-off');
-    }
   }
 
   render() {
@@ -43,16 +38,19 @@ export default class PostTemplate extends React.Component {
     if (!post.category_id) {
       post.category_id = config.postDefaultCategoryID;
     }
+
+    if (this.state.on) {
+      document.body.classList.remove('lights-off');
+    } else {
+      document.body.classList.add('lights-off');
+    }
     return (
       <div>
         <Helmet>
           <title>{`${post.title} | ${config.siteTitle}`}</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
-        <header className="post-header">
-          <img onClick={this.switchLight} className="post-header-logo" alt="Web on Devices logo" src="webondevices-logo.png" />
-          <a className="post-back-button" href="/">&lt; Back</a>
-        </header>
+        <PostHeader />
         <main className="post-container">
           <h1>{post.title}</h1>
           <article dangerouslySetInnerHTML={{ __html: postNode.html }} />

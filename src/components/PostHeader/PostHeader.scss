@@ -1,0 +1,33 @@
+@import "../../variables";
+
+.post-header {
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+    background-color: $wod-aqua;
+}
+
+.post-back-button {
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    color: $wod-blue;
+    width: auto;
+    position: fixed;
+    left: 48px;
+    top: 36px;
+    background-color: $wod-aqua;
+    padding: 5px 10px 7px 10px;
+}
+
+.post-header-logo {
+    height: 70px;
+    margin: auto;
+    display: block;
+    transition: transform 300ms;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
