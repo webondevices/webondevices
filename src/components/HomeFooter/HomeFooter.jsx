@@ -6,7 +6,7 @@ class HomeFooter extends Component {
         return(
           <footer className="sub-bar-active">
             <section className="footer-about-us">
-              <div className="footer-light-bulb"><img src="webondevices-logo.png" alt="light bulb logo" /></div>
+              <div className="footer-light-bulb"><img src="/webondevices-logo.png" alt="light bulb logo" /></div>
               <h2 className="footer-title">Web on Devices</h2>
               <p className="footer-main-message">Electronics Hacking with Javascript<br />and other Web Technologies</p>
               <a className="connect twitter" rel="noopener noreferrer" target="_blank" href="https://twitter.com/web_on_devices">Twitter</a>
@@ -14,7 +14,7 @@ class HomeFooter extends Component {
             </section>
 
             <section className="about-author">
-              <img className="author" src="matemarschalko.jpg" alt="Mate Marschalko" />
+              <img className="author" src="/matemarschalko.jpg" alt="Mate Marschalko" />
               <h2>Mate Marschalko</h2>
               <p className="about-me">Web Developer, Creative Technologist and Maker. Builds Internet connected devices for the Internet of Things.</p>
             </section>

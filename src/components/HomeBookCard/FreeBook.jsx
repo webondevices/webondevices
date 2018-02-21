@@ -71,7 +71,7 @@ class FreeBook extends Component {
               <p>This ebook will introduce you to JavaScript Arduino Electronics: blink an LED light and read simple sensors!</p>
             </div>
             <div>
-              <img className="index-card-book" alt="Introduction to JavaScript Electronics" src="intro-to-js-electronics.png" />
+              <img className="index-card-book" alt="Introduction to JavaScript Electronics" src="/intro-to-js-electronics.png" />
             </div>
           </div>
           <form className={`email-form${this.state.submitted ? ' submitted' : ''}${this.state.pending ? ' pending' : ''}${this.state.error ? ' error' : ''}${this.state.valid ? ' valid' : ' invalid'}`}>
