@@ -1,6 +1,6 @@
 ---
 title: "Scanning Nespresso Capsules with JavaScript"
-cover: "http://localhost:8000/posts/nespresso-capsules.jpg"
+cover: "http://www.webondevices.com/posts/nespresso-capsules.jpg"
 category: "moar"
 date: "24/07/2015"
 slug: "scanning-nespresso-capsules-with-javascript"
@@ -114,7 +114,7 @@ speechSynthesis.speak(app.speech);
 ### Future plans
 The main problem with the current implementation is that colours appearing in the camera stream are different when light conditions change. They might look brighter or darker but the biggest problem is white balance. You know when you take a photo and everything looks slightly blue or slightly red. This obviously all affect Trakcing.js.
 
-![Nespresso capsules](http://localhost:8000/posts/nespresso-capsules.jpg)
+![Nespresso capsules](http://www.webondevices.com/posts/nespresso-capsules.jpg)
 
 The current implementation could be improved by adding a 'global white balance reference colour' that would be used to calibrate the app. In perfect light conditions the grey colour has equal amounts of red, green and blue in it, for example: 150, 150, 150. If the grey colour is 180, 130, 150 under another light condition then each colour has to be adjusted by the same amount: red + 30, green - 20, blue + 0. With this solution you would still need to re-calibrate the app each time but instead of re-calibrating all the colours you only do one.
 

@@ -1,6 +1,6 @@
 ---
 title: "Arduino Tone & MP3 Sound with No Shield"
-cover: "http://localhost:8000/posts/arduino-audio-hero.jpg"
+cover: "http://www.webondevices.com/posts/arduino-audio-hero.jpg"
 category: "moar"
 date: "03/02/2016"
 slug: "arduino-tone-mp3-sound-with-no-shield"
@@ -16,7 +16,7 @@ However if you decrease the bit rate to only 8k and down sample the file then it
 
 The first thing we do is build the circuit that will be connected to your mini speaker. For that you will need 6 resistors with the same amount of resistance and a few jumper wires.
 
-![Play sound with Arduino](http://localhost:8000/posts/arduino-audio.jpg)
+![Play sound with Arduino](http://www.webondevices.com/posts/arduino-audio.jpg)
 
 Next thing to do is download and install the library called [avr-sound](https://github.com/muayyad-alsadi/avr_sound) created by Muayyad Alsadi. Download the files from the repository and install it or manually place it into your libraries folder.
 
@@ -51,7 +51,7 @@ Final task left is to create the circuit.
 
 Unfortunately the sounds wouldn’t be loud enough from the output pins without an external power source so we need to build a simple amplifier to make it louder. Here’s the final circuit including a R-2R resistor ladder to generate the sound and an NPN resistor that switches power from an external battery:
 
-![Play sound with Arduino Fritzing circuit](http://localhost:8000/posts/arduino-play-sound-amplified.jpg)
+![Play sound with Arduino Fritzing circuit](http://www.webondevices.com/posts/arduino-play-sound-amplified.jpg)
 
 I tried this with an external 3.7V lipo battery which worked perfectly.
 

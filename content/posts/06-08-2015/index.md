@@ -1,6 +1,6 @@
 ---
 title: "Rotate a CSS 3D cube with an Arduino"
-cover: "http://localhost:8000/posts/rotate-3d-css-cube.jpg"
+cover: "http://www.webondevices.com/posts/rotate-3d-css-cube.jpg"
 category: "moar"
 date: "06/08/2015"
 slug: "rotate-a-css-3d-cube-with-an-arduino"
@@ -47,7 +47,7 @@ socket.on('serialEvent', function (rotation) {
 
 I had to divide the rotation values by two because the cube was rotating faster then the sensor was rotating in real life. The cube was also slightly off centre compared to the sensor so I added +44 to calibrate it.
 
-![The gyroscope and the Arduino](http://localhost:8000/posts/rotate-3d-css-cube.jpg)
+![The gyroscope and the Arduino](http://www.webondevices.com/posts/rotate-3d-css-cube.jpg)
 
 Sometimes the sensor goes off for a frame or two and sends a random value. To prevent the cube from jittering I applied some smoothing. I could have done this with the sensor values in JavaScript but adding CSS transition to the transform property seemed like an easier option. The smoothing setting is currently on 0.2s. Increasing this number will make the animation smoother but will also add some lag:
 

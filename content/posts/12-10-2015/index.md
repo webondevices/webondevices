@@ -1,6 +1,6 @@
 ---
 title: "XBOX Kinect 2 JavaScript gesture tracking"
-cover: "http://localhost:8000/posts/kinect-2-skeleton.jpg"
+cover: "http://www.webondevices.com/posts/kinect-2-skeleton.jpg"
 category: "moar"
 date: "12/10/2015"
 slug: "xbox-kinect-2-javascript-gesture-tracking"
@@ -71,7 +71,7 @@ Inside this condition we start our server:
 ``` javascript
 server.listen(8000);
 console.log('Server listening on port 8000');
-console.log('Point your browser to http://localhost:8000');
+console.log('Point your browser to http://www.webondevices.com');
 ```
 
 The following expression will serve the index.html file inside the public folder. This step isn’t necessary as you can subscribe to the web socket data from html files that are not hosted on this server. Can be just a simple local page.
@@ -81,7 +81,7 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 ```
-![Kinect v2 point cloud](http://localhost:8000/posts/kinect1.png)
+![Kinect v2 point cloud](http://www.webondevices.com/posts/kinect1.png)
 
 The final chunk of code is responsible for actually listening for received bodyFrames from the Kinect sensor which is **one frame worth of skeleton data formatted into JSON**. Inside the anonymous callback function we have the bodyFrame variable exposed which has the object. This is what we start sending through the web socket with the `io.sockets.emit()` command:
 
@@ -113,7 +113,7 @@ var kinect = new Kinect2();
 if(kinect.open()) {
     server.listen(8000);
     console.log('Server listening on port 8000');
-    console.log('Point your browser to http://localhost:8000');
+    console.log('Point your browser to http://www.webondevices.com');
 
     app.get('/', function(req, res) {
         res.sendFile(__dirname + '/public/index.html');
@@ -129,7 +129,7 @@ if(kinect.open()) {
 
 If you save this document as broadcast.js, connect and power up the Kinect then enter node broadcast.js data broadcasting should start within a few seconds. Next task is to look at the front-end code that subscribes to this data.
 
-![Kinect v2](http://localhost:8000/posts/kinect_v2.jpg)
+![Kinect v2](http://www.webondevices.com/posts/kinect_v2.jpg)
 
 ### Subscribing to the data
 
@@ -142,7 +142,7 @@ To interface with the web socket server we just created from the front-end we wi
 Once this is loaded, inside our front-end javascript file we initialise the socket by specifying the url and the port number:
 
 ``` javascript
-var socket = io.connect('http://localhost:8000/');
+var socket = io.connect('http://www.webondevices.com/');
 ```
 
 After this step we attach an event listener onto the socket instance which in our case listens for incoming messages named “bodyFrame”. This is the name we specified in the Node.js application when we sent the data. The second argument is the handler function to call when a message was received:

@@ -1,6 +1,6 @@
 ---
 title: "IKEA social notification desk lamp"
-cover: "http://localhost:8000/posts/lamp_ikea_arduino.jpg"
+cover: "http://www.webondevices.com/posts/lamp_ikea_arduino.jpg"
 category: "moar"
 date: "26/08/2015"
 slug: "ikea-social-notification-desk-lamp"
@@ -11,7 +11,7 @@ tags:
 
 **This IKEA lamp has been completely stripped and rebuilt using a Spark Core Wi-Fi board and a 12V RGB LED strip. The desk lamp can now shine in 16 million different colours and be controlled from the ‘If This Then That’ app. I use it for notifications and set it to change to different colours when something happens with my emails, Facebook, Twitter or Instagram. A visual notification centre, I call it.**
 
-![The IKEA social notification desk lamp](http://localhost:8000/posts/lamp_ikea_arduino.jpg)
+![The IKEA social notification desk lamp](http://www.webondevices.com/posts/lamp_ikea_arduino.jpg)
 
 ### The Core of the project
 
@@ -19,7 +19,7 @@ For this project I used a Spark Core which is an interesting Wi-Fi enabled, Ardu
 
 Spark, was just a small startup company last year trying to get funding on Kickstarter for their first board, the Core. Now they are much larger, changed their name to [Particle](http://www.particle.io/) and have released two new development boards.
 
-![Particle Core](http://localhost:8000/posts/core1.jpg)
+![Particle Core](http://www.webondevices.com/posts/core1.jpg)
 
 The new **Particle Photon** works and behaves the same way as the original Spark Core. It’s essentially an updated version with a better **Wi-Fi chip, faster speeds and half the price** ($19 instead of $39)! This year they also released the Electron which has a SIM card in it and can connect to a cellular network.
 
@@ -54,7 +54,7 @@ This is very similar to how we switch higher voltages with the Arduino. For exam
 
 Let’s have a look at the final circuit of the desk lamp.
 
-![Lamp circuit](http://localhost:8000/posts/lamp-circuit.png)
+![Lamp circuit](http://www.webondevices.com/posts/lamp-circuit.png)
 
 Here’s the step-by-step guide on the build:
 
@@ -68,7 +68,7 @@ Here’s the step-by-step guide on the build:
 
 * Lastly **the switched ground is taken to the LED strip** from the right pin of the transistor (Drain) as well as the constant positive 12V from the power supply (yellow wire at the bottom left).
 
-![Lamp leds](http://localhost:8000/posts/leds.jpg)
+![Lamp leds](http://www.webondevices.com/posts/leds.jpg)
 
 And here’s the code running on the core. The code is very simple but since this is just a quick prototype, has not been optimised at all:
 
@@ -144,7 +144,7 @@ int notify(String command) {
 
 Please note that the initial, white values are R: 255 G: 200 B: 150. This is because the LED is too blue if simply set to R: 255 G: 255 B: 255 so I had to adjust the white balance a little bit.
 
-![Lamp circuit](http://localhost:8000/posts/final-led-lamp.jpg)
+![Lamp circuit](http://www.webondevices.com/posts/final-led-lamp.jpg)
 
 Once this code is uploaded then the exposed Spark function(notify) can be called from the If This Then That service.
 
@@ -168,6 +168,6 @@ Here are a few more recipes to get you inspired: [IFTTT recipes](https://ifttt.c
 
 Once you setup your own account you can create your own recipes and when you get to choose the Action, choose Particle and **call the function you exposed in your application code**, “notify” in our case.
 
-![IFTTT](http://localhost:8000/posts/ifttt.png)
+![IFTTT](http://www.webondevices.com/posts/ifttt.png)
 
 And that is all you need to do to complete this project. Let me know what you think and how you would improve it.

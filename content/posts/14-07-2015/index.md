@@ -1,6 +1,6 @@
 ---
 title: "Fly an AR Drone with an Xbox controller and JavaScript"
-cover: "http://localhost:8000/posts/drone2.jpg"
+cover: "http://www.webondevices.com/posts/drone2.jpg"
 category: "moar"
 date: "14/07/2015"
 slug: "fly-an-ar-drone-with-an-xbox-controller-and-javascript"
@@ -59,7 +59,7 @@ xbox.on('not-found', function(){
 
 Luckily for this project we don’t have to use two separate libraries for reading the gamepad and driving the drone because the [Xbox-Parrot](https://github.com/glasseyes42/xbox-parrot) library does everything for us.
 
-![AR Drone with Xbox controller and Javascript](http://localhost:8000/posts/george.jpg)
+![AR Drone with Xbox controller and Javascript](http://www.webondevices.com/posts/george.jpg)
 
 The AR Drone connected to Node.js and the Xbox controller
 Once the default app is running in your terminal the drone is ready to take off. Here’s the basic controller layout:

@@ -1,6 +1,6 @@
 ---
 title: "Arduino Node.js RC Car Driven with the HTML5 Gamepad API"
-cover: "http://localhost:8000/posts/IMG_20150330_195450.jpg"
+cover: "http://www.webondevices.com/posts/IMG_20150330_195450.jpg"
 category: "moar"
 date: "29/06/2015"
 slug: "arduino-nodejs-rc-car-driven-with-html5-gamepad-api"
@@ -30,7 +30,7 @@ I got the [original code](https://github.com/html5rocks/www.html5rocks.com/blob/
 
 You might wonder why we need so much code in that gamepad.js file if all the joystick raw sensor data is available in `navigator.getGamepads`. Well, it handles feature detection, event listening for connection/disconnection and a fix for Chrome which doesn’t fire gamepad events.
 
-![Arduino rc car](http://localhost:8000/posts/IMG_20150330_195450.jpg)
+![Arduino rc car](http://www.webondevices.com/posts/IMG_20150330_195450.jpg)
 
 After gamepad.js is loaded and initialised the gamepad object is filled with the sensor data:
 
@@ -107,7 +107,7 @@ The write function needs to go inside the socket on connect and socket on messag
 
 The work has started off by taking out the original radio and motor drive modules and the antenna from the car. I was left with two motors, one for steering and one for acceleration, and the plan was to rebuild the whole architecture using Arduinos. I succeeded and the motors are now driven with a powerful H-bridge module (L298n) and the wireless connection is handled by two nRF24l01 antennas. The Arduino and the motors are both powered from the original 6V battery pack (4xAA).
 
-![Arduino rc car](http://localhost:8000/posts/IMG_20150330_193544.jpg)
+![Arduino rc car](http://www.webondevices.com/posts/IMG_20150330_193544.jpg)
 
 The onboard Arduino Nano receives wireless messages from the Arduino UNO connected to the my Macbook Pro which is the one communicating with the Node.js server and the browser.
 
@@ -115,7 +115,7 @@ The onboard Arduino Nano receives wireless messages from the Arduino UNO connect
 
 There are so many parts of this projects that are really exciting and interesting and parts that are a little bit more difficult to fully implement. **So please let me know and leave a comment if you want me to create and extended tutorial on this project!**
 
-![Arduino rc car](http://localhost:8000/posts/IMG_20150330_192351.jpg)
+![Arduino rc car](http://www.webondevices.com/posts/IMG_20150330_192351.jpg)
 
 I’m also planning to improve the car by installing an onboard wireless camera, a more powerful RC battery pack and maybe a few more sensors or lights.
 

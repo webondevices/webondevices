@@ -1,6 +1,6 @@
 ---
 title: "Arduino Robot Car Obstacle Avoidance"
-cover: "http://localhost:8000/posts/arduino-robot-car-hero.jpg"
+cover: "http://www.webondevices.com/posts/arduino-robot-car-hero.jpg"
 category: "moar"
 date: "07/12/2015"
 slug: "arduino-robot-car-obstacle-avoidance"
@@ -21,11 +21,11 @@ I didn’t want to spend too much time building the chassis so I decided to buy 
 
 Driving the motors from the Arduino is not possible as they draw too much current so you need a separate motor drive unit to help the Arduino. I purchased a pretty, red L298N module from ebay. Here’s how it looks like:
 
-![l298n-pinout](http://localhost:8000/posts/l298n-pinout.jpg)
+![l298n-pinout](http://www.webondevices.com/posts/l298n-pinout.jpg)
 
 This module can drive two motors up to **2000mA each** and maximum **50 volts**. That’s perfectly fine as our motors will only be driven from the 4xAA batteries which is 6 volts in total. The two motors are connected to port 1 and port 2 (see numbers on the image). Wires can be interchanged as reversed polarity only makes the motors go in reverse.
 
-![Arduino Robot Car with Obstacle Avoidance](http://localhost:8000/posts/arduino-robot-car-front.jpg)
+![Arduino Robot Car with Obstacle Avoidance](http://www.webondevices.com/posts/arduino-robot-car-front.jpg)
 
 Behind pin 3 and 4 there is a jumper. If this jumper is in place then you have to make sure your **supply voltage is lower than 12V**. It will also allow you to use pin 5 as **regulated 5V output for your Arduino**. On my car I connected the positive wire from the battery pack to pin 3 and the ground wire to number 4. Next I connected the 5V output pin from the motor drive module, which is pin number 5, to my Arduino Nano’s 5V pin and I also connected pin number 4 to my Arduino’s GND. Power is now connected.
 
@@ -43,7 +43,7 @@ I added a 1000uF to pin 4 and 5 as the motors draw a lot of current when speedin
 
 The hardware build was so easy that my 4-year-old daughter managed to understand the circuit and what each of the components do.
 
-![Arduino Robot Car building with children](http://localhost:8000/posts/arduino-robot-car-hero.jpg)
+![Arduino Robot Car building with children](http://www.webondevices.com/posts/arduino-robot-car-hero.jpg)
 
 ### Autonomous mode and the ultrasonic sensor
 
@@ -115,7 +115,7 @@ After I had all the motors and the distance sensor connected up I put the motors
 ### Manual mode and the joystick shield
 This was a little bit more complicated as we now have wireless communication. The controller was an **Arduino UNO with a joystick shield**. You can also see the **nRF24l01 antenna** on the left top corner.
 
-![Arduino Robot Car building with children](http://localhost:8000/posts/arduino-robot-car-joystick.jpg)
+![Arduino Robot Car building with children](http://www.webondevices.com/posts/arduino-robot-car-joystick.jpg)
 
 This controller was powered from a 9V battery. The button and the joystick on the shield are simple sensors so you can read them with the digitalRead() and analogRead() functions. The below piece of code is the final code I have for the joystick. It first checks the state of the joystick then sends through the wireless messages through the nRF24l01 module.
 
@@ -162,7 +162,7 @@ void loop() {
 }
 ```
 
-![Arduino Robot Car building with children](http://localhost:8000/posts/arduino-robot-car-hero-back.jpg)
+![Arduino Robot Car building with children](http://www.webondevices.com/posts/arduino-robot-car-hero-back.jpg)
 
 To read this from the car you open a reading pipe then check the radio.available() function for incoming messages. Below is the final piece of code that is running on the car:
 

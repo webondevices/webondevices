@@ -1,6 +1,6 @@
 ---
 title: "Install Node.js on a Raspberry PI and run JavaScript"
-cover: "http://localhost:8000/posts/rpi_hero.jpg"
+cover: "http://www.webondevices.com/posts/rpi_hero.jpg"
 category: "moar"
 date: "01/09/2015"
 slug: "the-arduino-plant-with-javascript-voice-recognition"
@@ -12,7 +12,7 @@ tags:
 
 This means that if you have a Raspberry PI at home you can still get started with JavaScript Electronics and the Free Ebook. This article will show you how to get your PI ready to run JavaScript.
 
-![Raspbeery PI running Node.js](http://localhost:8000/posts/rpi_1.jpg)
+![Raspbeery PI running Node.js](http://www.webondevices.com/posts/rpi_1.jpg)
 
 ### JavaScript and Node.js on the Raspberry PI
 
@@ -58,7 +58,7 @@ console.log("Hello World");
 
 Saving this file and entering node hello.js will result in the Hello World message appearing. This means that Node.js is fully installed.
 
-![Raspberry PI running Node.js](http://localhost:8000/posts/rpi_2.jpg)
+![Raspberry PI running Node.js](http://www.webondevices.com/posts/rpi_2.jpg)
 
 ### Installing Johnny-Five and Raspi-IO
 
@@ -98,11 +98,11 @@ Everything should now be installed. If you still have problems installing any of
 
 In the 7th chapter of the JavaScript Electronics Ebook we blink an LED light with the Arduino UNO. Moving this circuit over to the Raspberry PI is easy. We have many GND and digital output pins to choose from. I picked number 16 for the LED.
 
-![LED circuit on the PI](http://localhost:8000/posts/circuit_led.jpg)
+![LED circuit on the PI](http://www.webondevices.com/posts/circuit_led.jpg)
 
 There are actually three different ways these pins are numbered which is really confusing. There’s the peripheral, the wiring and the physical pin numbering. Instead of discussing all these different ways we will simply use the wiring pin numbering:
 
-![Wiring pin numbering on the Raspberry PI](http://localhost:8000/posts/raspberry-wiring-pins.jpg.jpg)
+![Wiring pin numbering on the Raspberry PI](http://www.webondevices.com/posts/raspberry-wiring-pins.jpg.jpg)
 
 These pin numbers should be the same on all PI models. According to this the LED is connected to pin 15 so let’s now write the JavaScript code for blinking the LED.
 
@@ -132,7 +132,7 @@ In the Ebook we learned how to use analog light and analog temperature sensor. T
 
 To build the voltage divider, light sensor circuit on the Raspberry PI follow the below image:
 
-![Raspberry PI LDR circuit](http://localhost:8000/posts/circuit_ldr.jpg)
+![Raspberry PI LDR circuit](http://www.webondevices.com/posts/circuit_ldr.jpg)
 
 In the 7th chapter of the Ebook I explain this circuit in detail. It’s quite important to understand the circuit if you wish to adjust the threshold of the sensor as you will need to change the resistor to do that.
 
@@ -163,7 +163,7 @@ Let’s combine the two examples and switch the LED on when it’s dark and off 
 
 Here’s the circuit for that on the Raspberry PI:
 
-![Raspberry PI LDR circuit](http://localhost:8000/posts/circuit_both.jpg)
+![Raspberry PI LDR circuit](http://www.webondevices.com/posts/circuit_both.jpg)
 
 And here’s the combined source code:
 
@@ -192,7 +192,7 @@ board.on("ready", function() {
 
 Running this will switch the LED on when it’s dark and off when it’s bright enough. Combine this with an AC relay module and a desk lamp and you have an automatically switching lamp. We could also swap the light sensor with a digital motion sensor to automate the lamp in a different way.
 
-![Raspbeery PI running Node.js](http://localhost:8000/posts/rpi_1.jpg)
+![Raspbeery PI running Node.js](http://www.webondevices.com/posts/rpi_1.jpg)
 
 Now that you have installed Node.js on your Raspberry PI you opened up a whole lot of possibilities. You can build **home automation** systems with JavaScript, setup and run Node.js **web servers**, connect to browsers through real-time **WebSockets**, build **kiosks** and access and install Node libraries from the 100 thousand available on NPM. The Raspberry PI is actually powerful enough to run a Chrome browser so on the same computer you can host the Node.js server that connects to the physical buttons and sensors and the browser that access and displays these in real-time.
 

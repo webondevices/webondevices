@@ -1,6 +1,6 @@
 ---
 title: "Get started with XBOX Kinect 2 JavaScript development"
-cover: "http://localhost:8000/posts/kinect1.png"
+cover: "http://www.webondevices.com/posts/kinect1.png"
 category: "moar"
 date: "25/09/2015"
 slug: "get-started-with-xbox-kinect-2-javascript-development"
@@ -15,14 +15,14 @@ tags:
 It’s important to note that there are multiple versions of the Kinect sensor and not all of them are recognised by personal computers therefore couldn’t be used for JavaScript development.
 
 XBOX Kinect, first generation:
-![Kinect v1](http://localhost:8000/posts/kinect_v1.jpg)
+![Kinect v1](http://www.webondevices.com/posts/kinect_v1.jpg)
 
 The first generation of the Kinect sensor introduced in 2010 was called **Xbox 360 Kinect** and was intended to be used with the Xbox 360 gaming console. Later, Microsoft released another version called Kinect for Windows. This sensor looked exactly the same but had improved features for kiosk and application development like Near Mode. The biggest difference is that the Kinect for Windows was licensed for commercial app distribution, and the 360 one is for development work only.
 
 Both of these sensors have a USB connector and are compatible with PCs so can be used for JavaScript development.
 
 Kinect for Windows, second generation:
-![Kinect v2](http://localhost:8000/posts/kinect_v2.jpg)
+![Kinect v2](http://www.webondevices.com/posts/kinect_v2.jpg)
 
 In 2013 a new Kinect sensor was released with the **XBOX One** console as well as a new Kinect for Windows so both first generation sensors are now outdated. Unfortunately the XBOX One Kinect that comes with the console can no longer be used for development work like you can with the XBOX 360 Kinect.
 
@@ -36,7 +36,7 @@ XBOX and the Kinect are Microsoft products so it’s understandable that they wa
 
 From my experience after weeks and weeks of researching, testing and talking to at least a dozen developers, it seems that the most reliable way of working with the Kinect cross-platform, and with JavaScript most importantly, is this: Connect the Kinect to a Windows machine running Node.js and the Kinect2 library. This Node.js application on the Windows machine can receive the sensor data with no issues from the official SDK. From there we can **publish and stream the data through web sockets to any other machine**: Windows, Mac or Linux. So essentially we are only using the Windows machine as a low level server that reads pure data from the Kinect and publishes it for other computers to use and interpret.
 
-![Kinect v2 pointcloud](http://localhost:8000/posts/kinect1.png)
+![Kinect v2 pointcloud](http://www.webondevices.com/posts/kinect1.png)
 
 For the simple task of streaming data you probably don’t want to maintain a full desktop machine so I was looking at options to go as cheap and small as possible. It would be interesting to see if the new Raspberry PI 2 running Windows 10 IoT could handle this task? Or maybe one of these [Stick PCs](http://www.digitaltrends.com/computing/best-stick-pcs/)?
 
@@ -95,7 +95,7 @@ setTimeout(function(){
 
 Running this js file from the project folder with `node output.js` will result in outputting the pure sensor data in a JSON format.
 
-![Kinect v2 pointcloud](http://localhost:8000/posts/data.png)
+![Kinect v2 pointcloud](http://www.webondevices.com/posts/data.png)
 
 Here's the whole script in one, again:
 
@@ -140,4 +140,4 @@ Next week I’m going to publish a new post in which we will carry on and:
 
 You can read the second part of this post here:
 
-[XBOX Kinect 2 JavaScript gesture tracking](http://localhost:8000/xbox-kinect-2-javascript-gesture-tracking/)
+[XBOX Kinect 2 JavaScript gesture tracking](http://www.webondevices.com/xbox-kinect-2-javascript-gesture-tracking/)

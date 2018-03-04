@@ -1,6 +1,6 @@
 ---
 title: "Can you guess the JavaScript tech used?"
-cover: "http://localhost:8000/posts/javascript-demo.jpg"
+cover: "http://www.webondevices.com/posts/javascript-demo.jpg"
 category: "moar"
 date: "31/07/2015"
 slug: "can-you-guess-the-javascript-tech-used"

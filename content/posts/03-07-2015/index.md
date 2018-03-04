@@ -1,6 +1,6 @@
 ---
 title: "Tweet and Text Message an Arduino air quality reading"
-cover: "http://localhost:8000/posts/mq.jpg"
+cover: "http://www.webondevices.com/posts/mq.jpg"
 category: "moar"
 date: "03/07/2015"
 slug: "tweet-and-text-message-an-arduino-air-quality-reading"
@@ -11,7 +11,7 @@ tags:
 
 **This little app tweets and texts notifications to your phone from a Node.js server when the Arduino air quality sensor detects high levels of natural gasses which we normally associate with bad smell.**
 
-![Talking arduino plant with sensors](http://localhost:8000/posts/mq2.jpg)
+![Talking arduino plant with sensors](http://www.webondevices.com/posts/mq2.jpg)
 
 I used the cheap MQ-2 natural gas sensor I bought from eBay. It’s sensitive to Methane, Butane, LPG, smoke and many other flammable or combustible gasses. It’s really easy to connect the sensor to the Arduino: first we need to power it up from the board so we connect it to the 5V and GND pins then its analog output pin to the analog input pin on the Arduino (A0).
 

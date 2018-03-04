@@ -1,6 +1,6 @@
 ---
 title: "Control your Mac from an Arduino with JavaScript and Node.js"
-cover: "http://localhost:8000/posts/button.jpg"
+cover: "http://www.webondevices.com/posts/button.jpg"
 category: "moar"
 date: "22/10/2015"
 slug: "control-your-mac-from-an-arduino-with-javascript-and-node-js"
@@ -13,7 +13,7 @@ tags:
 
 This project really is a simple one. The Arduino code will be 7 lines and the Node.js application is 14 lines so I encourage you to try it! We will first check the button state with the Arduino, then send a message through the USB port to the Node.js application where we simply run terminal commands to perform certain tasks.
 
-![button](http://localhost:8000/posts/button.jpg)
+![button](http://www.webondevices.com/posts/button.jpg)
 
 If you would like to get started from the very basics of Arduino and Node.js, download my Free ebook which will teach you all the basics in a few hours.
 

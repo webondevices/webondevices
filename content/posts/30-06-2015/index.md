@@ -1,6 +1,6 @@
 ---
 title: "The Arduino Plant with JavaScript voice recognition"
-cover: "http://localhost:8000/posts/george-hero.jpg"
+cover: "http://www.webondevices.com/posts/george-hero.jpg"
 category: "moar"
 date: "30/06/2015"
 slug: "the-arduino-plant-with-javascript-voice-recognition"
@@ -18,7 +18,7 @@ tags:
 
 For displaying the simple facial expressions I used an 8×8 LED board with a built in MAX7219 controller chip. I also added the LM35 temperature, a simple soil moisture and a light sensor and finally for motion detection I used two PIR sensors. George moves his eyes where you come from and only talks if someone is around. The sensor data is concatenated into a JSON string which is then sent to Node.js through the USB. Using web sockets the Node server publishes this data for the browser. **In the browser we use the Web Speech APIs to talk to and listen to people.**
 
-![Talking arduino plant with sensors](http://localhost:8000/posts/george.jpg)
+![Talking arduino plant with sensors](http://www.webondevices.com/posts/george.jpg)
 
 Please leave a comment if you would like a bit more detail on the hardware build.
 
@@ -76,7 +76,7 @@ if(data.temperature > app.temp_max) {
 }
 ```
 
-![Talking arduino plant with sensors](http://localhost:8000/posts/george-hero.jpg)
+![Talking arduino plant with sensors](http://www.webondevices.com/posts/george-hero.jpg)
 
 Here’s the piece of code that only allows the plant to talk every 3 minutes. This boolean value is then used in the speak function:
 

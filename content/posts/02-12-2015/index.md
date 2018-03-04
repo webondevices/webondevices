@@ -1,6 +1,6 @@
 ---
 title: "JavaScript Barcode Scanner"
-cover: "http://localhost:8000/posts/barcode.jpg"
+cover: "http://www.webondevices.com/posts/barcode.jpg"
 category: "moar"
 date: "02/12/2015"
 slug: "javascript-barcode-scanner"

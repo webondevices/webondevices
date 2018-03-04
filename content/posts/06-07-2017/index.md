@@ -1,6 +1,6 @@
 ---
 title: "Standardising IoT projects"
-cover: "http://localhost:8000/posts/IMG_20150720_141023.jpg"
+cover: "http://www.webondevices.com/posts/IMG_20150720_141023.jpg"
 category: "moar"
 date: "06/07/2017"
 slug: "standardising-iot-projects"

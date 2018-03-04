@@ -1,6 +1,6 @@
 ---
 title: "9V battery powered, $2 Web Server with Arduino"
-cover: "http://localhost:8000/posts/hero.jpg"
+cover: "http://www.webondevices.com/posts/hero.jpg"
 category: "moar"
 date: "05/11/2015"
 slug: "9v-battery-powered-2-web-server-with-arduino"
@@ -14,7 +14,7 @@ tags:
 
 I originally had an ESP8266 module with only 8 pins and it looked like this and **cost $2**. It is only 14mm x 25mm and has wi-fi and a microcontroller onboard:
 
-![esp8266-closeup](http://localhost:8000/posts/IMG_20151105_134336.jpg)
+![esp8266-closeup](http://www.webondevices.com/posts/IMG_20151105_134336.jpg)
 
 This was not too reliable and only exposed GPIO (general purpose input and output) pins from the chip. I also had problems programming it from OS X possibly because of my FTDI converter. Unfortunately this module didn’t have a USB connector and an onboard voltage regulator.
 
@@ -22,7 +22,7 @@ This was not too reliable and only exposed GPIO (general purpose input and outpu
 
 Last month I came across and ordered from the brand new **NodeMCU 1.0 development boards** which is, again, based on the ESP8266 chip. This time it’s the latest 12-E generation:
 
-![nodemcu-closeup](http://localhost:8000/posts/113990105-1.jpg)
+![nodemcu-closeup](http://www.webondevices.com/posts/113990105-1.jpg)
 
 This module has everything I wanted: wi-fi, microcontroller, voltage regulator and a micro USB connector for easy code uploads. This costs $4.50 but once you prototyped your project and ready to package it up you can just buy the brain, the 12-E module for 2$. That’s the little rectangle with the metal heat sink.
 
@@ -57,7 +57,7 @@ Once these steps are successfully completed you need to make sure that the chip 
 
 This did the job and after installation the board appeared in my Arduino IDE on OS X Yosemite. I used the below settings in the Arduino IDE:
 
-![nodemcu-arduino-ide](http://localhost:8000/posts/arduio-menu-esp8266.jpg)
+![nodemcu-arduino-ide](http://www.webondevices.com/posts/arduio-menu-esp8266.jpg)
 Now is the best time to run an LED blink test. The only thing you need to be aware is the the pin labels on the NodeMCU don’t correspond to the numbers in your Arduino sketch. Here are the numbers you need to use instead:
 
 * pin 0 = D3
@@ -216,7 +216,7 @@ Modify your wifi details and upload the code to the board. For me it normally ta
 
 The server code is uploaded onto your board so you no longer need to be connected to your computer through the USB. Unplug it and try powering it from an external power source (minimum 6 maximum 15 volts). I connected the positive pole of a 9V battery to the VIN pin and the negative to GND. **The board will power up and connect to your Wi-Fi in a few seconds** then by navigating to the IP address of the board you will see the HTML page you added into the returnHTML function.
 
-![nodemcu arduino ide](http://localhost:8000/posts/esp-html.jpg)
+![nodemcu arduino ide](http://www.webondevices.com/posts/esp-html.jpg)
 
 Notice how in line 91 we output the IP address of the board to the Serial port:
 
@@ -234,4 +234,4 @@ Now that this is setup the possibilities are endless. You can add sensors and ma
 
 Alternatively you can add this $2 web server into a desk lamp. You just need to replace the LED with a 240V relay to switch the power supply instead. This means that **your desk lamp is now a web server that can serve a responsive website to control itself**. Your desk lamp is now part of the Internet of Things 🙂
 
-![nodemcu arduino ide](http://localhost:8000/posts/desklamp.gif)
+![nodemcu arduino ide](http://www.webondevices.com/posts/desklamp.gif)
