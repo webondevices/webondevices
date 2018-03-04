@@ -1,7 +1,10 @@
+@import "../../variables";
+
 .post-listing-cards {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    width: 75%;
+    width: 100%;
+    max-width: 840px;
     margin: 0 auto;
 }

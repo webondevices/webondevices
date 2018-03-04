@@ -20,7 +20,7 @@ class HomeFooter extends Component {
             </section>
 
             <section className="legal">
-              All rights reserved | Contact at <a href="emailto: hello@webondevices.com">hello@webondevices.com</a>
+              All rights reserved | Contact at <a href="emailto: webondevices@gmail.com">webondevices@gmail.com</a>
             </section>
           </footer>
         );

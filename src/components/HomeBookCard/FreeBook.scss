@@ -36,7 +36,11 @@
 }
 
 .submit-email {
-    width: calc(50% - 6px);
+    width: 100%;
+
+    @media (min-width: $small-screen-brekpoint) {
+        width: calc(50% - 6px);
+    }
 }
 
 .submitted.email-form + .thank-you-message,

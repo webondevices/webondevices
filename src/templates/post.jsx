@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import UserInfo from "../components/UserInfo/UserInfo";
 import Disqus from "../components/Disqus/Disqus";
-import PostTags from "../components/PostTags/PostTags";
+import Tags from "../components/Tags/Tags";
 import SocialLinks from "../components/SocialLinks/SocialLinks";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
@@ -24,11 +24,28 @@ export default class PostTemplate extends React.Component {
     this.switchLight = this.switchLight.bind(this);
   }
 
+  componentDidMount () {
+    const videoContainers = document.querySelectorAll('.youtube-video');
+    
+    Array.prototype.slice.call(videoContainers).forEach(container => {
+      const source = container.getAttribute('href');
+      
+      const newElement = document.createElement('iframe');
+      newElement.setAttribute('src', source);
+      newElement.setAttribute('frameborder', '0');
+      newElement.setAttribute('allowfullscreen', '');
+
+      container.appendChild(newElement);
+      container.parentNode.insertBefore(newElement, container);
+      container.remove();
+    });
+  }
+
   switchLight () {
     this.setState({on: !this.state.on});
   }
 
-  render() {
+  render () {
     const { slug } = this.props.pathContext;
     const postNode = this.props.data.markdownRemark;
     const post = postNode.frontmatter;
@@ -39,11 +56,11 @@ export default class PostTemplate extends React.Component {
       post.category_id = config.postDefaultCategoryID;
     }
 
-    if (this.state.on) {
-      document.body.classList.remove('lights-off');
-    } else {
-      document.body.classList.add('lights-off');
-    }
+    // if (this.state.on) {
+    //   this.window.document.body.classList.remove('lights-off');
+    // } else {
+    //   this.window.document.body.classList.add('lights-off');
+    // }
     return (
       <div>
         <Helmet>
@@ -53,9 +70,9 @@ export default class PostTemplate extends React.Component {
         <PostHeader />
         <main className="post-container">
           <h1>{post.title}</h1>
+          {post.tags ? <Tags tags={post.tags} /> : ''}
           <article dangerouslySetInnerHTML={{ __html: postNode.html }} />
           <div className="post-meta">
-            <PostTags tags={post.tags} />
             <SocialLinks postPath={slug} postNode={postNode} />
           </div>
           <UserInfo config={config} />

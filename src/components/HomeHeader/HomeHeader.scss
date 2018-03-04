@@ -14,17 +14,26 @@ body.lights-off {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 450px;
+    height: 380px;
     padding-bottom: 100px;
     background-color: $wod-aqua;
     text-align: center;
+
+    @media (min-width: $small-screen-brekpoint) {
+        height: 450px;
+    }
 }
 
 .home-header-logo {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     transition: transform 300ms;
     cursor: pointer;
+
+    @media (min-width: $small-screen-brekpoint) {
+        width: 150px;
+        height: 150px;
+    }
 
     &:hover {
         transform: scale(1.1);
@@ -33,12 +42,21 @@ body.lights-off {
 
 .home-header-title {
     font-family: 'Lato', sans-serif;
-    font-size: 56px;
+    font-size: 40px;
     font-weight: 100;
     color: white;
+
+    @media (min-width: $small-screen-brekpoint) {
+        font-size: 56px;
+    }
 }
 
 .home-header-subtitle {
-    width: 400px;
-    font-size: 20px;
+    width: 300px;
+    font-size: 17px;
+
+    @media (min-width: $small-screen-brekpoint) {
+        width: 400px;
+        font-size: 20px;
+    }
 }

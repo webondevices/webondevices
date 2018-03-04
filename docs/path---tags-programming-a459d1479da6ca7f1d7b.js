@@ -1,0 +1,2 @@
+webpackJsonp([20956934260092],{423:function(e,t){e.exports={data:{allMarkdownRemark:{totalCount:1,edges:[{node:{fields:{slug:"/bold-mage"},excerpt:"Quanto et ius coniunctis urbes Sedisti civiliter Lorem  markdownum  Ixione palus  semper peritura barbaque  in aureus\nobliquum erigitur…",timeToRead:2,frontmatter:{title:"Bold Mage",tags:["programming","stuff","other"],cover:"https://unsplash.it/400/300/?random?BoldMage",date:"01/01/2017"}}}]}},pathContext:{tag:"programming"}}}});
+//# sourceMappingURL=path---tags-programming-a459d1479da6ca7f1d7b.js.map

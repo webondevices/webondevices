@@ -23,14 +23,19 @@ footer.sub-bar-active {
     }
     
     > .footer-title {
-        font-size: 48px;
+        font-size: 40px;
         font-weight: 100;
         color: white;
+
+        @media (min-width: $small-screen-brekpoint) {
+            font-size: 48px;
+        }
     }
 
 	> .footer-main-message {
         margin-top: -4px;
-        font-size: 18px;
+        font-size: 17px;
+        line-height: 1.2;
 	}
 
 	> a {
@@ -81,7 +86,7 @@ footer.sub-bar-active {
 		width: 100%;
 		margin: 0 auto;
 
-		@media (min-width: 768px) {
+		@media (min-width: $large-screen-brekpoint) {
 			width: 40%;
 		}
 	}

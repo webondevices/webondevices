@@ -1,10 +1,11 @@
 import React from "react";
+import moment from "moment";
 import HomePostCard from "../HomePostCard/HomePostCard";
 import "./PostListing.scss";
 
 class PostListing extends React.Component {
   getPostList() {
-    const postList = [];
+    let postList = [];
     this.props.postEdges.forEach(postEdge => {
       postList.push({
         path: postEdge.node.fields.slug,
@@ -16,6 +17,17 @@ class PostListing extends React.Component {
         timeToRead: postEdge.node.timeToRead
       });
     });
+
+    postList = postList.sort((a, b) => {
+      const dateA = moment(a.date, 'DD-MM-YYYY');
+      const dateB = moment(b.date, 'DD-MM-YYYY');
+
+      if (dateA.isBefore(dateB)) return 1;
+      if (dateB.isBefore(dateA)) return -1;
+      
+      return 0;
+    });
+
     return postList;
   }
   render() {

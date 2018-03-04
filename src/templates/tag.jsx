@@ -27,11 +27,11 @@ export default class TagTemplate extends React.Component {
     const tag = this.props.pathContext.tag;
     const postEdges = this.props.data.allMarkdownRemark.edges;
 
-    if (this.state.on) {
-      document.body.classList.remove('lights-off');
-    } else {
-      document.body.classList.add('lights-off');
-    }
+    // if (this.state.on) {
+    //   this.window.document.body.classList.remove('lights-off');
+    // } else {
+    //   this.window.document.body.classList.add('lights-off');
+    // }
 
     return (
       <div className="tag-container">

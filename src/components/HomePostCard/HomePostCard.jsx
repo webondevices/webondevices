@@ -1,19 +1,15 @@
 import React, { Component } from "react";
-import Link, { navigateTo } from "gatsby-link";
+import { navigateTo } from "gatsby-link";
 import "./HomePostCard.scss";
+import Tags from "../Tags/Tags";
 
 class HomePostCard extends Component {
     render () {
         const post = this.props.post;
         return(
           <div role="presentation" className="post-card">
-            <img alt="Post illustration" src={post.cover} onClick={() => navigateTo(post.path)} />
-            <div className="post-tags">
-              {post.tags ? post.tags.map(tag => (
-                <Link to={`/tags/${tag}`}><span className={`tag tag-${tag.replace(/ /g, '-')}`}>{tag}</span></Link>
-                )) : ''
-              }
-            </div>
+            <div className="post-image" style={{'backgroundImage': `url(${post.cover})`}} onClick={() => navigateTo(post.path)} />
+            {post.tags ? <Tags tags={post.tags} /> : ''}
             <span className="post-title" onClick={() => navigateTo(post.path)}>{post.title}</span>
           </div>
         );

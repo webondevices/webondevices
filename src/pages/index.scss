@@ -12,4 +12,9 @@
 .index-main-card-area {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+
+    @media (min-width: $small-screen-brekpoint) {
+        flex-direction: row;
+    }
 }

@@ -14,10 +14,15 @@
     color: $wod-blue;
     width: auto;
     position: fixed;
-    left: 48px;
-    top: 36px;
+    left: 12px;
+    top: 12px;
     background-color: $wod-aqua;
     padding: 5px 10px 7px 10px;
+
+    @media (min-width: $small-screen-brekpoint) {
+        left: 48px;
+        top: 32px;
+    }
 }
 
 .post-header-logo {

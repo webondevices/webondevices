@@ -7,7 +7,7 @@ class CompleteBook extends Component {
           <div>
             <div className="book-content">
               <div>
-                <h2>Complete Book</h2>
+                <h2>Physical Book</h2>
                 <p className="highlighted-text">Learn all about programming electronics JavaScript and Node.js, all from the very basics.</p>
                 <p>Build a smart talking plant, a motion sensing alarms, learn data logging, send SMS notifactions and many more!</p>
               </div>

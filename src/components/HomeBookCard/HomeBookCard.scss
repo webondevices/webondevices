@@ -1,7 +1,9 @@
+@import "../../variables";
+
 .index-card {
-    width: 400px;
+    width: auto;
     height: auto;
-    margin: 12px 6px;
+    margin: 12px;
     padding: 24px;
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
@@ -9,22 +11,53 @@
     .cta-button {
         margin-bottom: 0;
     }
+
+    @media (min-width: $small-screen-brekpoint) {
+        width: 400px;
+        margin: 12px 6px;
+    }
+
+    
 }
 
 .book-content {
     display: flex;
+    flex-direction: column;
+
+    @media (min-width: $large-screen-brekpoint) {
+        flex-direction: row;
+    }
+
+    p {
+        font-size: 13px;
+    }
 
     & > div:nth-child(1) {
         padding-right: 12px;
-        width: 60%;
+        width: 100%;
     }
 
     & > div:nth-child(2) {
-        width: 40%;
+        width: 50%;
+        margin: 24px auto 0;
     }
 
     & p:last-child {
         margin-bottom: 0;
+    }
+
+    @media (min-width: $large-screen-brekpoint) {
+        & > div:nth-child(1) {
+            width: 60%;
+        }
+    
+        & > div:nth-child(2) {
+            width: 40%;
+        }
+
+        p {
+            font-size: 16px;
+        }
     }
 }
 

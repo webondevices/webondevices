@@ -15,11 +15,11 @@ class HomeHeader extends Component {
     }
 
     render () {
-        if (this.state.on) {
-          document.body.classList.remove('lights-off');
-        } else {
-          document.body.classList.add('lights-off');
-        }
+        // if (this.state.on) {
+        //   this.window.document.body.classList.remove('lights-off');
+        // } else {
+        //   this.window.document.body.classList.add('lights-off');
+        // }
 
         return(
           <header className="post-header">
