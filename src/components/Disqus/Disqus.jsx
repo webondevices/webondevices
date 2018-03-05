@@ -1,43 +1,31 @@
 import React, { Component } from "react";
-import ReactDisqusComments from "react-disqus-comments";
 import config from "../../../data/SiteConfig";
 
 class Disqus extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      toasts: []
+  componentDidMount () {
+    const {postNode} = this.props;
+    const url = config.siteUrl + postNode.fields.slug;
+    const post = postNode.frontmatter;
+
+    window.disqus_config = function () {
+      this.page.url = url;
+      this.page.identifier = post.title;
     };
-    this.notifyAboutComment = this.notifyAboutComment.bind(this);
-    this.onSnackbarDismiss = this.onSnackbarDismiss.bind(this);
+  
+    (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
+        const d = document;
+        const s = d.createElement('script');
+        
+        s.src = 'https://webondevices.disqus.com/embed.js';
+        
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
   }
 
-  onSnackbarDismiss() {
-    const [, ...toasts] = this.state.toasts;
-    this.setState({ toasts });
-  }
-  notifyAboutComment() {
-    const toasts = this.state.toasts.slice();
-    toasts.push({ text: "New comment available!" });
-    this.setState({ toasts });
-  }
   render() {
-    const { postNode } = this.props;
-    if (!config.disqusShortname) {
-      return null;
-    }
-    const post = postNode.frontmatter;
-    const url = config.siteUrl + config.pathPrefix + postNode.fields.slug;
-    
     return (
-      <ReactDisqusComments
-        shortname={config.disqusShortname}
-        identifier={post.title}
-        title={post.title}
-        url={url}
-        category_id={post.category_id}
-        onNewComment={this.notifyAboutComment}
-      />
+      <div id="disqus_thread" />
     );
   }
 }
