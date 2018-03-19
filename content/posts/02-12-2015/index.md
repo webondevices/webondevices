@@ -17,7 +17,7 @@ The code works surprisingly well and it scans pretty quickly but it doesn’t wo
 Here’s a little info from WikiPedia: *An EAN-13 barcode (originally European Article Number, but now renamed International Article Number even though the abbreviation EAN has been retained) is a 13 digit (12 data and 1 check) barcoding standard. The EAN-13 barcodes are used worldwide for marking products often sold at retail point of sale*.
 
 ### Download the source code
-[www.webondevices.com/download/barcode.zip](http://www.webondevices.com/download/barcode.zip)
+[www.webondevices.com/barcode.zip](http://www.webondevices.com/barcode.zip)
 
 ### Settings
 The script can be initialised with the following code:

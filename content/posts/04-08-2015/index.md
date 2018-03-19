@@ -3,7 +3,7 @@ title: "Predict hand distance with the device light JavaScript API"
 cover: "http://www.webondevices.com/posts/javascript-light.jpg"
 category: "moar"
 date: "04/08/2015"
-slug: "the-arduino-plant-with-javascript-voice-recognition"
+slug: "predict-hand-distance-with-the-device-light-javascript-api"
 tags:
     - javascript
 ---

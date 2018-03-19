@@ -47,6 +47,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   frontmatter {
                     tags
                     category
+                    slug
                   }
                   fields {
                     slug
@@ -77,7 +78,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
 
           createPage({
-            path: edge.node.fields.slug,
+            path: edge.node.frontmatter.slug,
             component: postPage,
             context: {
               slug: edge.node.fields.slug

@@ -3,7 +3,7 @@ title: "Install Node.js on a Raspberry PI and run JavaScript"
 cover: "http://www.webondevices.com/posts/rpi_hero.jpg"
 category: "moar"
 date: "01/09/2015"
-slug: "the-arduino-plant-with-javascript-voice-recognition"
+slug: "install-node-js-on-a-raspberry-pi-and-run-javascript"
 tags:
     - javascript
 ---
