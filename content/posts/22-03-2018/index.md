@@ -30,7 +30,7 @@ The solar panel is a very exciting feature! With the help of the panel, and a ca
 
 I tested the Energy Shield with my brand new talking plant project (post coming soon) and it was working perfectly:
 
-<Lili>
+![Lili]()
 
 ### Design and production
 
