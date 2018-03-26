@@ -9,8 +9,8 @@
       "path---get-started-with-xbox-kinect-2-javascript-development-e165520c35a83727c6c1.js.map"
     ],
     "path---tags-arduino": [
-      "path---tags-arduino-1d4080ce2f43ff9e2080.js",
-      "path---tags-arduino-1d4080ce2f43ff9e2080.js.map"
+      "path---tags-arduino-d7f5f7478ea6c130347d.js",
+      "path---tags-arduino-d7f5f7478ea6c130347d.js.map"
     ],
     "path---arduino-tone-mp-3-sound-with-no-shield": [
       "path---arduino-tone-mp-3-sound-with-no-shield-d664cdc73cc211bdac52.js",
@@ -37,8 +37,8 @@
       "path---tags-javascript-77473c60696d71cd2680.js.map"
     ],
     "path---categories-moar": [
-      "path---categories-moar-d52e81ad34422f4be3ac.js",
-      "path---categories-moar-d52e81ad34422f4be3ac.js.map"
+      "path---categories-moar-6e6be8568e59acdef0e3.js",
+      "path---categories-moar-6e6be8568e59acdef0e3.js.map"
     ],
     "path---scanning-nespresso-capsules-with-javascript": [
       "path---scanning-nespresso-capsules-with-javascript-75a18ad76a6b1732bb9d.js",
@@ -52,6 +52,10 @@
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
       "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
     ],
+    "path---arduino-solar-panel-and-battery-power-shield": [
+      "path---arduino-solar-panel-and-battery-power-shield-dff7f4d86c7916d2d6ca.js",
+      "path---arduino-solar-panel-and-battery-power-shield-dff7f4d86c7916d2d6ca.js.map"
+    ],
     "path---standardising-iot-projects": [
       "path---standardising-iot-projects-ecc239e8858f96dc849e.js",
       "path---standardising-iot-projects-ecc239e8858f96dc849e.js.map"
@@ -61,8 +65,8 @@
       "component---src-templates-category-jsx-5fd34c074ea57f7d7684.js.map"
     ],
     "path---index": [
-      "path---index-a6427d3d1a83c01642f8.js",
-      "path---index-a6427d3d1a83c01642f8.js.map"
+      "path---index-1c2dc996ba8e36d9abb7.js",
+      "path---index-1c2dc996ba8e36d9abb7.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-16dca089dee574aef9ce.js",
@@ -119,9 +123,9 @@
       "path---can-you-guess-the-javascript-tech-used-d28c46db3f73cc3abd9f.js.map"
     ],
     "app": [
-      "app-37edacecdbd36cb781d1.js",
+      "app-733044f99950ed9a68a7.js",
       "build-js-styles.css",
-      "app-37edacecdbd36cb781d1.js.map",
+      "app-733044f99950ed9a68a7.js.map",
       "build-js-styles.css.map"
     ],
     "path---tweet-and-text-message-an-arduino-air-quality-reading": [
