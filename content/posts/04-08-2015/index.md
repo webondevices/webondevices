@@ -1,6 +1,6 @@
 ---
 title: "Predict hand distance with the device light JavaScript API"
-cover: "http://www.webondevices.com/posts/javascript-light.jpg"
+cover: "http://www.webondevices.com/posts/javascript-demo.jpg"
 category: "moar"
 date: "04/08/2015"
 slug: "predict-hand-distance-with-the-device-light-javascript-api"

@@ -1,9 +1,9 @@
 ---
-title: "Standardising IoT projects"
+title: "React IoT - Standardising IoT projects"
 cover: "http://www.webondevices.com/posts/IMG_20150720_141023.jpg"
 category: "moar"
 date: "06/07/2017"
-slug: "standardising-iot-projects"
+slug: "react-iot-standardising-iot-projects"
 tags:
     - javascript
 ---

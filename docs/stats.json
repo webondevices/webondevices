@@ -21,8 +21,8 @@
       "path---control-your-mac-from-an-arduino-with-javascript-and-node-js-44dc866b1e2f30d3939e.js.map"
     ],
     "path---predict-hand-distance-with-the-device-light-javascript-api": [
-      "path---predict-hand-distance-with-the-device-light-javascript-api-65be8379cee50ec49482.js",
-      "path---predict-hand-distance-with-the-device-light-javascript-api-65be8379cee50ec49482.js.map"
+      "path---predict-hand-distance-with-the-device-light-javascript-api-13adbc915b491f6d8439.js",
+      "path---predict-hand-distance-with-the-device-light-javascript-api-13adbc915b491f6d8439.js.map"
     ],
     "path---": [
       "path----557518bd178906f8d58a.js",
@@ -33,12 +33,12 @@
       "path---the-arduino-plant-with-javascript-voice-recognition-2bc5f9edf3a9996a57a6.js.map"
     ],
     "path---tags-javascript": [
-      "path---tags-javascript-77473c60696d71cd2680.js",
-      "path---tags-javascript-77473c60696d71cd2680.js.map"
+      "path---tags-javascript-c34ec9d53fc9f72481e6.js",
+      "path---tags-javascript-c34ec9d53fc9f72481e6.js.map"
     ],
     "path---categories-moar": [
-      "path---categories-moar-6e6be8568e59acdef0e3.js",
-      "path---categories-moar-6e6be8568e59acdef0e3.js.map"
+      "path---categories-moar-af196fa6dc35687d2b67.js",
+      "path---categories-moar-af196fa6dc35687d2b67.js.map"
     ],
     "path---scanning-nespresso-capsules-with-javascript": [
       "path---scanning-nespresso-capsules-with-javascript-75a18ad76a6b1732bb9d.js",
@@ -56,17 +56,13 @@
       "path---arduino-solar-panel-and-battery-power-shield-18e49c941d733bd92336.js",
       "path---arduino-solar-panel-and-battery-power-shield-18e49c941d733bd92336.js.map"
     ],
-    "path---standardising-iot-projects": [
-      "path---standardising-iot-projects-ecc239e8858f96dc849e.js",
-      "path---standardising-iot-projects-ecc239e8858f96dc849e.js.map"
-    ],
     "component---src-templates-category-jsx": [
       "component---src-templates-category-jsx-5fd34c074ea57f7d7684.js",
       "component---src-templates-category-jsx-5fd34c074ea57f7d7684.js.map"
     ],
     "path---index": [
-      "path---index-1c2dc996ba8e36d9abb7.js",
-      "path---index-1c2dc996ba8e36d9abb7.js.map"
+      "path---index-b6b78595f163b301c6f6.js",
+      "path---index-b6b78595f163b301c6f6.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-16dca089dee574aef9ce.js",
@@ -118,14 +114,10 @@
       "component---src-pages-index-jsx-46662fd91bf3db0a192c.js",
       "component---src-pages-index-jsx-46662fd91bf3db0a192c.js.map"
     ],
-    "path---can-you-guess-the-javascript-tech-used": [
-      "path---can-you-guess-the-javascript-tech-used-d28c46db3f73cc3abd9f.js",
-      "path---can-you-guess-the-javascript-tech-used-d28c46db3f73cc3abd9f.js.map"
-    ],
     "app": [
-      "app-20008cbf5b1dea3d6a78.js",
+      "app-fc96f04725ca36b822dd.js",
       "build-js-styles.css",
-      "app-20008cbf5b1dea3d6a78.js.map",
+      "app-fc96f04725ca36b822dd.js.map",
       "build-js-styles.css.map"
     ],
     "path---tweet-and-text-message-an-arduino-air-quality-reading": [
@@ -135,6 +127,10 @@
     "path---xbox-kinect-2-javascript-gesture-tracking": [
       "path---xbox-kinect-2-javascript-gesture-tracking-6b9b8e7e164825cf4b67.js",
       "path---xbox-kinect-2-javascript-gesture-tracking-6b9b8e7e164825cf4b67.js.map"
+    ],
+    "path---react-iot-standardising-iot-projects": [
+      "path---react-iot-standardising-iot-projects-d7674597c049a7a478eb.js",
+      "path---react-iot-standardising-iot-projects-d7674597c049a7a478eb.js.map"
     ],
     "path---rotate-a-css-3-d-cube-with-an-arduino": [
       "path---rotate-a-css-3-d-cube-with-an-arduino-3cf96f696b6a5da7da7f.js",
