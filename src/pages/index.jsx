@@ -72,6 +72,7 @@ export const pageQuery = graphql`
             cover
             date
             slug
+            display
           }
         }
       }
