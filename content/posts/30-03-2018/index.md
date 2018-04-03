@@ -10,7 +10,7 @@ tags:
 
 **Powering your Arduino projects could be a tricky task especially if you want to run it from a battery or from 230 V AC. Luckily, there are many ways to alter the voltage in a circuit to match the required amount for the Arduino.**
 
-Learn more about the [Web on Devices Solar Energy Shield](http://www.webondevices.com/arduino-solar-panel-and-battery-power-shield) which is a great tool for power management in Arduino projects.
+Learn more about the [Web on Devices Solar Energy Shield](/arduino-solar-panel-and-battery-power-shield) which is a great tool for power management in Arduino projects.
 
 The recommended input voltage for your Arduino UNO is 7 - 12 V when connected to the USB port or the barrel plug. This can be a limitation if you want to power it from a very common 3.7 V lithium-polymer battery, plug it into a 230 V wall socket, or maybe use 3 AA batteries in a battery pack (which would give you only 4.5 V). And there are other development boards like the ESP8266 Wi-Fi module which operates at 3.3 V.
 
@@ -66,7 +66,7 @@ In case your input voltage is not as high as 230 V and not AC but you still need
 
 I used one of these in my 12 V RGB LED light project where I powered the LED ribbon from a 12 V AC-DC mains adapter then used a 5 V voltage regulator to power the Particle Photon dev board from the same adapter. This way I didn’t have to introduce another 230 V AC-DC converter with a different output just used the already regulated 12 V input and regulated that further down to 5 V.
 
-[Here](http://www.webondevices.com/ikea-social-notification-desk-lamp) you can find more details about this project.
+[Here](/ikea-social-notification-desk-lamp) you can find more details about this project.
 
 Voltage regulators are cheap and very easy to work with, but keep in mind that they are not very efficient, compared to transformers like the AC-DC adapters we have already mentioned, as they dissipate the regulated voltage in the form of heat.
 
@@ -119,4 +119,4 @@ You can read more about the light dependent resistor and measuring light in my f
 
 The super easy option to power your Arduino project is to use a power shield. Web on Devices has developed its own power shield with an on-board lithium-ion battery and a solar panel to recharge itself.
 
-**Learn more about the Web on Devices Energy Shield in [this post](http://www.webondevices.com/arduino-solar-panel-and-battery-power-shield)**.
+**Learn more about the Web on Devices Energy Shield in [this post](/arduino-solar-panel-and-battery-power-shield)**.

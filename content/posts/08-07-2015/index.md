@@ -8,7 +8,7 @@ tags:
     - javascript
 ---
 
-**My [RC car](http://www.webondevices.com/arduino-nodejs-rc-car-driven-with-html5-gamepad-api) and my [desk plant](http://www.webondevices.com/the-arduino-plant-with-javascript-voice-recognition/) both have an Arduino microcontroller onboard and I used a Node.js server to interface with them through the USB port. This is a great way to build prototypes and toys for yourself but sometimes you want your demos to work on regular phones or laptops in the browser without extra hardware or software. This is why it’s worth exploring all the available, native HTML5 and JavaScript APIs that allow us to access hardware components and sensors in our devices.**
+**My [RC car](/arduino-nodejs-rc-car-driven-with-html5-gamepad-api) and my [desk plant](/the-arduino-plant-with-javascript-voice-recognition) both have an Arduino microcontroller onboard and I used a Node.js server to interface with them through the USB port. This is a great way to build prototypes and toys for yourself but sometimes you want your demos to work on regular phones or laptops in the browser without extra hardware or software. This is why it’s worth exploring all the available, native HTML5 and JavaScript APIs that allow us to access hardware components and sensors in our devices.**
 
 ![JavaScript device sensor apis](http://www.webondevices.com/posts/JavaScript.jpg)
 

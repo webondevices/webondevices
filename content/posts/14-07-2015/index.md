@@ -12,7 +12,7 @@ tags:
 
 ### The Xbox controller in Node.js
 
-There are ways to read the Xbox controller (and all other USB game controllers) straight in the browser using the JavaScript Gamepad API. I used this method in my [Arduino RC Car project](http://www.webondevices.com/arduino-nodejs-rc-car-driven-with-html5-gamepad-api/). But it’s much easier to use a Node.js library and do everything on the local server. We will have to run the server anyway for connecting to the drone.
+There are ways to read the Xbox controller (and all other USB game controllers) straight in the browser using the JavaScript Gamepad API. I used this method in my [Arduino RC Car project](/arduino-nodejs-rc-car-driven-with-html5-gamepad-api/). But it’s much easier to use a Node.js library and do everything on the local server. We will have to run the server anyway for connecting to the drone.
 
 <a class="youtube-video" href="https://www.youtube.com/embed/JXVaFTHzxlM" target="_blank">Click to see Youtube video</a>
 

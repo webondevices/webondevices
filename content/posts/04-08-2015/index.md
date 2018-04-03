@@ -8,7 +8,7 @@ tags:
     - javascript
 ---
 
-**I got excited about the device light event while I was exploring [JavaScript hardware and sensor accessing APIs](http://www.webondevices.com/9-javascript-apis-accessing-device-sensors/). I thought I could try using it to approximate object distance from the phone display. Before writing this article I asked the community to try and guess the JavaScript technology used in the demo by publishing the example video with no further explanation. I had great feedback and got the right answer from Ian Brennan after two days.**
+**I got excited about the device light event while I was exploring [JavaScript hardware and sensor accessing APIs](/9-javascript-apis-accessing-device-sensors/). I thought I could try using it to approximate object distance from the phone display. Before writing this article I asked the community to try and guess the JavaScript technology used in the demo by publishing the example video with no further explanation. I had great feedback and got the right answer from Ian Brennan after two days.**
 
 ### devicelight
 

@@ -90,7 +90,7 @@ tracking.ColorTracker.registerColor(settings.colourName, function(r, g, b){
 
 After this Tracking.js fires an event and calls a function each time a colour from that camera image is matched with a colour from the capsule definition. When this happens a panel slides in with the image of the capsule and reads the tasting notes using the [WebSpeech API](http://updates.html5rocks.com/2014/01/Web-apps-that-talk---Introduction-to-the-Speech-Synthesis-API).
 
-I know the WebSpeech API might be a little bit too much but it ALWAYS gives that wow factor to my projects. People love talking apps and robots. Take [Geroge, the talking plant](http://www.webondevices.com/george-the-talking-javascript-plant/) for instance who was an instant hit in the office.
+I know the WebSpeech API might be a little bit too much but it ALWAYS gives that wow factor to my projects. People love talking apps and robots. Take [Geroge, the talking plant](/the-arduino-plant-with-javascript-voice-recognition) for instance who was an instant hit in the office.
 
 Here’s how the Nespresso Scanner speaks:
 

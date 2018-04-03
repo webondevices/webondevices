@@ -140,4 +140,4 @@ Next week I’m going to publish a new post in which we will carry on and:
 
 You can read the second part of this post here:
 
-[XBOX Kinect 2 JavaScript gesture tracking](http://www.webondevices.com/xbox-kinect-2-javascript-gesture-tracking/)
+[XBOX Kinect 2 JavaScript gesture tracking](/xbox-kinect-2-javascript-gesture-tracking)

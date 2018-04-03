@@ -30,7 +30,8 @@ void loop(){
 }
 ```
 
-This message coming through the USB port from the Arduino is something we wouldn’t be able to read from a regular browser. Due to security reasons this is only available for the server which is why we use Node.js along with the serial library. I did something very similar with my [Arduino RC Car](http://www.webondevices.com/arduino-rc-car-driven-with-a-usb-racing-wheel-and-javascript) so have a look for the serial communication logic there.
+This message coming through the USB port from the Arduino is something we wouldn’t be able to read from a regular browser. Due to security reasons this is only available for the server which is why we use Node.js along with the serial library. I did something very similar with my [Arduino RC Car](/arduino-nodejs-rc-car-driven-with-html5-gamepad-api)
+ so have a look for the serial communication logic there.
 
 ### Tweeting from JavaScript
 
