@@ -32,7 +32,7 @@ This is perfect in situations where you want to power your 5 V Arduino from:
 
 These boost modules are available with a USB port on the output side. With this you could very easily build a **mobile phone charger** using AA or AAA batteries. This is because phone chargers and regular USB ports also supply 5 V.
 
-Once the input power is connected to the module from any of the source listed above, you can plug in a regular USB cable to power the Arduino.
+Once the input power is connected to the module from any of the sources listed above, you can plug in a regular USB cable to power the Arduino.
 
 ![usb charger](http://www.webondevices.com/posts/2018/boost.jpg)
 
@@ -56,7 +56,7 @@ An exception to this are the phone chargers with USB ports and replaceable cable
 
 ![phone charger with Type-B plug](http://www.webondevices.com/posts/2018/arduino-wallplug.jpg)
 
-For situations where you are working with an incompatible adapter, I'd recommend buying a couple of  **male barrel plug adapters with screw terminals**. With this you can connect the cleaned wires from a 9 or 12 V AC-DC adapter to the screw terminals and safely connect power to the Arduino input plug. Just make sure you buy a standard 2.1 mm centre positive barrel jack connector.
+For situations where you are working with an incompatible adapter, I'd recommend buying a couple of  **[male barrel plug adapters with screw terminals](https://www.google.co.uk/search?q=male+barrel+plug+adapters+with+screw+terminals)**. With this you can connect the cleaned wires from a 9 or 12 V AC-DC adapter to the screw terminals and safely connect power to the Arduino input plug. Just make sure you buy a standard 2.1 mm centre positive barrel jack connector.
 
 ### Voltage regulator
 
@@ -113,7 +113,7 @@ If this circuit was used as a power supply, the current required by the load wou
 
 Heat and melting is just one of the problems, the inefficient nature of this circuit is another: dissipating power in the form of heat is a waste of energy.
 
-You can read more about the light dependent resistor and measuring light in my free Ebook that you can download at the bottom of this page.
+You can read more about the light dependent resistor and measuring light in my free Ebook that you can download right below this post.
 
 ### Power Shield
 
