@@ -9,8 +9,8 @@
       "path---get-started-with-xbox-kinect-2-javascript-development-e165520c35a83727c6c1.js.map"
     ],
     "path---tags-arduino": [
-      "path---tags-arduino-e50913aec8b341304a2b.js",
-      "path---tags-arduino-e50913aec8b341304a2b.js.map"
+      "path---tags-arduino-6518cfa08006cfc47225.js",
+      "path---tags-arduino-6518cfa08006cfc47225.js.map"
     ],
     "path---arduino-tone-mp-3-sound-with-no-shield": [
       "path---arduino-tone-mp-3-sound-with-no-shield-d664cdc73cc211bdac52.js",
@@ -37,8 +37,8 @@
       "path---tags-javascript-a856eda25ecea511bd93.js.map"
     ],
     "path---categories-moar": [
-      "path---categories-moar-2077fd9433b059056105.js",
-      "path---categories-moar-2077fd9433b059056105.js.map"
+      "path---categories-moar-8bde3fdd2020684c1435.js",
+      "path---categories-moar-8bde3fdd2020684c1435.js.map"
     ],
     "path---scanning-nespresso-capsules-with-javascript": [
       "path---scanning-nespresso-capsules-with-javascript-75a18ad76a6b1732bb9d.js",
@@ -65,12 +65,16 @@
       "component---src-templates-category-jsx-fbcb8509151b22230891.js.map"
     ],
     "path---index": [
-      "path---index-ff461c1456038f55c82a.js",
-      "path---index-ff461c1456038f55c82a.js.map"
+      "path---index-68f6e6d159197af89270.js",
+      "path---index-68f6e6d159197af89270.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-16dca089dee574aef9ce.js",
       "component---src-pages-about-jsx-16dca089dee574aef9ce.js.map"
+    ],
+    "path---managing-power-in-arduino-and-raspberry-pi-projects": [
+      "path---managing-power-in-arduino-and-raspberry-pi-projects-778416f1f7f405af819c.js",
+      "path---managing-power-in-arduino-and-raspberry-pi-projects-778416f1f7f405af819c.js.map"
     ],
     "commons": [
       "commons-fca7bd20f4eb99a4a12a.js",
@@ -119,9 +123,9 @@
       "component---src-pages-index-jsx-e0264015a9b102175a05.js.map"
     ],
     "app": [
-      "app-bb702b9adfc394dccf3a.js",
+      "app-f01093d915a6c97dfe89.js",
       "build-js-styles.css",
-      "app-bb702b9adfc394dccf3a.js.map",
+      "app-f01093d915a6c97dfe89.js.map",
       "build-js-styles.css.map"
     ],
     "path---arduino-javascript-for-complete-beginners": [
