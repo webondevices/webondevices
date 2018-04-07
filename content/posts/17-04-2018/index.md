@@ -1,6 +1,6 @@
 ---
 title: "Arduino Data Logger 2, save to AWS DynamoDB with Node.js and JavaScript"
-cover: "http://www.webondevices.com/posts/2018/temperature-logging.jpg"
+cover: "http://localhost:8000/posts/2018/dht22-data-logging.jpg"
 category: "moar"
 date: "17/04/2018"
 slug: "arduino-data-logger-dynamosb-aws-nodejs-javascript"
@@ -11,7 +11,7 @@ tags:
 
 This is the second post in a series on logging sensor data from an Arduino with the help of Node.js and JavaScript.
 
-In [part one of the series](/arduino-data-logger-into-file-nodejs-javascript), we have uploaded a piece of code onto the Arduino responsible for performing the sensor measurements and passing that data through as JSON via the USB port. We then read the incoming serial messages in Node.js with JavaScript and logged the data in a CSV file.
+In [part one of the series](/arduino-data-logger-into-file-nodejs-javascript), we have uploaded a piece of code onto the Arduino responsible for performing the sensor measurements and passing that data through as JSON via the USB port. We then read the incoming serial messages in Node.js with JavaScript and logged the data into a CSV file.
 
 If you wish to pick up the project from where we left it off last time, download the source from Github:
 [https://github.com/webondevices/example-projects/tree/master/temp-log-csv](https://github.com/webondevices/example-projects/tree/master/temp-log-csv)
@@ -20,7 +20,7 @@ In this second part, we will connect to **Amazon Web Services** and save our dat
 
 ### Getting started with AWS
 
-**Amazon Web Services** is a collection of cloud services that lets you create and manage databases (**DynamoDB**), run cloud functions (**Lamdba**), build APIs (**API Gateway**), control IoT devices (**AWS IoT Core**), store files (**S**3), write Amazon Alexa skills (**Alexa Skills Kit**), access Machine Learning driven services like natural language processing, image and voice recognition or speech synthesis, and dozens of other useful services. Most importantly all of these have a JavaScript SDK so it's very easy to get started, even as a front-end developer.
+**Amazon Web Services** is a collection of cloud services that lets you create and manage databases (**DynamoDB**), run cloud functions (**Lamdba**), build APIs (**API Gateway**), control IoT devices (**AWS IoT Core**), store files (**S3**), write Amazon Alexa skills (**Alexa Skills Kit**), access Machine Learning driven services like natural language processing, image and voice recognition or speech synthesis, and dozens of other useful services. Most importantly all of these have a JavaScript SDK so it's very easy to get started, even as a front-end developer.
 
 Please note, that using AWS can have some cost implications but most of the services start from a free tier that you will probably only exceed if you are working at a commercial scale so getting started and playing around is usually free.
 
@@ -28,9 +28,7 @@ To get started, first register an account:
 
 [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup)
 
-After logging in to your new account you will be redirected to the console homepage:
-
-<console home page>
+After logging in to your new account you will be redirected to the console homepage.
 
 To work with AWS from Node.js, the AWS command line tool is recommended to be installed, especially to make the setup process easy.
 
@@ -45,19 +43,23 @@ If you wish install this on **Linux** or have any other issues, just refer to th
 
 To confirm that the installation was successful, run `aws --version` from the command line which should return the version number of the newly installed cli.
 
-Next step is creating a user in AWS that will receive some API keys. These keys will let us connect to the cloud services from our computer. In your console select IAM from the Services drop down menu or search for it:
+Next step is creating a user in AWS that will receive some API keys. These keys will let us connect to the cloud services from our computer via that dev user. In your console select IAM from the Services drop down menu or search for it:
 
-<console>
+![console home page](http://localhost:8000/posts/2018/aws-find-service.jpg)
 
 **IAM** (AWS Identity and Access Management) is a service that helps you securely control access to AWS resources. You use IAM to control who is authenticated (signed in) and authorised (has permissions) to use resources.
 
-We will create a new user with this tool and give it programmatic access which will generate an access key ID and a secret access key for the AWS API, CLI, SDK, and other development tools. Click create new user:
+We will create a new user with this tool and give it programmatic access which will generate an access key ID and a secret access key for the AWS API, CLI, SDK, and other development tools. Click Add user:
 
-<new user>
+![aws create new user](http://localhost:8000/posts/2018/aws-iam-home.jpg)
 
 Fill out the name and select programmatic access. Next, you are asked to setup the permissions for the new user. On this page select "Attach existing policies directly" and choose "AdministratorAccess".
 
-After creating the user you will have access to the **Access key ID** and the **Secret access key**. Make a note of them.
+Granting administrator rights to an IAM user is not best practice so in production apps you will want to narrow these down but it will do the job for now.
+
+After creating the user you will have access to the **Access key ID** and the **Secret access key**. Make a note of these.
+
+![aws create new user](http://localhost:8000/posts/2018/aws-iam-new-user.jpg)
 
 Let's now open up the command line and connect our newly created admin user to the AWS SDK. Run `aws configure` and copy your keys when prompted.
 
@@ -70,7 +72,7 @@ Default output format [None]: <json or text or tabel>
 
 The default region should be the region you selected in the top right corner of your AWS console:
 
-<image>
+![aws create new user](http://localhost:8000/posts/2018/aws-console-region.jpg)
 
 The region codes can be found on this page:
 [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html)
@@ -85,11 +87,13 @@ Let's now create a new table in our database for our data to be logged into. In 
 
 At this point, make sure you have the **correct region selected** for your service as your table will be created in and assigned to that very region and it will not be accessible if another region is selected. Next, you can click on the Create Table button.
 
-<illustration>
+![aws create new user](http://localhost:8000/posts/2018/aws-dynamodb-home.jpg)
 
 Name your table and add a partion key as a primary key. The primary key uniquely identifies each item in the table, so that no two items can have the same key. In our case we wouldn't want to use the temperature or humidity values as two entries in our table can have the same value. Instead, we could use the datetime millisecond value which will always be unique.
 
 In other cases when you find it difficult to choose a unique primary key from your data, you can just simply use a uniquely generated ID.
+
+![aws create new user](http://localhost:8000/posts/2018/aws-create-dynamodb-table.jpg)
 
 Click on create and you are now **ready to submit your readings to the database**!
 
@@ -110,7 +114,7 @@ const doc = require('dynamodb-doc');
 const dynamo = new doc.DynamoDB();
 ```
 
-Note the region setting at the initialisation. If this setting is omitted, the default region setting will be used, the one you specified after the `aws configure `command. Remember that this will need to match the region you created your DynamoDB table in. Use this page to look up region codes: [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html).
+Note the region setting at the initialisation. If this setting is omitted, the default region setting will be used, the one you specified after the `aws configure` command. Remember that this will need to match the region you created your DynamoDB table in. Use this page to look up region codes: [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html).
 
 We are now ready to use the `dynamo.putItem()` method to submit new data to the table:
 
@@ -203,13 +207,15 @@ Well done on finishing this project! You are now fully set up to work with AWS f
 
 There are two ways to validate or retreive the data saved to DynamoDB. The easiest is navigating to the DynamoDB service from the web console, then selecting "Tables", clicking on the name of your table and selecting the the Items tab.
 
-<data>
+![aws create new user](http://localhost:8000/posts/2018/aws-dynamodb-table.jpg)
 
 All our data is listed here as expected and you can export or filter it depending on your needs.
 
 ### Validating the data by querying DynamoDB
 
-The simplest example to get the data from JavaScript would be to just download all entries. For that we can say we want to scan for entries with a datetime value lower than the current time. This essentially means entries in the past. Please note that scanning and querying are different concepts in DyanmoDB. When you query, you have to include your primary key. In our case this would mean query by the datetime value. Scanning gives you a lot more freedom (but could be slower) so for now this is is what we will user.
+The simplest example to get the data from JavaScript would be to just download all entries. For that we can say we want to scan for entries with a datetime value lower than the current time. This essentially means entries in the past.
+
+Please note that **scanning and querying** are different concepts in DyanmoDB. When you query, you have to include your primary key. In our case this would mean query by the datetime value. Scanning gives you a lot more freedom (but could be slightly slower in bigger databases) so for now this is is what we will use.
 
 Add this into a new file called temp-read-aws.js:
 
@@ -242,7 +248,7 @@ dynamo.scan(params1, function (err, data) {
 });
 ```
 
-This is an interesting syntax and looks quite arbitrary. Let's go through the query parameters line-by-line and try to understand what's going on.
+The parameter object passed into the scan function has quite an interesting syntax and looks quite arbitrary. Let's go through the query parameters line-by-line and try to understand what's going on.
 
 **TableName** is obviously the name of the table we would like to scan in.
 
@@ -292,4 +298,4 @@ const params3 = {
 
 ### Final thoughts
 
-I hope all this was exciting. I know we have covered a lot, but remember that now you are completely set up with Amazon Web Service and ready to use all the other services they offer. This is definitely something we will discover in the future, including setting up automatic notifications, triggering cloud functins and discovering AWS IoT Core to control electronic devices remotely.
+I hope all this was exciting. I know we have covered a lot, but remember that now you are completely set up with Amazon Web Service and ready to use all the other services they offer. This is definitely something we will discover in the future, including setting up automatic notifications, triggering cloud functions and discovering AWS IoT Core to control electronic devices remotely.
