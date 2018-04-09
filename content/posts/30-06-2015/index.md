@@ -7,7 +7,7 @@ slug: "the-arduino-plant-with-javascript-voice-recognition"
 tags:
     - arduino
     - javascript
-    - project idea
+    - project
 ---
 
 **George has got light, temperature, soil moisture and two motion sensors for watching the world. He complains if any of the values from the sensors are excessive and is able interact with people by answering simple questions with the help of JavaScript voice recognition. George has got a simple face in the form of an 8×8, red LED board that can display basic expressions as well as turn his eyes into the direction where people are approaching from.**

@@ -6,7 +6,7 @@ date: "26/08/2015"
 slug: "ikea-social-notification-desk-lamp"
 tags:
     - arduino
-    - project idea
+    - project
 ---
 
 **This IKEA lamp has been completely stripped and rebuilt using a Spark Core Wi-Fi board and a 12V RGB LED strip. The desk lamp can now shine in 16 million different colours and be controlled from the ‘If This Then That’ app. I use it for notifications and set it to change to different colours when something happens with my emails, Facebook, Twitter or Instagram. A visual notification centre, I call it.**

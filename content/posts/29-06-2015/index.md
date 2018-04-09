@@ -7,7 +7,7 @@ slug: "arduino-nodejs-rc-car-driven-with-html5-gamepad-api"
 tags:
     - arduino
     - javascript
-    - project idea
+    - project
 ---
 
 **We constantly see developers pushing the limits of JavaScript; mobile and desktop applications, 3D games and so much more … but it’s a different story to connect a USB racing wheel to the browser and read it with the HTML5 Gamepad API and drive a Radio Controlled toy car through WebSockets and a Node.js server.**

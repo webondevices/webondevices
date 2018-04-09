@@ -6,12 +6,15 @@ date: "07/12/2015"
 slug: "arduino-robot-car-obstacle-avoidance"
 tags:
     - arduino
-    - project idea
+    - project
 ---
 
 **Arduino Robot Car with Obstacle Avoidance. I’ve always been excited about autonomous cars and radio controlled toy cars so it was time for me to build my own with an Arduino Nano. The finished car has two modes. First is manual mode which allows you to drive it wirelessly from an Arduino UNO and a joystick shield. Second is the autonomous mode which drives the car continuously forward and avoids obstacles by stopping and steering away immediately. Obstacles are detected by the ultrasonic sensor attached to the front of the car.**
 
 <a class="youtube-video" href="https://www.youtube.com/embed/bVsun0N3GPg" target="_blank">Click to see Youtube video</a>
+
+The source code for the project can be found on Github:
+[Car Obstacle Avoidance](https://github.com/webondevices/example-projects/tree/master/car-obstacle-avoid)
 
 ### Let’s now see how I built this car.
 

@@ -6,7 +6,7 @@ date: "24/07/2015"
 slug: "scanning-nespresso-capsules-with-javascript"
 tags:
     - javascript
-    - project idea
+    - project
 ---
 
 **We’ve been drinking Nespresso Capsule coffees for a while and it’s an absolute pain choosing from all the variations available. Yes, the names are written on the capsules but not everyone knows what “fortissio lungo” tastes like.**
