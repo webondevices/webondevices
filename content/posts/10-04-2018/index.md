@@ -1,6 +1,6 @@
 ---
-title: "Arduino Data Logger 1, save locally into file with Node.js and JavaScript"
-cover: "http://localhost:8000/posts/2018/dht22-arduino-sensor.jpg"
+title: "Arduino Data Logger 1, save to Text File with Node.js and JavaScript"
+cover: "http://www.webondevices.com/posts/2018/dht22-arduino-sensor.jpg"
 category: "moar"
 date: "10/04/2018"
 slug: "arduino-data-logger-into-file-nodejs-javascript"
@@ -13,7 +13,7 @@ tags:
 
 **What's the point of measuring if we can't look back in history or trigger notifications on the data. Let's take one step further and save this data on our computer first then in the cloud using Amazon Web Services (AWS) (post coming up next week).**
 
-video
+<a class="youtube-video" href="https://www.youtube.com/embed/8zLqPDdng9o" target="_blank">Click to see Youtube video</a>
 
 You can find the source code of this project here on Github:
  - [Temperature log, simple](https://github.com/webondevices/example-projects/tree/master/temp-log-simple)
@@ -24,7 +24,7 @@ You can find the source code of this project here on Github:
 
 To get some sensor measurements we will use an Arduino UNO and read the temperature and humidity values from a DHT22 sensor which is one of the more accurate sensors you can buy.
 
-![DHT22 arduino sensor](http://localhost:8000/posts/2018/dht22-arduino-sensor.jpg)
+![DHT22 arduino sensor](http://www.webondevices.com/posts/2018/dht22-arduino-sensor.jpg)
 
 Wiring this sensor up is quite simple: we first connect it to the 5V and GND pins, then the data pin (DAT) to a digital pin of your choice. I picked D12. Check the video out for reference.
 
@@ -81,7 +81,7 @@ The `Serial.println(message)` command in the Arduino sketch sends the message to
 
 The cool thing about Node.js is that, unlike your JavaScript code running in the browser, you have access to the USB ports and read these incoming messages.
 
-![DHT22 arduino sensor logging circuit](http://localhost:8000/posts/2018/temperature-logging.jpg)
+![DHT22 arduino sensor logging circuit](http://www.webondevices.com/posts/2018/temperature-logging.jpg)
 
 Let's create a new folder and initialise a new Node application with the `npm init` command in the command line prompt. For this command to work, you will need [NPM and Node.js](https://nodejs.org/en/download/) installed on your computer's command line (Terminal on Mac, Command Prompt on Windows).
 
@@ -104,7 +104,7 @@ Before testing this code let's first install the serialport library: `npm instal
 
 Let's also review what's happening in this javascript file: in the first line we load the serialport library, then initilise the port by passing in some settings, so here make sure you replace "/xyz" with the name of the USB port you connected the Arduino to. You can easily find the name in the Arduino IDE under the port menu:
 
-![arduino port selection](http://localhost:8000/posts/2018/arduino-port.jpg)
+![arduino port selection](http://www.webondevices.com/posts/2018/arduino-port.jpg)
 
 The final piece of code we added was an event listener that will fire as soon as the connection to the port is established.
 
@@ -126,7 +126,7 @@ After saving and re-testing this, the app will read our sensor measurements from
 
 ### Changing the data type to JSON
 
-At this point we could start manipulating the string to extract the data from the message but it would be much easier if the data was coming through in a JSON format already as we could very easily parse that into a javascript object. 
+At this point we could start manipulating the string to extract the data from the message but it would be much easier if the data was coming through in JSON format already as we could very easily parse that into a javascript object. 
 
 To achieve this, we will format the data to JSON in the Arduino sketch. Here's how the loop function changes:
 
@@ -178,7 +178,7 @@ port.on('open', function () {
 });
 ```
 
-This is a much better approach and will be much easier to work with! I added the additional `tryParseJson()` function to wrap the `JSON.parse()` into some error handling in case the incoming message is not formatted correctly.
+This is a much better approach and will be much easier to work with! I added the additional `tryParseJson()` function to wrap the `JSON.parse()` call into some error handling in case the incoming message is not formatted correctly.
 
 ### Data logging with timestamp
 
@@ -239,6 +239,6 @@ port.on('open', function () {
 In the [JavaScript Electronics book](#subscription) the Smart Talking Plant example project logs the data in JSON format which allows you to then later read it and parse it back to a JavaScript object. The book explains this is in much greater detail, but more advanced users can browse the source code on Github:
 [https://github.com/webondevices/js-electronics-book/blob/master/11-smart-plant-log-chart/server.js](https://github.com/webondevices/js-electronics-book/blob/master/11-smart-plant-log-chart/server.js)
 
-![DHT22 arduino sensor](http://localhost:8000/posts/2018/data-logging.jpg)
+![DHT22 arduino sensor](http://www.webondevices.com/posts/2018/data-logging.jpg)
 
 Next week, we will get started with Amazon Web Services and save this data into DynamoDB, the NoSQL cloud database service of AWS.
