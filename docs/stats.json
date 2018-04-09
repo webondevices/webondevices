@@ -1,16 +1,16 @@
 {
   "assetsByChunkName": {
-    "path---tags-project-idea": [
-      "path---tags-project-idea-84061311b825c61a1b30.js",
-      "path---tags-project-idea-84061311b825c61a1b30.js.map"
+    "path---tags-project": [
+      "path---tags-project-8514d2d7ed10f6fbc395.js",
+      "path---tags-project-8514d2d7ed10f6fbc395.js.map"
     ],
     "path---get-started-with-xbox-kinect-2-javascript-development": [
       "path---get-started-with-xbox-kinect-2-javascript-development-f52b17fc0416391d24c5.js",
       "path---get-started-with-xbox-kinect-2-javascript-development-f52b17fc0416391d24c5.js.map"
     ],
     "path---tags-arduino": [
-      "path---tags-arduino-6518cfa08006cfc47225.js",
-      "path---tags-arduino-6518cfa08006cfc47225.js.map"
+      "path---tags-arduino-d3b195e740fb687b0f3f.js",
+      "path---tags-arduino-d3b195e740fb687b0f3f.js.map"
     ],
     "path---arduino-tone-mp-3-sound-with-no-shield": [
       "path---arduino-tone-mp-3-sound-with-no-shield-d664cdc73cc211bdac52.js",
@@ -29,20 +29,20 @@
       "path----557518bd178906f8d58a.js.map"
     ],
     "path---the-arduino-plant-with-javascript-voice-recognition": [
-      "path---the-arduino-plant-with-javascript-voice-recognition-2bc5f9edf3a9996a57a6.js",
-      "path---the-arduino-plant-with-javascript-voice-recognition-2bc5f9edf3a9996a57a6.js.map"
+      "path---the-arduino-plant-with-javascript-voice-recognition-4ec60b0877fbd46a6bd2.js",
+      "path---the-arduino-plant-with-javascript-voice-recognition-4ec60b0877fbd46a6bd2.js.map"
     ],
     "path---tags-javascript": [
-      "path---tags-javascript-a856eda25ecea511bd93.js",
-      "path---tags-javascript-a856eda25ecea511bd93.js.map"
+      "path---tags-javascript-9ee1e565d7b94916ee75.js",
+      "path---tags-javascript-9ee1e565d7b94916ee75.js.map"
     ],
     "path---categories-moar": [
-      "path---categories-moar-8bde3fdd2020684c1435.js",
-      "path---categories-moar-8bde3fdd2020684c1435.js.map"
+      "path---categories-moar-c014063750f4338961a7.js",
+      "path---categories-moar-c014063750f4338961a7.js.map"
     ],
     "path---scanning-nespresso-capsules-with-javascript": [
-      "path---scanning-nespresso-capsules-with-javascript-ae70cefc36884b077375.js",
-      "path---scanning-nespresso-capsules-with-javascript-ae70cefc36884b077375.js.map"
+      "path---scanning-nespresso-capsules-with-javascript-5264d77b953f5b758961.js",
+      "path---scanning-nespresso-capsules-with-javascript-5264d77b953f5b758961.js.map"
     ],
     "component---src-layouts-index-jsx": [
       "component---src-layouts-index-jsx-a6e5abc0b910547b8dcd.js",
@@ -65,8 +65,8 @@
       "component---src-templates-category-jsx-fbcb8509151b22230891.js.map"
     ],
     "path---index": [
-      "path---index-68f6e6d159197af89270.js",
-      "path---index-68f6e6d159197af89270.js.map"
+      "path---index-b2f683fc25f89c59d768.js",
+      "path---index-b2f683fc25f89c59d768.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-16dca089dee574aef9ce.js",
@@ -87,8 +87,8 @@
       "path---9-v-battery-powered-2-web-server-with-arduino-53bc83db96a1004cb8be.js.map"
     ],
     "path---ikea-social-notification-desk-lamp": [
-      "path---ikea-social-notification-desk-lamp-30fa4e65cc10e515b937.js",
-      "path---ikea-social-notification-desk-lamp-30fa4e65cc10e515b937.js.map"
+      "path---ikea-social-notification-desk-lamp-842c5443bd0f9a979af7.js",
+      "path---ikea-social-notification-desk-lamp-842c5443bd0f9a979af7.js.map"
     ],
     "path---9-javascript-apis-accessing-device-sensors": [
       "path---9-javascript-apis-accessing-device-sensors-460db9273fb1434121ab.js",
@@ -103,8 +103,8 @@
       "component---src-templates-tag-jsx-e6bdec6ecc53c8f02bce.js.map"
     ],
     "path---arduino-robot-car-obstacle-avoidance": [
-      "path---arduino-robot-car-obstacle-avoidance-c152a83d116ad0c2eb87.js",
-      "path---arduino-robot-car-obstacle-avoidance-c152a83d116ad0c2eb87.js.map"
+      "path---arduino-robot-car-obstacle-avoidance-042d34832451d0628f36.js",
+      "path---arduino-robot-car-obstacle-avoidance-042d34832451d0628f36.js.map"
     ],
     "path---install-node-js-on-a-raspberry-pi-and-run-javascript": [
       "path---install-node-js-on-a-raspberry-pi-and-run-javascript-caf97f3982e0f4773ee0.js",
@@ -123,14 +123,18 @@
       "component---src-pages-index-jsx-e0264015a9b102175a05.js.map"
     ],
     "app": [
-      "app-2384441c77c7daccc2f7.js",
+      "app-12cb29746b7d7ecd1f09.js",
       "build-js-styles.css",
-      "app-2384441c77c7daccc2f7.js.map",
+      "app-12cb29746b7d7ecd1f09.js.map",
       "build-js-styles.css.map"
     ],
     "path---arduino-javascript-for-complete-beginners": [
       "path---arduino-javascript-for-complete-beginners-fd897d37d9c15ef56706.js",
       "path---arduino-javascript-for-complete-beginners-fd897d37d9c15ef56706.js.map"
+    ],
+    "path---arduino-data-logger-into-file-nodejs-javascript": [
+      "path---arduino-data-logger-into-file-nodejs-javascript-049bff704c36a15f2513.js",
+      "path---arduino-data-logger-into-file-nodejs-javascript-049bff704c36a15f2513.js.map"
     ],
     "path---tweet-and-text-message-an-arduino-air-quality-reading": [
       "path---tweet-and-text-message-an-arduino-air-quality-reading-b31a485df582ef927308.js",
@@ -149,8 +153,8 @@
       "path---rotate-a-css-3-d-cube-with-an-arduino-3cf96f696b6a5da7da7f.js.map"
     ],
     "path---arduino-nodejs-rc-car-driven-with-html-5-gamepad-api": [
-      "path---arduino-nodejs-rc-car-driven-with-html-5-gamepad-api-5a751e8470665ff61600.js",
-      "path---arduino-nodejs-rc-car-driven-with-html-5-gamepad-api-5a751e8470665ff61600.js.map"
+      "path---arduino-nodejs-rc-car-driven-with-html-5-gamepad-api-ca8505beaea732100ac8.js",
+      "path---arduino-nodejs-rc-car-driven-with-html-5-gamepad-api-ca8505beaea732100ac8.js.map"
     ],
     "path---fly-an-ar-drone-with-an-xbox-controller-and-javascript": [
       "path---fly-an-ar-drone-with-an-xbox-controller-and-javascript-689e998558689c0ea9aa.js",

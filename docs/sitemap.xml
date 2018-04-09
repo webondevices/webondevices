@@ -11,7 +11,6 @@
 <url> <loc>http://www.webondevices.com/fly-an-ar-drone-with-an-xbox-controller-and-javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/xbox-kinect-2-javascript-gesture-tracking</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/9-javascript-apis-accessing-device-sensors</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>http://www.webondevices.com/arduino-robot-car-obstacle-avoidance</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/control-your-mac-from-an-arduino-with-javascript-and-node-js</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/arduino-solar-panel-and-battery-power-shield</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/arduino-nodejs-rc-car-driven-with-html5-gamepad-api</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -22,9 +21,11 @@
 <url> <loc>http://www.webondevices.com/scanning-nespresso-capsules-with-javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/get-started-with-xbox-kinect-2-javascript-development</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/managing-power-in-arduino-and-raspberry-pi-projects</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://www.webondevices.com/arduino-data-logger-into-file-nodejs-javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://www.webondevices.com/arduino-robot-car-obstacle-avoidance</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/tags/javascript/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/tags/arduino/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>http://www.webondevices.com/tags/project-idea/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>http://www.webondevices.com/tags/project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/categories/moar/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>http://www.webondevices.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
