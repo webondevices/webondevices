@@ -9,8 +9,8 @@
       "path---get-started-with-xbox-kinect-2-javascript-development-f52b17fc0416391d24c5.js.map"
     ],
     "path---tags-arduino": [
-      "path---tags-arduino-d3b195e740fb687b0f3f.js",
-      "path---tags-arduino-d3b195e740fb687b0f3f.js.map"
+      "path---tags-arduino-170374a0a3b729f62064.js",
+      "path---tags-arduino-170374a0a3b729f62064.js.map"
     ],
     "path---arduino-tone-mp-3-sound-with-no-shield": [
       "path---arduino-tone-mp-3-sound-with-no-shield-d664cdc73cc211bdac52.js",
@@ -33,12 +33,12 @@
       "path---the-arduino-plant-with-javascript-voice-recognition-4ec60b0877fbd46a6bd2.js.map"
     ],
     "path---tags-javascript": [
-      "path---tags-javascript-9ee1e565d7b94916ee75.js",
-      "path---tags-javascript-9ee1e565d7b94916ee75.js.map"
+      "path---tags-javascript-9ecf015b22218cd2c449.js",
+      "path---tags-javascript-9ecf015b22218cd2c449.js.map"
     ],
     "path---categories-moar": [
-      "path---categories-moar-c014063750f4338961a7.js",
-      "path---categories-moar-c014063750f4338961a7.js.map"
+      "path---categories-moar-0916e70449d58f69e866.js",
+      "path---categories-moar-0916e70449d58f69e866.js.map"
     ],
     "path---scanning-nespresso-capsules-with-javascript": [
       "path---scanning-nespresso-capsules-with-javascript-5264d77b953f5b758961.js",
@@ -65,8 +65,8 @@
       "component---src-templates-category-jsx-fbcb8509151b22230891.js.map"
     ],
     "path---index": [
-      "path---index-b2f683fc25f89c59d768.js",
-      "path---index-b2f683fc25f89c59d768.js.map"
+      "path---index-fc0d8f37876c6124eab6.js",
+      "path---index-fc0d8f37876c6124eab6.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-16dca089dee574aef9ce.js",
@@ -89,6 +89,10 @@
     "path---ikea-social-notification-desk-lamp": [
       "path---ikea-social-notification-desk-lamp-842c5443bd0f9a979af7.js",
       "path---ikea-social-notification-desk-lamp-842c5443bd0f9a979af7.js.map"
+    ],
+    "path---arduino-data-logger-dynamosb-aws-nodejs-javascript": [
+      "path---arduino-data-logger-dynamosb-aws-nodejs-javascript-e7d5fa037f0588feefe2.js",
+      "path---arduino-data-logger-dynamosb-aws-nodejs-javascript-e7d5fa037f0588feefe2.js.map"
     ],
     "path---9-javascript-apis-accessing-device-sensors": [
       "path---9-javascript-apis-accessing-device-sensors-460db9273fb1434121ab.js",
@@ -123,9 +127,9 @@
       "component---src-pages-index-jsx-e0264015a9b102175a05.js.map"
     ],
     "app": [
-      "app-12cb29746b7d7ecd1f09.js",
+      "app-b54d052765a287082644.js",
       "build-js-styles.css",
-      "app-12cb29746b7d7ecd1f09.js.map",
+      "app-b54d052765a287082644.js.map",
       "build-js-styles.css.map"
     ],
     "path---arduino-javascript-for-complete-beginners": [
