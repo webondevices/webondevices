@@ -34,7 +34,7 @@ Here are some of the possible scenarios:
  - all three sensors report LOW: only white background is visible
  - LOW, HIGH, LOW: the black line is in the middle, under the centre inrared sensor
  - HIGH, LOW, LOW: the black line is under the left infrared sensor
- - LOW, lOW, HIGH: the black line is under the right infrared sensor
+ - LOW, LOW, HIGH: the black line is under the right infrared sensor
 
 Setting this sensor up in the Arduino code is very simple as the module exposes three digital output pins for the three infrared LED sensors. You simply connect these to 3 digital pins. I randomly picked D4, D3 and D2.
 
