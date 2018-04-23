@@ -1,6 +1,6 @@
 ---
 title: "Building an Arduino line-follow Robot Car"
-cover: "http://www.webondevices.com/posts/2018/wod-energy-shield-10.jpg"
+cover: "http://www.webondevices.com/posts/2018/line-follow.jpg"
 category: "moar"
 date: "20/04/2018"
 slug: "arduino-line-follow-robot-car"
@@ -8,11 +8,11 @@ tags:
     - arduino
 ---
 
-**Last time [we built an Arduino robot car](/arduino-robot-car-obstacle-avoidance/) with an ultrasonic distance sensor and added some logic to automatically steer away from obstacles. It could also be manually driven with a second Arduino from the joystick shield added to it. The two were communicating via NRF24 radio modules.**
+Last time [we built an Arduino robot car](/arduino-robot-car-obstacle-avoidance/) with an ultrasonic distance sensor and added some logic to automatically steer away from obstacles. It could also be manually driven with a second Arduino from the joystick shield added to it. The two were communicating via NRF24 radio modules.
 
-Today we extend this robot car with a line-follow sensor and add some new application logic. With this it will automatically drive along a black line (or a white line if you set it up differently).
+**Today we extend this robot car with a line-follow sensor and add some new application logic. With this it will automatically drive along a black line (or a white line if you set it up differently).**
 
-<video>
+<a class="youtube-video" href="https://www.youtube.com/embed/k3L-TGgk8Ow" target="_blank">Click to see Youtube video</a>
 
 If you are getting started from scratch, just go back to the previous post and follow the build instructions there. Please note that the pins will be connected to different outputs in this example, but everything remains the same.
 
@@ -26,21 +26,17 @@ And here's the source code for the obstacle avoiding logic:
 
 This simple analog sensor has three infrared LEDs facing downwards that can detect contrast differences in light. As a result, it will output 5 V and the code will report HIGH when one of the sensors detect black and 0 V and LOW when there's only a white sheet of paper under the sensor.
 
-<image>
+![Line follow sensor](http://www.webondevices.com/posts/2018/line-follow.jpg)
 
 This sensor module has three infrared LEDs and three output pins, so you will need to interpret the position of the black line by evaluating the values reported by all three infrared sensors at the same time.
 
 Here are some of the possible scenarios:
  - all three sensors report LOW: only white background is visible
  - LOW, HIGH, LOW: the black line is in the middle, under the centre inrared sensor
- - HIGH, lOW, LOW: the black line is under the left infrared sensor
+ - HIGH, LOW, LOW: the black line is under the left infrared sensor
  - LOW, lOW, HIGH: the black line is under the right infrared sensor
 
-<line follow illustration>
-
-Setting this sensor up in the Arduino code is very simple as the module exposes three analog output pins for the three infrared LED sensors. Here's the circuit diagram for connecting it to an Arduino:
-
-<Fritzing>
+Setting this sensor up in the Arduino code is very simple as the module exposes three digital output pins for the three infrared LED sensors. You simply connect these to 3 digital pins. I randomly picked D4, D3 and D2.
 
 The Arduino sketch to read and interpret the measurements is only a couple of lines of code:
 
@@ -78,7 +74,7 @@ void loop() {
 }
 ```
 
-This is the most basic logic possible to work with the measurements, but in the final version of the code not just "001" is interpreted as "line is under the right side of the car" but also "011" as this could very easily happen, if the line is thicker than usual.
+This is the most basic logic possible to work with the incoming signals. In the final version of the code we also have some logic to handle situations where the line is thicker than usual and it might be detected by two sensors at the same time.
 
 ### Steering
 
@@ -89,7 +85,7 @@ We can call these depending on the different line positions:
  - If line is on the right side: turn left!
  - If line is in the centre: go straight on!
 
- In the final version of the Arduino sketch, witch also takes some the edge cases into consideration, the motor drive functions are also called to take action on the car:
+ In the final version of the Arduino sketch, witch also takes some the edge cases into consideration, the motor drive functions are also called to take action:
 
 ``` c
 int left = digitalRead(lft);
@@ -117,17 +113,17 @@ if (left == 0 && centre == 0 && right == 0) {
 }
 ```
 
-Notice how in the "000" scenario the moveForward function is called with 0 passed in to move the motors forward with the speed of 0, which will essentially stop the car.
+Notice how in the "000" scenario the moveForward function is called with 0 passed in to move the motors forward with the speed of 0, which essentially means: stop the car.
 
 The complete code combined with the previously discussed motor drive logic can be found here on Github:
 [https://github.com/webondevices/example-projects/tree/master/car-line-follow](https://github.com/webondevices/example-projects/tree/master/car-line-follow)
 
 ### Future improvements
 
-Some people complain that with this very basic logic the car goes along with jittery a back and forth steering movement. This happens even when the car is expected to straight along a straight line.
+Some complain that with this very basic logic the car goes along with a jittery back and forth steering movement. This happens even when the car is expected to go along a perfectly straight line.
 
-To improve this issue you could invest into a line follow sensor that has 5 ore more sensors. with this you could change the amount of steering depending on how far out the line is from the center.
+To improve this issue you could invest into a line follow sensor that has 5 ore more sensors. with this you could change the angle of steering depending on how far out the line is from the center.
 
-The best way to fix the application logic would be to make the car work with angles and curves. This would mean the car would start turning into a curve when the line is off center and it would decrease the angle of the curve until the line is back in the middle. With this improved logic the car would carry on going along a curve after the line is back in the middle.
+However, the best way to improve the application logic would be to make the car work with angles and curves. This would mean the car would start turning into a curve when the line is off center and it would increase the angle of the curve until the line is back in the middle. With this improved logic the car would carry on going along a curve after the line is back in the middle.
 
 If you manage to improve the steering logic, I will publish your solution on Web on Devices!
