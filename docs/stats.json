@@ -1,20 +1,16 @@
 {
   "assetsByChunkName": {
     "path---tags-project": [
-      "path---tags-project-8514d2d7ed10f6fbc395.js",
-      "path---tags-project-8514d2d7ed10f6fbc395.js.map"
-    ],
-    "path---tags-project-idea": [
-      "path---tags-project-idea-a84cbc991a999c15d927.js",
-      "path---tags-project-idea-a84cbc991a999c15d927.js.map"
+      "path---tags-project-2d55694f6f80531f04d0.js",
+      "path---tags-project-2d55694f6f80531f04d0.js.map"
     ],
     "path---get-started-with-xbox-kinect-2-javascript-development": [
       "path---get-started-with-xbox-kinect-2-javascript-development-f52b17fc0416391d24c5.js",
       "path---get-started-with-xbox-kinect-2-javascript-development-f52b17fc0416391d24c5.js.map"
     ],
     "path---tags-arduino": [
-      "path---tags-arduino-fce3a344d18f901539d8.js",
-      "path---tags-arduino-fce3a344d18f901539d8.js.map"
+      "path---tags-arduino-04e12139ac1de09c5ba6.js",
+      "path---tags-arduino-04e12139ac1de09c5ba6.js.map"
     ],
     "path---arduino-tone-mp-3-sound-with-no-shield": [
       "path---arduino-tone-mp-3-sound-with-no-shield-d664cdc73cc211bdac52.js",
@@ -37,12 +33,12 @@
       "path---the-arduino-plant-with-javascript-voice-recognition-4ec60b0877fbd46a6bd2.js.map"
     ],
     "path---tags-javascript": [
-      "path---tags-javascript-516d46d9ec5404aab19e.js",
-      "path---tags-javascript-516d46d9ec5404aab19e.js.map"
+      "path---tags-javascript-bce7c2dc66044aca26e2.js",
+      "path---tags-javascript-bce7c2dc66044aca26e2.js.map"
     ],
     "path---categories-moar": [
-      "path---categories-moar-ba45ec6fe91b78570999.js",
-      "path---categories-moar-ba45ec6fe91b78570999.js.map"
+      "path---categories-moar-78fd0db1fd84909d938d.js",
+      "path---categories-moar-78fd0db1fd84909d938d.js.map"
     ],
     "path---scanning-nespresso-capsules-with-javascript": [
       "path---scanning-nespresso-capsules-with-javascript-5264d77b953f5b758961.js",
@@ -53,8 +49,8 @@
       "component---src-layouts-index-jsx-a6e5abc0b910547b8dcd.js.map"
     ],
     "path---smiling-face-arduino-smart-talking-plant": [
-      "path---smiling-face-arduino-smart-talking-plant-23e53ca595ded86f8547.js",
-      "path---smiling-face-arduino-smart-talking-plant-23e53ca595ded86f8547.js.map"
+      "path---smiling-face-arduino-smart-talking-plant-e4b27d4182cafb54d3ad.js",
+      "path---smiling-face-arduino-smart-talking-plant-e4b27d4182cafb54d3ad.js.map"
     ],
     "path---arduino-nodejs-for-complete-beginners": [
       "path---arduino-nodejs-for-complete-beginners-8c05caaf8b587c56ebc6.js",
@@ -73,8 +69,8 @@
       "component---src-templates-category-jsx-fbcb8509151b22230891.js.map"
     ],
     "path---index": [
-      "path---index-23882fe3f25026d26bf8.js",
-      "path---index-23882fe3f25026d26bf8.js.map"
+      "path---index-31698550eda4d39e1674.js",
+      "path---index-31698550eda4d39e1674.js.map"
     ],
     "component---src-pages-about-jsx": [
       "component---src-pages-about-jsx-16dca089dee574aef9ce.js",
@@ -135,9 +131,9 @@
       "component---src-pages-index-jsx-e0264015a9b102175a05.js.map"
     ],
     "app": [
-      "app-f6538bcbba53eaeaa100.js",
+      "app-7ff22581d3e058086f14.js",
       "build-js-styles.css",
-      "app-f6538bcbba53eaeaa100.js.map",
+      "app-7ff22581d3e058086f14.js.map",
       "build-js-styles.css.map"
     ],
     "path---arduino-javascript-for-complete-beginners": [

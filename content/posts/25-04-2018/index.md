@@ -7,7 +7,7 @@ slug: "smiling-face-arduino-smart-talking-plant"
 tags:
     - javascript
     - arduino
-    - project idea
+    - project
 ---
 
 The final project in the [JavaScript Electronics book](#subscription) for complete beginners is a **Smart Talking Plant** sensor system built from scratch. The plant features temperature, light and soil moisture sensors and is able to **talk** and complain about its living conditions.
