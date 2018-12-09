@@ -4,7 +4,6 @@
     transition: height 600ms, opacity 600ms;
     height: 84px;
     opacity: 1;
-    margin-top: 24px;
 
     &.submitted {
         height: 0;
@@ -37,10 +36,6 @@
 
 .submit-email {
     width: 100%;
-
-    @media (min-width: $small-screen-brekpoint) {
-        width: calc(50% - 6px);
-    }
 }
 
 .submitted.email-form + .thank-you-message,
@@ -59,4 +54,9 @@
 .pending.email-form > .cta-button {
     background-color: $wod-gray;
     cursor: not-allowed;
+}
+
+.intermediate-copy {
+    margin-top: 30px;
+    margin-bottom: 12px;
 }
