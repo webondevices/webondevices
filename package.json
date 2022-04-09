@@ -27,7 +27,7 @@
     "gatsby-transformer-remark": "^1.7.44",
     "lodash": "^4.17.15",
     "lodash-webpack-plugin": "^0.11.5",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "react": "^15.6.1",
     "react-disqus-comments": "^1.4.0",
     "react-dom": "^15.6.1",
