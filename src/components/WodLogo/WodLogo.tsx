@@ -30,7 +30,7 @@ export function WodLogo({
   title = "Web on Devices",
 }: WodLogoProps) {
   const isLockup = variant === "lockup";
-  const viewBox = isLockup ? "0 0 412 172" : "0 0 412 112";
+  const viewBox = isLockup ? "0 0 412 236" : "0 0 412 112";
   const [, , w, h] = viewBox.split(" ").map(Number);
   const labelled = title !== "";
 
@@ -47,16 +47,20 @@ export function WodLogo({
     >
       {MARK_PATHS}
       {isLockup && (
-        <text
-          className={styles.subtext}
-          x="206"
-          y="164"
-          textAnchor="middle"
-          textLength="400"
-          lengthAdjust="spacingAndGlyphs"
-        >
-          Web on Devices
-        </text>
+        <>
+          {/* A hairline between the mark and the name. */}
+          <rect x="0" y="152" width="412" height="1.5" />
+          <text
+            className={styles.subtext}
+            x="206"
+            y="230"
+            textAnchor="middle"
+            textLength="408"
+            lengthAdjust="spacing"
+          >
+            Web on Devices
+          </text>
+        </>
       )}
     </svg>
   );

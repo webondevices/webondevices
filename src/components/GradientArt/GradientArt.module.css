@@ -1,0 +1,90 @@
+.art {
+  width: 100%;
+  height: 100%;
+  background-color: var(--brand-midnight);
+}
+
+/* Spatial: a bright sky over a distant horizon. */
+.spatial {
+  background:
+    radial-gradient(
+      60% 40% at 70% 62%,
+      color-mix(in srgb, var(--brand-sun) 80%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      90% 50% at 20% 100%,
+      color-mix(in srgb, var(--brand-dusk) 85%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      var(--brand-mist) 0%,
+      var(--brand-sky) 45%,
+      var(--brand-coral) 68%,
+      var(--brand-ocean) 100%
+    );
+}
+
+/* Hardware: dark metal with a hot ember glow, like a lit circuit. */
+.hardware {
+  background:
+    radial-gradient(35% 30% at 72% 58%, var(--brand-ember), transparent 70%),
+    radial-gradient(
+      60% 45% at 30% 30%,
+      color-mix(in srgb, var(--brand-ocean) 45%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(200deg, var(--brand-night-700), var(--brand-ink) 70%);
+}
+
+/* AI: the teal and ember sheets crossing, as in the mock. */
+.ai {
+  background:
+    radial-gradient(70% 60% at 100% 0%, var(--brand-sky), transparent 70%),
+    radial-gradient(70% 65% at 0% 100%, var(--brand-ember), transparent 70%),
+    radial-gradient(
+      40% 40% at 55% 55%,
+      color-mix(in srgb, var(--brand-coral) 70%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(150deg, var(--brand-ocean), var(--brand-dusk));
+}
+
+/* Software: a dark screen catching a sunset reflection. */
+.software {
+  background:
+    linear-gradient(
+      115deg,
+      transparent 52%,
+      color-mix(in srgb, var(--brand-coral) 75%, transparent) 60%,
+      color-mix(in srgb, var(--brand-sky) 60%, transparent) 68%,
+      transparent 76%
+    ),
+    radial-gradient(
+      80% 60% at 80% 0%,
+      color-mix(in srgb, var(--brand-ocean) 50%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(180deg, var(--brand-night-700), var(--brand-ink));
+}
+
+.horizon {
+  background:
+    radial-gradient(
+      50% 40% at 80% 30%,
+      color-mix(in srgb, var(--brand-gold) 70%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(180deg, var(--brand-sky), var(--brand-coral) 65%, var(--brand-ember));
+}
+
+.dusk {
+  background:
+    radial-gradient(
+      50% 50% at 25% 75%,
+      color-mix(in srgb, var(--brand-ember) 60%, transparent),
+      transparent 70%
+    ),
+    var(--brand-gradient-dusk);
+}

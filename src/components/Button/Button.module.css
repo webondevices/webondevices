@@ -57,7 +57,7 @@
 }
 
 .trailingIcon {
-  font-size: 1.15em;
+  font-size: 1.5em;
   transition: transform var(--duration-base) var(--ease-out);
 }
 
@@ -79,7 +79,7 @@
   border-radius: 50%;
   background: var(--color-action-bg);
   color: var(--color-action-text);
-  font-size: 1.15em;
+  font-size: 1.5em;
   transition:
     background-color var(--duration-base) var(--ease-out),
     transform var(--duration-base) var(--ease-out);
@@ -98,7 +98,7 @@
   padding: 0;
   border-radius: 50%;
   border: 1px solid transparent;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   color: var(--color-text);
   background: none;
   cursor: pointer;
@@ -110,7 +110,7 @@
 }
 
 .iconButton.sm {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
 }
 
 .icon-outline {
