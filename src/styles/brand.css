@@ -1,0 +1,58 @@
+/*
+ * Tier 1: brand values.
+ *
+ * Raw colours of the WOD "sunset" palette: deep evening blues fading through
+ * sky into peach, ember orange and gold. Components never use these directly;
+ * they use the role tokens in theme.css, which map onto these per theme.
+ */
+:root {
+  /* Blues: the primary family */
+  --brand-midnight: #0b1724;
+  --brand-dusk: #13324a;
+  --brand-ocean: #2e859e;
+  --brand-sky: #8fcfda;
+  --brand-mist: #dce9ea;
+
+  /* Sunset accents */
+  --brand-ember: #f97d40;
+  --brand-coral: #fba587;
+  --brand-gold: #f6be4f;
+  --brand-sun: #fce3a6;
+
+  /* Neutrals: slightly warm, like the paper in the mock */
+  --brand-paper: #f5f4f0;
+  --brand-ink: #0e1217;
+  --brand-grey-50: #fafaf8;
+  --brand-grey-100: #efeee9;
+  --brand-grey-200: #e2e1db;
+  --brand-grey-300: #cbc9c2;
+  --brand-grey-400: #a19f98;
+  --brand-grey-500: #77766f;
+  --brand-grey-600: #585752;
+  --brand-grey-700: #3c3b38;
+
+  /* Night neutrals for the dark theme: blue-tinted rather than flat grey */
+  --brand-night-800: #10202f;
+  --brand-night-700: #172b3d;
+  --brand-night-500: #6a7e90;
+  --brand-night-300: #9fb0bd;
+  --brand-night-100: #eef1f0;
+
+  /* Signature gradients */
+  --brand-gradient-sunset: linear-gradient(
+    115deg,
+    var(--brand-dusk) 0%,
+    var(--brand-ocean) 28%,
+    var(--brand-sky) 46%,
+    var(--brand-coral) 62%,
+    var(--brand-ember) 78%,
+    var(--brand-gold) 100%
+  );
+  --brand-gradient-dusk: linear-gradient(
+    160deg,
+    var(--brand-midnight),
+    var(--brand-dusk) 55%,
+    var(--brand-ocean)
+  );
+  --brand-gradient-ember: linear-gradient(135deg, var(--brand-ember), var(--brand-gold));
+}

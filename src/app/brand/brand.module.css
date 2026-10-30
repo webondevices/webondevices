@@ -1,0 +1,419 @@
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Top bar */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbarInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-3) var(--gutter);
+}
+
+.homeLink {
+  display: inline-flex;
+  color: var(--color-text);
+}
+
+.toc {
+  display: none;
+  gap: var(--space-6);
+  font-size: var(--text-body-sm);
+}
+
+.toc a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.toc a:hover {
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .toc {
+    display: flex;
+  }
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  min-height: min(88vh, 820px);
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Static sunset glow until the motion graphic is revisited. */
+.heroGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      45% 55% at 92% 8%,
+      color-mix(in srgb, var(--brand-ember) 45%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 45% at 72% 42%,
+      color-mix(in srgb, var(--brand-gold) 30%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 50% at 5% 95%,
+      color-mix(in srgb, var(--brand-sky) 45%, transparent),
+      transparent 70%
+    );
+}
+
+.heroContent {
+  position: relative;
+  display: grid;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-9) var(--gutter);
+}
+
+.heroContent h1 {
+  max-width: 13ch;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6);
+  margin-top: var(--space-4);
+}
+
+/* Sections */
+
+.section {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: var(--space-9);
+  border-top: 1px solid var(--color-border);
+  scroll-margin-top: 4rem;
+}
+
+.sectionHeader {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Logo */
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.logoTile {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+}
+
+.logoTile svg {
+  max-width: 75%;
+  height: auto;
+}
+
+.logoLight {
+  background: var(--brand-paper);
+  border: 1px solid var(--color-border);
+}
+
+.logoLight svg {
+  color: var(--brand-ink);
+}
+
+.logoDark {
+  background: var(--brand-midnight);
+}
+
+.logoDark svg {
+  color: var(--brand-paper);
+}
+
+.logoSunset {
+  background-image: var(--brand-gradient-sunset);
+}
+
+.logoSunset svg {
+  color: var(--brand-paper);
+}
+
+.logoSizes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-7);
+}
+
+.logoSize {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-2);
+}
+
+/* Colour */
+
+.swatchGroup {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--space-5) var(--space-4);
+}
+
+.swatch {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.swatch figcaption {
+  display: grid;
+  gap: 2px;
+}
+
+.swatchChip {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.swatchName {
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+}
+
+.swatchValue {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-subtle);
+  overflow-wrap: anywhere;
+}
+
+.gradients {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+
+.gradient {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.gradient div {
+  height: 120px;
+  border-radius: var(--radius-md);
+}
+
+.gradient code {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text-subtle);
+}
+
+/* Typography */
+
+.typeList {
+  display: grid;
+}
+
+.typeRow {
+  display: grid;
+  gap: var(--space-3);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.typeMeta {
+  display: grid;
+  gap: 2px;
+  align-content: start;
+}
+
+@media (min-width: 900px) {
+  .typeRow {
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-6);
+    align-items: baseline;
+  }
+}
+
+/* Components */
+
+.componentBlock {
+  display: grid;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-2);
+}
+
+.iconCell {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.disciplines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2px;
+}
+
+.disciplines article > div:first-child {
+  aspect-ratio: 4 / 5;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+.placeholderSky,
+.placeholderDusk,
+.placeholderEmber,
+.placeholderSunset,
+.placeholderCurves {
+  width: 100%;
+  height: 100%;
+}
+
+.placeholderSky {
+  background:
+    radial-gradient(80% 60% at 30% 20%, var(--brand-mist), transparent 70%),
+    linear-gradient(180deg, var(--brand-sky), var(--brand-ocean));
+}
+
+.placeholderDusk {
+  background: var(--brand-gradient-dusk);
+}
+
+.placeholderEmber {
+  background:
+    radial-gradient(70% 60% at 80% 20%, var(--brand-gold), transparent 70%),
+    linear-gradient(200deg, var(--brand-ember), var(--brand-midnight) 85%);
+}
+
+.placeholderSunset {
+  background: var(--brand-gradient-sunset);
+}
+
+.placeholderCurves {
+  background:
+    radial-gradient(90% 70% at 100% 0%, var(--brand-sky), transparent 70%),
+    radial-gradient(80% 70% at 0% 100%, var(--brand-ember), transparent 70%),
+    linear-gradient(160deg, var(--brand-ocean), var(--brand-dusk));
+}
+
+/* "Our approach" band */
+
+.band {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(320px, 28vw, 440px);
+  display: grid;
+  align-items: center;
+}
+
+.bandGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      60% 90% at 100% 0%,
+      color-mix(in srgb, var(--brand-ocean) 55%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 80% at 78% 100%,
+      color-mix(in srgb, var(--brand-ember) 50%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 60% at 62% 40%,
+      color-mix(in srgb, var(--brand-coral) 30%, transparent),
+      transparent 70%
+    );
+}
+
+.bandContent {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: var(--space-8) var(--gutter);
+}
+
+.bandHeading {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.bandHeading h2 {
+  max-width: 18ch;
+}
+
+.bandAside {
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+  max-width: 34ch;
+}
+
+@media (min-width: 900px) {
+  .bandContent {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+}

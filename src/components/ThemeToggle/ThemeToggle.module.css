@@ -1,0 +1,32 @@
+.toggle {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.option {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.option:hover {
+  color: var(--color-text);
+}
+
+.option[aria-checked="true"] {
+  background: var(--color-text);
+  color: var(--color-bg);
+}

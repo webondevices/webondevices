@@ -1,0 +1,134 @@
+.display-xl,
+.display,
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4 {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.display-xl {
+  font-size: var(--text-display-xl);
+  font-weight: var(--weight-light);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.display {
+  font-size: var(--text-display);
+  font-weight: var(--weight-light);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.heading-1 {
+  font-size: var(--text-heading-1);
+  font-weight: var(--weight-regular);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.heading-2 {
+  font-size: var(--text-heading-2);
+  font-weight: var(--weight-regular);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.heading-3 {
+  font-size: var(--text-heading-3);
+  font-weight: var(--weight-regular);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.heading-4 {
+  font-size: var(--text-heading-4);
+  font-weight: var(--weight-medium);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.body-lg,
+.body,
+.body-sm {
+  color: var(--color-text-muted);
+  font-weight: var(--weight-regular);
+  text-wrap: pretty;
+}
+
+.body-lg {
+  font-size: var(--text-body-lg);
+  line-height: 1.6;
+}
+
+.body {
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+.body-sm {
+  font-size: var(--text-body-sm);
+  line-height: 1.55;
+}
+
+.caption {
+  font-size: var(--text-caption);
+  line-height: 1.45;
+  color: var(--color-text-subtle);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-eyebrow);
+  font-weight: var(--weight-medium);
+  line-height: 1.4;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.rule::after {
+  content: "";
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--color-text-muted);
+}
+
+.balance {
+  max-width: 38ch;
+}
+
+.tone-muted {
+  color: var(--color-text-muted);
+}
+
+.tone-subtle {
+  color: var(--color-text-subtle);
+}
+
+.tone-accent {
+  color: var(--color-text-accent);
+}
+
+.tone-inverse {
+  color: var(--color-text-inverse);
+}
+
+/* Large type uses the muted grey of the mock's closing lines */
+:is(.display-xl, .display, .heading-1) .tone-muted {
+  color: var(--color-text-subtle);
+}

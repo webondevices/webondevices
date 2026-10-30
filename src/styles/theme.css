@@ -1,0 +1,63 @@
+/*
+ * Tier 2: role tokens. Components use only these.
+ *
+ * The theme is set by `data-theme` on <html> (see lib/theme.ts). Without
+ * JavaScript, :root falls back to the light theme.
+ *
+ * Contrast note: ember, gold and coral are decorative. They are too light for
+ * body text on paper, so text roles never point at them.
+ */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg: var(--brand-paper);
+  --color-bg-subtle: var(--brand-grey-100);
+  --color-surface: var(--brand-grey-50);
+  --color-bg-inverse: var(--brand-ink);
+
+  --color-text: var(--brand-ink);
+  --color-text-muted: var(--brand-grey-600);
+  --color-text-subtle: var(--brand-grey-500);
+  --color-text-inverse: var(--brand-paper);
+  --color-text-accent: var(--brand-dusk);
+
+  --color-border: var(--brand-grey-200);
+  --color-border-strong: var(--brand-grey-300);
+
+  --color-accent: var(--brand-ocean);
+  --color-accent-warm: var(--brand-ember);
+  --color-highlight: var(--brand-gold);
+
+  --color-action-bg: var(--brand-ink);
+  --color-action-text: var(--brand-paper);
+  --color-action-bg-hover: var(--brand-dusk);
+  --color-focus: var(--brand-ocean);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: var(--brand-midnight);
+  --color-bg-subtle: var(--brand-night-800);
+  --color-surface: var(--brand-night-800);
+  --color-bg-inverse: var(--brand-paper);
+
+  --color-text: var(--brand-night-100);
+  --color-text-muted: var(--brand-night-300);
+  --color-text-subtle: var(--brand-night-500);
+  --color-text-inverse: var(--brand-ink);
+  --color-text-accent: var(--brand-sky);
+
+  --color-border: var(--brand-night-700);
+  --color-border-strong: var(--brand-night-500);
+
+  --color-accent: var(--brand-sky);
+  --color-accent-warm: var(--brand-ember);
+  --color-highlight: var(--brand-gold);
+
+  --color-action-bg: var(--brand-paper);
+  --color-action-text: var(--brand-ink);
+  --color-action-bg-hover: var(--brand-sun);
+  --color-focus: var(--brand-sky);
+}
