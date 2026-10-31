@@ -6,7 +6,7 @@ import { GradientArt } from "@/components/GradientArt/GradientArt";
 import { Tone, Typography } from "@/components/Typography/Typography";
 import { disciplineHref, disciplines, getDiscipline } from "@/content/disciplines";
 import { founderFacts, founderHighlights, testimonials } from "@/content/home";
-import { featuredProjects } from "@/content/projects";
+import { featuredProjects, projectHref } from "@/content/projects";
 import { contactHref, site } from "@/lib/site";
 import styles from "./home.module.css";
 
@@ -92,6 +92,7 @@ export default function HomePage() {
               eyebrow={getDiscipline(p.discipline).title}
               title={p.title}
               media={<GradientArt name={p.art} />}
+              href={projectHref(p.slug)}
             />
           ))}
         </div>

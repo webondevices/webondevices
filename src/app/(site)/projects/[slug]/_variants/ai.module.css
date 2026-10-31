@@ -1,0 +1,164 @@
+/* AI & Automation: a soft glow behind centred text, then a conversation and its steps. */
+
+.hero {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: min(70vh, 640px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* The artwork blurred into an ambient glow, fading out at the edges. */
+.glow {
+  position: absolute;
+  inset: 10% 15%;
+  z-index: -1;
+  filter: blur(60px);
+  opacity: 0.55;
+  -webkit-mask-image: radial-gradient(closest-side, #000 40%, transparent);
+  mask-image: radial-gradient(closest-side, #000 40%, transparent);
+}
+
+.glow > * {
+  height: 100%;
+}
+
+.heroContent {
+  padding-block: var(--space-9);
+}
+
+.heroContent h1 {
+  max-width: 18ch;
+}
+
+@media (max-width: 599px) {
+  .glow {
+    inset: 5% -10%;
+  }
+}
+
+/* Signature */
+
+.signature {
+  padding-block: var(--space-9);
+  background: var(--color-bg-subtle);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  }
+}
+
+/* The conversation, in a quiet window. */
+.chat {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  box-shadow: 0 24px 60px -32px color-mix(in srgb, var(--brand-dusk) 45%, transparent);
+}
+
+.chatBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.liveDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+.messages {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-5);
+  list-style: none;
+}
+
+.message {
+  max-width: 85%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+}
+
+/* Typography sets its own colour, so let the bubble's colour through. */
+.message span {
+  color: inherit;
+}
+
+.message[data-from="user"] {
+  justify-self: end;
+  border-bottom-right-radius: var(--radius-sm);
+  background: var(--color-action-bg);
+  color: var(--color-action-text);
+}
+
+.message[data-from="assistant"] {
+  justify-self: start;
+  border-bottom-left-radius: var(--radius-sm);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* The steps, joined by a thin gradient line. */
+.flow {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--brand-sky), var(--brand-ember));
+}
+
+.flowStep {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.flowNumber {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--color-text-accent);
+}
+
+.flowText {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: 0.2rem;
+}

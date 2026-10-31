@@ -1,0 +1,186 @@
+/* Spatial Experiences: an immersive, viewer-like stage and a dark pipeline band. */
+
+.hero {
+  padding-block: var(--space-5) var(--space-7);
+}
+
+/* data-theme="dark" on the stage switches its role tokens, so set colour here. */
+.stage {
+  position: relative;
+  display: grid;
+  align-items: end;
+  min-height: min(78vh, 720px);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  color: var(--color-text);
+  isolation: isolate;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+/* Darken the lower part so the title always reads. */
+.stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--color-bg) 92%, transparent) 0%,
+    color-mix(in srgb, var(--color-bg) 65%, transparent) 45%,
+    transparent 80%
+  );
+}
+
+/* Viewfinder corners, as in a 3D viewer. */
+.corners {
+  position: absolute;
+  inset: var(--space-5);
+  pointer-events: none;
+  --corner: 1.5rem;
+  --line: color-mix(in srgb, var(--color-text) 55%, transparent);
+  background:
+    linear-gradient(var(--line), var(--line)) top left / var(--corner) 1px,
+    linear-gradient(var(--line), var(--line)) top left / 1px var(--corner),
+    linear-gradient(var(--line), var(--line)) top right / var(--corner) 1px,
+    linear-gradient(var(--line), var(--line)) top right / 1px var(--corner),
+    linear-gradient(var(--line), var(--line)) bottom left / var(--corner) 1px,
+    linear-gradient(var(--line), var(--line)) bottom left / 1px var(--corner),
+    linear-gradient(var(--line), var(--line)) bottom right / var(--corner) 1px,
+    linear-gradient(var(--line), var(--line)) bottom right / 1px var(--corner);
+  background-repeat: no-repeat;
+}
+
+.viewerLabel {
+  position: absolute;
+  top: calc(var(--space-5) + var(--space-4));
+  right: calc(var(--space-5) + var(--space-4));
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-bg) 65%, transparent);
+  backdrop-filter: blur(8px);
+  color: var(--color-text);
+}
+
+.viewerLabel span {
+  color: inherit;
+}
+
+.viewerLabel svg {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.stageText {
+  padding: var(--space-8) calc(var(--space-5) + var(--space-5))
+    calc(var(--space-5) + var(--space-6));
+}
+
+@media (max-width: 599px) {
+  .stage {
+    min-height: 80vh;
+  }
+
+  .stageText {
+    padding: var(--space-6) var(--space-6) var(--space-7);
+  }
+}
+
+/* Signature: the capture and pipeline on a dark band. */
+
+.signature {
+  padding-block: var(--space-9);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.capture {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: var(--space-6);
+  margin: 0 0 var(--space-9);
+}
+
+.captureItem {
+  display: grid;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.captureItem dd {
+  margin: 0;
+}
+
+/* A line runs through the numbered nodes, like a path through the scene. Stacked, it runs down. */
+.pipeline {
+  position: relative;
+  display: grid;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pipeline::before {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  bottom: 0;
+  left: 1.25rem;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--brand-sky), var(--brand-coral), transparent);
+}
+
+.pipelineStep {
+  position: relative;
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  padding-left: calc(2.5rem + var(--space-5));
+}
+
+.node {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  background: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--text-caption);
+  color: var(--color-text-accent);
+}
+
+@media (min-width: 900px) {
+  .pipeline {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+  }
+
+  .pipeline::before {
+    bottom: auto;
+    right: 0;
+    width: auto;
+    height: 1px;
+    background: linear-gradient(to right, var(--brand-sky), var(--brand-coral), transparent);
+  }
+
+  .pipelineStep {
+    gap: var(--space-3);
+    padding-left: 0;
+    padding-top: calc(2.5rem + var(--space-4));
+  }
+}

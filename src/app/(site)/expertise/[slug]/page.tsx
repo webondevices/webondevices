@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
+import { CtaBand } from "@/components/CtaBand/CtaBand";
 import { GradientArt } from "@/components/GradientArt/GradientArt";
 import { Typography } from "@/components/Typography/Typography";
 import {
@@ -10,7 +11,7 @@ import {
   disciplines,
   type DisciplineSlug,
 } from "@/content/disciplines";
-import { projectsFor } from "@/content/projects";
+import { projectHref, projectsFor } from "@/content/projects";
 import { contactHref } from "@/lib/site";
 import styles from "./discipline.module.css";
 
@@ -172,6 +173,7 @@ export default async function DisciplinePage({ params }: Props) {
                 title={p.title}
                 description={p.summary}
                 media={<GradientArt name={p.art} />}
+                href={projectHref(p.slug)}
               />
             ))}
           </div>
@@ -200,18 +202,7 @@ export default async function DisciplinePage({ params }: Props) {
         </div>
       </section>
 
-      {/* Call to action */}
-      <section className={styles.band} aria-labelledby="cta-title">
-        <div className={styles.bandGlow} aria-hidden />
-        <div className={`${styles.container} ${styles.bandContent}`}>
-          <Typography variant="display" as="h2" id="cta-title">
-            Have a project in mind?
-          </Typography>
-          <Button href={contactHref} icon="arrow-up-right">
-            Let&apos;s build
-          </Button>
-        </div>
-      </section>
+      <CtaBand />
     </>
   );
 }
