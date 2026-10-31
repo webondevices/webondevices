@@ -8,7 +8,7 @@ Branch: `rebuild/wod-studio`. Inputs: [writing-block.md](writing-block.md) (brie
 
 | Concern | Choice | Why |
 |---|---|---|
-| Framework | **Next.js (App Router) + TypeScript**, `output: "export"` | Matches the brief. Static export keeps hosting free and portable. No server is needed for a portfolio. |
+| Framework | **Next.js (App Router) + TypeScript**, `output: "export"` | Matches the brief. Static export keeps hosting free and portable. The only server code is one small Worker for the contact form. |
 | Styling | **CSS Modules + CSS custom properties** (design tokens in one `tokens.css`) | Brief asks for tokens and restraint. No utility-class soup, no runtime CSS-in-JS. |
 | Type | **Inter** via `next/font` (self-hosted, variable), plus a mono for metadata, used sparingly | Mock uses light-weight Inter-style display type. |
 | Content | **MDX in the repo** with typed, validated frontmatter (zod) | Your choice. Projects, disciplines and the old posts all live as files. |
@@ -21,13 +21,28 @@ Branch: `rebuild/wod-studio`. Inputs: [writing-block.md](writing-block.md) (brie
 
 **Vercel's free Hobby plan is not allowed for this site.** Hobby is limited to non-commercial personal use, and Vercel counts a business's promotional website as commercial. Using Vercel would mean **Pro at $20/month per seat**.
 
-Because the build is a static export, the host can be swapped later. Recommendation:
+**Decided: Cloudflare Workers with static assets (free).** One Worker serves the static `out/` build and the single `/api/contact` endpoint.
 
-1. **Cloudflare Pages (free).** It allows commercial sites, gives a preview URL per branch, and supports a `_redirects` file for 301s from old tag/category URLs. It also has Pages Functions if the contact form ever needs a server.
-2. GitHub Pages also works (the current setup), but it has no real redirects or branch previews.
-3. Vercel Pro if you want Vercel's tooling and are fine with the cost.
+- Commercial sites are allowed on the free plan. Static asset requests are free and unlimited, and Worker requests are free up to 100,000 a day.
+- Each branch gets a preview URL.
+- A `_redirects` file handles the 301s from old tag/category URLs.
+- The build stays a static export, so the host can still be swapped later.
 
-The custom domain `www.webondevices.com` moves to whichever host you pick. DNS changes happen at launch, not before.
+The DNS for `webondevices.com` moves to Cloudflare at launch, not before. Email Routing needs it there. Copy any existing MX records across first. The domain can stay with its current registrar. The leftover GitHub Pages `CNAME` file is removed at launch.
+
+GitHub Pages (no real redirects or branch previews) and Vercel (Hobby doesn't allow commercial sites, Pro is $20/month) were considered and rejected.
+
+### Contact
+
+**Decided: a contact form that emails you. No chat assistant.** Visitors are meant to contact you directly.
+
+- `/contact/` has a short form: name, email, message, and an optional picker for the four disciplines.
+- **Cloudflare Turnstile** (free, usually invisible) stops spam. The page carries the public site key, and the Worker checks the token with the secret key before sending anything.
+- The Worker validates the submission and emails it to you with the **Email Routing `send_email` binding**, which sends only to verified addresses. Reply-To is the visitor, so you can just hit Reply. If DNS can't move to Cloudflare, **Resend** (free tier) can send instead.
+- A `mailto:` link stays on the page as a fallback.
+- "Let's build ↗" and the contact CTA sections all lead to `/contact/`.
+
+An LLM chat assistant was considered and dropped for now. It could be added later as another endpoint on the same Worker.
 
 ---
 
@@ -99,7 +114,7 @@ There are 33 live URLs today: 26 posts, `/about/`, 3 tag pages, 1 category page 
 2. A **URL parity test** compares the old `docs/**/index.html` list against the new build output and fails if any old post URL disappears.
 3. Rewrite absolute `http://www.webondevices.com/posts/...` image URLs to relative `/posts/...`. Keep `static/posts` and `static/download` at the same paths.
 4. Posts use a simple **"Writing" article template** in the new header, footer and type. The banner reads "From the Web on Devices archive", with links back to Projects and the book.
-5. Old `/tags/*` and `/categories/*` pages get 301s to `/writing/?tag=…` (via `_redirects` on Cloudflare) or simple redirect stubs (on GitHub Pages).
+5. Old `/tags/*` and `/categories/*` pages get 301s to `/writing/?tag=…` via `_redirects`.
 6. Keep a `/rss.xml` for the writing archive so existing subscribers don't break.
 7. The book (`HomeBookCard`) moves to a `/book/` page and gets a footer link.
 8. Disqus comments are dropped. Old post pages get canonical URLs and an updated `sitemap.xml`.
@@ -113,7 +128,7 @@ The Gatsby app is replaced in place on this branch. `docs/` (old build output) i
 ```
 reference/            brief, images, this plan
 content/              projects/, disciplines/, writing/
-public/               fonts (if any), posts/, download/, og images, CNAME (if GitHub Pages)
+public/               fonts (if any), posts/, download/, og images, _redirects
 src/
   app/                routes (above)
   components/         Header, Footer, Hero, GradientField, SectionHeading, Eyebrow,
@@ -121,6 +136,7 @@ src/
                       ProjectFilters, ProjectMeta, CTASection, WodMark, WodLockup, mdx/*
   lib/                content loading + zod schemas, seo helpers
   styles/             tokens.css, globals.css
+worker/               Cloudflare Worker: static assets + /api/contact (Turnstile check, send_email)
 scripts/              image pipeline, url-parity check
 tests/                Playwright smoke + axe
 ```
@@ -148,10 +164,10 @@ tests/                Playwright smoke + axe
 - *Done when:* the parity test passes for all 26 posts and spot-checked posts render cleanly in the new style.
 
 **Phase 5: About, Contact, polish**
-- About and Contact pages (the contact workflow is an open decision), reveal and hover motion with reduced-motion support, OG images and metadata.
+- About page, and the Contact page with its form, Turnstile and the `/api/contact` Worker (see Contact in section 1), reveal and hover motion with reduced-motion support, OG images and metadata.
 
 **Phase 6: Launch**
-- Host setup, preview deploy, DNS switch, a 404 page, Search Console resubmission of the sitemap.
+- Cloudflare Worker setup, preview deploy, DNS move to Cloudflare (MX records first), Email Routing and Turnstile keys, a 404 page, Search Console resubmission of the sitemap.
 
 Real project content and photography (the brief's Phase 3) are owned by you and can run in parallel from Phase 3 onward. The site ships with as many real projects as are ready.
 
@@ -159,10 +175,11 @@ Real project content and photography (the brief's Phase 3) are owned by you and 
 
 ## 8. Open decisions
 
-1. **Hosting:** Cloudflare Pages (free, recommended), GitHub Pages, or Vercel Pro.
-2. **Contact workflow:** a `mailto:` link plus a short form through a form service (Formspree and similar have free tiers), or a Cloudflare Pages Function that sends email. Which address should it use?
-3. **Analytics:** none, privacy-friendly (Plausible or Cloudflare Web Analytics, which is free), or GA4.
-4. **Logo source:** an original SVG, or approval of a trace from the sheet.
-5. **Imagery:** the mock's photos are AI renders. Use your real photos where they exist, and gradient-only placeholders elsewhere until real images arrive? (The brief prefers authentic imagery.)
-6. **Homepage headline:** the mock's "Software, hardware and intelligence working together." is one of the brief's working options. Use it for now?
-7. **Launch projects:** which 3–6 real projects go first?
+Hosting and the contact workflow are settled (section 1).
+
+1. **Contact address:** which email address should enquiries go to?
+2. **Analytics:** none, privacy-friendly (Plausible or Cloudflare Web Analytics, which is free), or GA4.
+3. **Logo source:** an original SVG, or approval of a trace from the sheet.
+4. **Imagery:** the mock's photos are AI renders. Use your real photos where they exist, and gradient-only placeholders elsewhere until real images arrive? (The brief prefers authentic imagery.)
+5. **Homepage headline:** the mock's "Software, hardware and intelligence working together." is one of the brief's working options. Use it for now?
+6. **Launch projects:** which 3–6 real projects go first?
