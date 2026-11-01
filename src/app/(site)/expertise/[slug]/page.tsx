@@ -4,6 +4,7 @@ import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
 import { CtaBand } from "@/components/CtaBand/CtaBand";
 import { GradientArt } from "@/components/GradientArt/GradientArt";
+import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
 import {
   disciplineHref,
@@ -172,7 +173,7 @@ export default async function DisciplinePage({ params }: Props) {
                 eyebrow={p.tags.join(" · ")}
                 title={p.title}
                 description={p.summary}
-                media={<GradientArt name={p.art} />}
+                media={<ProjectMedia project={p} />}
                 href={projectHref(p.slug)}
               />
             ))}

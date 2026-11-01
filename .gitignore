@@ -8,3 +8,6 @@ next-env.d.ts
 .env*.local
 .vercel
 .wrangler
+
+# Content planning workspace (source material, transcripts, drafts) — not committed
+/content-plan/

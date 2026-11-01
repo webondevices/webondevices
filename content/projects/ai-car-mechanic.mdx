@@ -1,0 +1,57 @@
+---
+title: "AI car mechanic: expert diagnosis from a £20 scanner"
+summary: "A chat assistant that reads OBD fault codes, searches a technical knowledge base by meaning, and explains car problems in plain English."
+discipline: ai-automation
+disciplines: [ai-automation, hardware-electronics]
+tags: [RAG, Embeddings, OBD-II, Diagnostics, GPT-3]
+type: prototype
+status: completed
+year: "2023"
+hero:
+  image: /media/ai-car-mechanic/hero.jpeg
+  alt: "The AI car mechanic chat assistant"
+links:
+  - { label: "Watch the demo on YouTube", href: "https://www.youtube.com/watch?v=OHogHpY-t8c" }
+  - { label: "Full write-up on Medium", href: "https://matemarschalko.medium.com/ai-car-mechanic-diagnose-car-issues-with-new-chat-assistant-obd-codes-javascript-chatgpt-d69b77405c39" }
+related: [ai-drive-thru, ai-home-voice-assistant, esp8266-web-server-ai]
+---
+
+A friend's YouTube video showed how to disable the rev limiter. Now the car sounds like a racing car, and there's a P0219 code on the dash. Has the engine been damaged?
+
+Our AI mechanic explained the over-speed condition, politely pushed back when told the friend "knows loads about cars," and suggested a new exhaust as a safer way to get the sound. That's the kind of answer you'd want from a good mechanic.
+
+<Video youtube="OHogHpY-t8c" title="Diagnose car issues with an AI chat assistant" />
+
+## The idea
+
+When a mechanic plugs a laptop into your car, they're reading fault codes from the OBD port. You can do the same with a £20 to £30 Bluetooth scanner and your phone. The missing piece is someone to explain what the code means for *your* car, and what to do next.
+
+We built that someone in under two days.
+
+![An OBD scanner reads fault codes straight to your phone](/media/ai-car-mechanic/obd-scanner.png)
+
+## How it works
+
+**A real knowledge base.** We collected a large dataset of OBD fault codes, each with a detailed technical explanation, likely causes and fixes.
+
+**Two ways in.** Start with a code and the app does a direct lookup. Start with a description ("I'm unable to cool my car") and it uses embeddings to search by *meaning*. It finds the air-con entries even though the word "cool" appears nowhere in them.
+
+**A carefully layered prompt.** Every request combines four parts: who the assistant is (MEC, a professional mechanic who explains things simply), the technical context it found, the conversation so far, and the latest question. It's told to use the technical data without reciting it, give a plain-English summary and practical next steps, and stay friendly when the chat wanders off-topic.
+
+It copes with vague descriptions, several issues at once, follow-ups, and the odd question about cleaning spilt coffee off the seats.
+
+## The bigger picture
+
+This is retrieval-augmented generation (RAG) with a hardware data source, and the shape transfers to almost any industry with fault codes and frustrated users:
+
+- **Appliance and boiler manufacturers**: error codes explained to homeowners, with the right part identified before an engineer visits
+- **Industrial equipment**: machine alarms translated into a fix for the operator on the floor
+- **Fleet operators**: telematics data triaged before a vehicle goes off the road
+- **Support teams**: first-line diagnosis that hands a complete summary to a human
+
+We build these end to end: data collection and cleaning, semantic search, prompt design, the chat interface and, where needed, the hardware that reads the data. [Tell us about your diagnostics problem](/contact/).
+
+## More on this project
+
+- [The demo on YouTube](https://www.youtube.com/watch?v=OHogHpY-t8c)
+- [The full write-up on Medium](https://matemarschalko.medium.com/ai-car-mechanic-diagnose-car-issues-with-new-chat-assistant-obd-codes-javascript-chatgpt-d69b77405c39)

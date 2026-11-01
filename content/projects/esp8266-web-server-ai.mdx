@@ -1,0 +1,76 @@
+---
+title: "A $2 web server that can think"
+summary: "An ESP8266 chip running a web server on a 9V battery. Back then it switched a light. Today it can ask a language model what to do next."
+discipline: hardware-electronics
+disciplines: [hardware-electronics, ai-automation]
+tags: [ESP8266, IoT, Edge AI, Wi-Fi, LLM]
+type: experiment
+status: completed
+year: "2015"
+hero:
+  image: /posts/hero.jpg
+  alt: "A NodeMCU ESP8266 board powered by a 9V battery"
+links:
+  - { label: "Original build guide (2015)", href: "/9v-battery-powered-2-web-server-with-arduino/" }
+  - { label: "The IKEA social notification desk lamp", href: "/ikea-social-notification-desk-lamp/" }
+related: [solar-energy-shield, react-iot, ai-home-voice-assistant]
+---
+
+The chip costs a few cents. The board around it costs about $2. It has Wi-Fi, a 32-bit processor running at 80 MHz, and enough memory to serve web pages. Five times the clock speed of an Arduino UNO, in a module smaller than a postage stamp.
+
+That's the ESP8266, and it changed how we think about "smart" devices.
+
+![The tiny ESP8266 module that started it](/posts/IMG_20151105_134336.jpg)
+
+## A web server in your pocket
+
+Back in 2015 we wired a NodeMCU board to a 9V battery and an LED, and loaded a small sketch. The board joined the Wi-Fi network, started an HTTP server, and served a page with two buttons. Tap **On** from any phone on the network and the light came on.
+
+No hub. No cloud. No app store.
+
+![The page served straight from the chip](/posts/esp-html.jpg)
+
+Nice demo. But the important part was the idea underneath: **any physical object can have its own server.** A lamp, a fridge, a door, a plant pot. Each one can expose a little API, and each one can talk to the internet.
+
+We used the same trick for a desk lamp that lights up when you get a notification.
+
+![The IKEA social notification desk lamp](/posts/desklamp.gif)
+
+## Then the internet got a brain
+
+If a device can call an API, it can call a language model.
+
+That flips the design. Instead of hard-coding every rule (`if temperature > 24, open vent`), the device describes what it sees and asks for a decision. A small, fast, cheap model is perfect here. It doesn't need to write poetry. It needs to read a handful of numbers, understand context, and reply with a clear action in JSON.
+
+The pattern is simple:
+
+1. **Sense.** The chip reads its sensors.
+2. **Describe.** It sends a short, structured summary to the model, along with the time, the season, maybe a forecast.
+3. **Decide.** The model returns an action and a reason.
+4. **Act.** The chip flips a relay, moves a motor, sends an alert.
+
+Rules break the moment the world does something you didn't plan for. A model can reason about the odd case.
+
+## A few things we'd love to build
+
+**A greenhouse that reads the weather.** Soil moisture is low, but rain is forecast in two hours. A rule waters anyway. The model waits, saves water, and tells you why.
+
+**A shop fridge that notices patterns.** Door-open counts, temperature drift, time of day. It spots that the door keeps getting left ajar after the lunchtime rush and flags it before stock spoils.
+
+**A care sensor that knows a normal morning.** Kettle on, bathroom light, front door. When the routine shifts in a way that matters, a relative gets a calm, specific message. Ordinary variation doesn't set off an alarm.
+
+**A vending or coffee machine that diagnoses itself.** It reads its own error states, works out the likely cause, and books the right engineer with the right part.
+
+Each one runs on hardware costing a few pounds, with a model call costing a fraction of a penny.
+
+## What we bring
+
+This sits right where our disciplines overlap: electronics, embedded firmware, cloud APIs and AI. We can prototype the device, design custom boards when off-the-shelf won't do, and build the decision layer and the dashboard that sits on top.
+
+Got an object that should be smarter? [Tell us about it](/contact/).
+
+## More on this project
+
+- [The original 2015 build guide, with code](/9v-battery-powered-2-web-server-with-arduino/)
+- [The IKEA social notification desk lamp](/ikea-social-notification-desk-lamp/)
+- [Standardising IoT projects with React](/projects/react-iot/)

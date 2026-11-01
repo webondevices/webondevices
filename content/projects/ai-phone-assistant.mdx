@@ -1,0 +1,63 @@
+---
+title: "Alex: an AI assistant that answers the phone"
+summary: "A voice agent that took recruiter calls, pitched skills, qualified roles, politely shut down sales calls and saw straight through scams."
+discipline: ai-automation
+disciplines: [ai-automation]
+tags: [Voice AI, Telephony, Conversational AI, GPT, Call Handling]
+type: experiment
+status: completed
+year: "2023"
+hero:
+  image: /media/ai-phone-assistant/thumbnail.jpg
+  alt: "Alex, the AI phone assistant, handling a recruiter call"
+links:
+  - { label: "Watch the demo on YouTube", href: "https://www.youtube.com/watch?v=XMXECC6_JG0" }
+related: [ai-recruitment-screening, ai-home-voice-assistant, samantha-fine-tuning]
+---
+
+The phone rings. A recruiter has a React contract with a smart home startup: fully remote, two days a month in London, starting immediately. Can Mate do it?
+
+Alex can't write React. Alex can, however, explain that Mate has over a decade of senior JavaScript experience, has built design systems and component libraries, and happens to love home automation and electronics. Then Alex asks about the rate, and when Mate's free to talk.
+
+Alex is an AI.
+
+<Video youtube="XMXECC6_JG0" title="My AI assistant takes phone calls and negotiates jobs" />
+
+## The problem
+
+Job hunting as a contractor means a flood of calls and emails: some relevant, many not, all arriving in the middle of focused work. Miss the right one and you miss the contract.
+
+So we built an assistant to take the calls.
+
+## What Alex handled
+
+**Recruiters with real roles.** It answered questions about skills and experience in detail, matched them to the job, checked location and working arrangements against preferences ("one visit a week, about an hour away, could work"), and steered towards next steps and a call-back slot.
+
+**Mismatched roles.** A recruiter looking for a Scrum Master got a friendly "not a fit, but here's what Mate does do, keep us in mind."
+
+**Sales calls.** A mobile network trying to sell an upgrade got politely redirected. Twice.
+
+**Scams.** A "Nigerian prince" offering a role building an app to move large sums of money internationally was declined. So was a job generating fake Amazon reviews. Professionally, every time.
+
+Honestly, Alex was a better salesperson than the person it was representing.
+
+## How it works
+
+Speech-to-text turns the caller's words into text. A language model, given a detailed brief on skills, experience, preferences, availability and boundaries, decides what to say. Text-to-speech says it. The trick is in the brief and the guardrails: what to share, what to keep private, what to commit to, and when to hand over to a human.
+
+## Building this for a business
+
+Voice agents have come a long way since this demo. Latency is lower, voices are natural, and models handle interruptions gracefully. Today we'd also build in things a commercial deployment needs:
+
+- **Clear disclosure.** Callers are told up front they're speaking to an AI assistant.
+- **Hand-off rules.** Urgent, sensitive or high-value calls go straight to a person.
+- **Integrations.** Calendars for booking, CRMs for logging, and summaries emailed after every call.
+- **Boundaries.** What the agent can promise, quote or reveal, enforced in code as well as in the prompt.
+
+It fits anywhere the phone rings more than people can answer it: trades and home services, clinics, estate agents, recruitment, after-hours support. [Tell us about your calls](/contact/).
+
+## More on this project
+
+- [The demo on YouTube](https://www.youtube.com/watch?v=XMXECC6_JG0)
+- [AI pre-screening for recruitment](/projects/ai-recruitment-screening/)
+- [The smartest home assistant we could build](/projects/ai-home-voice-assistant/)

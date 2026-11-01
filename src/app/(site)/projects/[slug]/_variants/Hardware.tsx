@@ -1,6 +1,6 @@
 import { Fragment } from "react";
-import { GradientArt } from "@/components/GradientArt/GradientArt";
 import { Icon } from "@/components/Icon/Icon";
+import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
 import type { HardwareDetails, Project } from "@/content/projects";
 import { HeroText } from "./HeroText";
@@ -21,7 +21,7 @@ export function HardwareHero({ project }: { project: HardwareProject }) {
         <HeroText project={project} />
         <figure className={styles.blueprint} aria-hidden>
           <div className={styles.device}>
-            <GradientArt name={project.art} />
+            <ProjectMedia project={project} />
           </div>
           {callouts.map((spec, index) => (
             <span key={spec.label} className={styles.callout} data-index={index}>

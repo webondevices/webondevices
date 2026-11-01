@@ -1,0 +1,56 @@
+---
+title: "An AI dev team that works from Jira tickets"
+summary: "Four AI agents and one orchestrator take a ticket from triage to code, QA, pull request and review, in a couple of minutes."
+discipline: ai-automation
+disciplines: [ai-automation, software-engineering]
+tags: [AI Agents, Jira, GitHub Actions, Developer Tools, Automation]
+type: prototype
+status: completed
+year: "2025"
+featured: true
+hero:
+  image: /media/ai-agent-dev-team/thumbnail.jpg
+  alt: "Jira and the AI agent orchestrator side by side"
+links:
+  - { label: "Watch the demo on YouTube", href: "https://www.youtube.com/watch?v=EO2ykR9xN4I" }
+related: [research-agent, llm-driven-apps, mentalese-brain]
+---
+
+A ticket lands in Jira: "Create a simple circle class." The description is deliberately thin. Two minutes later there's a reviewed, approved pull request waiting for a human to merge.
+
+Nobody on the team touched it.
+
+<Video youtube="EO2ykR9xN4I" title="I built an AI agent dev team and they work without me" />
+
+## The team
+
+One orchestrator app listens to Jira and GitHub. Behind it sit four agents, each with a narrow job and only the permissions it needs.
+
+**Triage agent.** Reads the ticket *and* the codebase. When requirements are missing, it doesn't guess. It comments asking for clarification, then re-checks when someone replies. Only a complete ticket moves to Ready.
+
+**Developer agent.** Creates a branch, writes the implementation, follows the project's coding standards, sets up TypeScript config, installs what's missing and commits. Then it hands over by moving the ticket to Ready for QA.
+
+**QA agent.** Read-only by design. It runs the tests, checks types, compares the code against the ticket, and posts a detailed report in Jira. Failures go back to the developer agent. Passes get pushed to GitHub.
+
+**Tech lead agent.** A GitHub Action opens a pull request for any branch with the AI prefix, and the tech lead reviews it against the ticket and the team's standards. In the demo we planted a bug: a screen density tool that should return `low`, `medium` or `high` returned a boolean instead. The tech lead caught it, tagged the AI user on the PR, the developer agent fixed it on the same branch, and the tech lead approved the new commit.
+
+## Why it's built this way
+
+Any model can write a circle class. The clever bit is the process wrapped around it.
+
+- **Separation of duties.** A tester that can't edit code can't quietly "fix" its own findings.
+- **Your existing tools.** Everything happens in Jira, Git and GitHub, where your team already works, with a full audit trail.
+- **Humans stay in charge.** The final merge is a person's call, and the agents ask when they're unsure.
+- **Standards as input.** Coding conventions aren't a suggestion. Agents are checked against them at two separate stages.
+
+## What this could mean for your team
+
+Bug backlogs, small features, dependency upgrades and test coverage: the steady stream of well-defined work that eats senior developers' time. An agent workflow like this can take the first pass at all of it, while your people review and steer.
+
+We design agent systems around real team processes, with sensible guardrails, permissions and costs. If you'd like to see what a setup like this would look like on your codebase, [let's talk](/contact/).
+
+## More on this project
+
+- [The demo on YouTube](https://www.youtube.com/watch?v=EO2ykR9xN4I)
+- [The research agent: an autonomous idea scout](/projects/research-agent/)
+- [LLM Wizard: apps whose logic is written in plain English](/projects/llm-driven-apps/)

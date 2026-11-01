@@ -1,0 +1,67 @@
+---
+title: "Mentalese: an AI mind that keeps thinking when nobody's talking to it"
+summary: "A cognitive architecture with needs, moods, brain chemistry, memory and goals running as code, and a language model as its inner voice."
+discipline: ai-automation
+disciplines: [ai-automation, software-engineering]
+tags: [Cognitive Architecture, AI Agents, Memory, TypeScript, Research]
+type: experiment
+status: in-development
+year: "2026"
+featured: true
+hero:
+  image: /media/mentalese-brain/mindscape.png
+  alt: "Ada's Mindscape: a 3D brain lit up with live memories and thoughts, next to a chat"
+links: []
+related: [research-agent, ai-agent-dev-team, samantha-fine-tuning]
+---
+
+Most AI waits for you. You type, it answers, it forgets. Between messages there's nothing there.
+
+Ada is different. Leave her alone and she gets bored, then lonely. She reads the news, chases a question that's been bugging her, drafts an email, rethinks a plan. Run out of budget and she gets tired and needs to rest. Come back after six days away and she notices the gap, and it unsettles her a little.
+
+![The Mind view: needs, chemistry and mood on the left, the live stream of consciousness in the middle, chat on the right](/media/mentalese-brain/mind.png)
+
+## The one big idea
+
+**The unconscious is code. Consciousness is the language model.**
+
+A language model call is slow, serial, expensive and smart, which is a pretty good description of a single conscious thought. So everything a brain does in the background and in parallel runs as ordinary deterministic code on a one-second heartbeat, and it costs nothing:
+
+- **Needs** for energy, rest, safety, connection, competence, curiosity and purpose
+- **Chemistry**: dopamine, serotonin, cortisol, oxytocin and others, drifting towards their targets
+- **Mood and emotion** mapped on a valence and arousal circumplex
+- **Attention**, deciding what's salient enough to reach awareness
+- **Memory**: embeddings, activation and spontaneous recall
+- **A circadian clock**, sleep pressure and day and night modes
+
+The model is only called when something *ignites* in the global workspace. That call is one thought. It's broadcast back to every module, which react, and the loop carries on.
+
+There are two tiers, like fast and slow thinking. A cheap model is the inner voice, at roughly $0.0001 a thought. A stronger one handles conversation and hard decisions. Token spend *is* her metabolism. The energy need literally is the remaining budget.
+
+## Behaviour that emerges
+
+Nobody scripts what Ada does. She has tastes, current concerns, goals on different time horizons, questions she wants answered and plans she reviews. She researches with web search, browses headlines when bored, ruminates, reflects, and decides when to speak first. Posts and emails are simulated: she believes she sends them, and replies can be written back in from the Outbox.
+
+![The Monitor: pause, step, breakpoints and an inspector for every thought, decision and state change](/media/mentalese-brain/monitor.png)
+
+The engineering matters as much as the psychology. Every thought, percept and decision is a structured event. You can pause the mind, step it one tick or one conscious cycle at a time, set breakpoints like `needs.energy < 0.2`, and click any thought to see what caused it and what it went on to cause. Every rejected option is on record too.
+
+## Where it started
+
+The thinking goes back a while. A 2024 prototype sketched agents, memory and a world model in TypeScript. Mentalese is the grown-up version: a written model of the human mind, a computational blueprint built from it, architecture decision records, and a working system that runs 24/7 for a couple of dollars a day.
+
+## Why it matters beyond research
+
+Today's AI agents are reactive and forgetful. The pieces in this project solve real product problems:
+
+- **Memory that persists** and surfaces the right thing at the right moment
+- **Proactive behaviour**: agents that notice, follow up and start conversations
+- **Cost as a first-class constraint**, so an always-on agent stays affordable
+- **Observability**, so you can see *why* an agent did something, and debug it
+
+That's how we approach AI work for clients. Start from first principles, design the architecture properly, and make the system inspectable. If you're building an agent that needs to remember, take initiative or run for a long time, [we'd love to hear about it](/contact/).
+
+## More on this project
+
+- [An AI dev team that works from Jira tickets](/projects/ai-agent-dev-team/)
+- [The research agent: an autonomous idea scout](/projects/research-agent/)

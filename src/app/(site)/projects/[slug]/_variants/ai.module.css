@@ -28,6 +28,15 @@
   padding-block: var(--space-9);
 }
 
+.cover {
+  max-width: 960px;
+  margin: var(--space-8) auto 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 0 1px var(--color-border);
+}
+
 .heroContent h1 {
   max-width: 18ch;
 }

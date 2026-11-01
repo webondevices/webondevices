@@ -3,6 +3,7 @@ import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
 import { ContactForm } from "@/components/ContactForm/ContactForm";
 import { GradientArt } from "@/components/GradientArt/GradientArt";
+import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Tone, Typography } from "@/components/Typography/Typography";
 import { disciplineHref, disciplines, getDiscipline } from "@/content/disciplines";
 import { founderFacts, founderHighlights, testimonials } from "@/content/home";
@@ -91,7 +92,7 @@ export default function HomePage() {
               key={p.slug}
               eyebrow={getDiscipline(p.discipline).title}
               title={p.title}
-              media={<GradientArt name={p.art} />}
+              media={<ProjectMedia project={p} />}
               href={projectHref(p.slug)}
             />
           ))}

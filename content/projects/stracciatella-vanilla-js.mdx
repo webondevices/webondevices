@@ -1,0 +1,72 @@
+---
+title: "Stracciatella: a modern web app architecture with no framework"
+summary: "Components, theming, inheritance and a Redux-style store in plain JavaScript. Proven in production on a luxury travel website."
+discipline: software-engineering
+disciplines: [software-engineering]
+tags: [Vanilla JS, Architecture, Performance, CSS, Design Systems]
+type: product
+status: live
+year: "2022"
+featured: true
+hero:
+  image: /media/stracciatella-vanilla-js/hero.jpeg
+  alt: "A bowl of stracciatella ice cream: vanilla with a twist"
+links:
+  - { label: "Boilerplate on GitHub", href: "https://github.com/webondevices/stracciatella" }
+  - { label: "Full write-up on Medium", href: "https://javascript.plainenglish.io/building-a-modern-web-app-without-frameworks-classes-components-inheritance-1bfd314fc582" }
+related: [react-iot, books-and-publications, llm-driven-apps]
+---
+
+React is brilliant. We've used it on commercial projects for the best part of a decade. But for plenty of websites it's a lot of machinery for a job that doesn't need it.
+
+So we asked a blunt question. Can you get everything good about a modern framework (components, state, theming, a clean file structure) with plain JavaScript and nothing else?
+
+Yes. We called it **Stracciatella**, because it's vanilla with a twist.
+
+## Proven where it counts
+
+This isn't a weekend toy. We used the same architecture to rebuild the website of a UK luxury travel agency. It went live and ran in production for over a year with no issues at all.
+
+What you get when you start this way:
+
+- A 100% Lighthouse performance score out of the gate
+- No code you didn't write or don't need
+- A codebase any JavaScript developer can understand completely
+- Bugs that are easy to find, because there's nowhere for them to hide
+
+![The example app: a hero, a modal and a light/dark theme switch](/media/stracciatella-vanilla-js/app.png)
+
+## How it fits together
+
+**HTML components.** Browsers can't import one HTML file into another, so a small Webpack plugin fills the gap. Components live in their own folders with their own markup and styles, and pages compose them with `<include>` tags, passing in values like props. A build step flattens it all into plain static HTML.
+
+**Two-layer theming.** Brand values (`$str-green`, `$str-cream`) live in SCSS. Design roles (`--primary`, `--accent`, `--background`) are CSS custom properties built from them. Swap a theme by swapping roles, never by editing components. Dark mode is one class on the body.
+
+**Clear component types.** Static styles, static components with no JavaScript, and full components backed by a class. Strict naming tells you instantly whether a style belongs to a component, a page or the whole site.
+
+**Classes and inheritance.** A `Button` class wires up behaviour. A `ThemeToggle` extends it, inheriting the logic and the markup, then adds its own.
+
+```js
+class ThemeToggle extends Button {
+  constructor(el, onClick) {
+    super(el, onClick);
+    store.subscribeValue("brightnessTheme", (theme) => this.update(theme));
+  }
+}
+```
+
+**A tiny store.** Actions, a reducer and a store class with `getState`, `dispatch` and `subscribeValue`. About thirty lines, Redux-style, with listeners that fire only when the value they care about actually changes.
+
+![The theme toggle, built by extending the button component](/media/stracciatella-vanilla-js/toggle.png)
+
+## When we'd recommend it
+
+Marketing sites, brochure sites, campaign pages and small web apps, anywhere speed, SEO and longevity matter more than heavy client-side interactivity. When a project genuinely needs a framework, we'll use one. The skill is knowing which is which.
+
+That judgement is a big part of what we sell. If you're about to start a build, or your current site feels slow and over-engineered, [let's have a look together](/contact/).
+
+## More on this project
+
+- [The Stracciatella boilerplate on GitHub](https://github.com/webondevices/stracciatella)
+- [The full technical write-up on Medium](https://javascript.plainenglish.io/building-a-modern-web-app-without-frameworks-classes-components-inheritance-1bfd314fc582)
+- [Our book: All you need is HTML and CSS](/projects/books-and-publications/)

@@ -1,0 +1,86 @@
+---
+title: "LLM Wizard: apps whose logic is written in plain English"
+summary: "An experiment in handing an app's business logic, UI generation and orchestration to a language model. It worked better than it had any right to."
+discipline: ai-automation
+disciplines: [ai-automation, software-engineering]
+tags: [LLM, React, Function Calling, Generative UI, GPT-4o]
+type: experiment
+status: completed
+year: "2025"
+hero:
+  image: /media/llm-driven-apps/hero.jpeg
+  alt: "A React developer handing app orchestration over to an LLM"
+links:
+  - { label: "Source code on GitHub", href: "https://github.com/webondevices/llm-wizard" }
+  - { label: "Full write-up on Medium", href: "https://matemarschalko.medium.com/i-replaced-my-apps-core-javascript-logic-with-ai-is-this-the-future-d71d3ee4ed72" }
+related: [genetic-ui, ai-home-voice-assistant, stracciatella-vanilla-js]
+---
+
+Language models can call functions and return clean JSON. So we asked the obvious, slightly reckless question: could you outsource an app's entire business logic to one?
+
+We built it in three levels to find out.
+
+## Level 1: replace functions with a sentence
+
+Take a classic utility, like spotting outliers in a list of transactions. The traditional version calculates a mean, a standard deviation and a threshold. The LLM version is one line:
+
+```js
+const anomalies = await askLLM(
+  `Find any anomalies in these transactions: ${JSON.stringify(transactions)}`
+);
+```
+
+GPT-4o finds the $5,000 outlier just the same. And with no fixed formula, it can flag a much broader range of oddities than the maths was written for. Same story for de-duplicating customer records where "123 Baker Street" and "123 Baker St." refer to the same place.
+
+Consistency is solvable. Give the model a TypeScript return type, force JSON output and turn the temperature down.
+
+## Level 2: describe a UI, get a UI
+
+`<LLMRenderer />` takes a plain-English description plus your data and state, and renders a working interface.
+
+```jsx
+<LLMRenderer
+  instructions="Build a UI displaying the user's name and phone number, adding a funny remark about them. Include a button that opens a modal where the user can input their phone number."
+  data={{ userName: "Tom Jones" }}
+  stateControllers={{ showModal, setShowModal, phoneNumber, setPhoneNumber }}
+/>
+```
+
+The model returns a JSON tree of Ant Design components, with event handlers and state bindings wired in, and a recursive renderer turns it into React. There's a Tailwind flavour too, `<LLMTailwind />`, because why not.
+
+![A UI generated from a one-sentence description](/media/llm-driven-apps/renderer.png)
+
+## Level 3: let the model run the app
+
+Here's where it gets strange. We built a todo app with **no application logic at all**.
+
+You give a `useLLMOrchestrator` hook the app's goals, its current state and the actions it's allowed to take. Then the UI just narrates what happened:
+
+```js
+handleInput(`user wants to create a new task called ${newTodo}`);
+handleInput(`user clicked to toggle todo with id ${todo.id}`);
+```
+
+The model decides what to do. Click "Add Todo" and it opens the modal and clears the input. Submit and it saves the task, resets the field and closes the modal. Nobody wrote those steps.
+
+![The modal opened by the model, not by code](/media/llm-driven-apps/todo-modal.png)
+
+![A new task saved, field cleared and modal closed, all by the model](/media/llm-driven-apps/todo-done.png)
+
+With GPT-4o-mini the whole round trip took under a second in our tests. Models are getting faster and cheaper every few months.
+
+## Should you build apps like this?
+
+Not wholesale, not yet. But pieces of it are ready today, and they're powerful:
+
+- Fuzzy logic that's painful to code, like matching, classification, anomaly spotting and triage
+- Interfaces that adapt to each user or task
+- Natural-language control over an existing product, layered on top of the actions it already has
+
+Knowing where an LLM earns its keep and where plain code is still the right answer is the hard part. That's exactly the kind of call we help teams make, then build. [Let's talk about yours](/contact/).
+
+## More on this project
+
+- [Source code on GitHub](https://github.com/webondevices/llm-wizard)
+- [The full write-up on Medium](https://matemarschalko.medium.com/i-replaced-my-apps-core-javascript-logic-with-ai-is-this-the-future-d71d3ee4ed72)
+- [Genetic UI: interfaces that evolve](/projects/genetic-ui/)

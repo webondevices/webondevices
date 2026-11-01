@@ -1,11 +1,14 @@
+import fs from "node:fs";
+import path from "node:path";
+import matter from "gray-matter";
+import { z } from "zod";
 import type { GradientArtName } from "@/components/GradientArt/GradientArt";
-import { disciplineSlugs, type DisciplineSlug } from "./disciplines";
+import { disciplineSlugs, getDiscipline, type DisciplineSlug } from "./disciplines";
 
 /*
  * Every project belongs to exactly one discipline, which decides how its page
  * is laid out: each discipline has its own hero and signature section, fed by
- * that discipline's `details`. Most of these are the brief's example projects,
- * standing in until the real case studies are written.
+ * that discipline's optional `details`. The case study itself is the MDX body.
  */
 
 export type ProjectType = "client" | "internal" | "product" | "prototype" | "experiment";
@@ -49,6 +52,8 @@ type ProjectBase = {
   slug: string;
   title: string;
   summary: string;
+  /** Every discipline the project touches. Only `discipline` decides the layout. */
+  disciplines?: DisciplineSlug[];
   tags: string[];
   art: GradientArtName;
   type: ProjectType;
@@ -56,17 +61,18 @@ type ProjectBase = {
   year?: string;
   client?: string;
   role?: string;
+  /** The lead image, used on cards and on the project page. */
+  hero?: { image: string; alt: string };
   /** Shown in the homepage's featured row. */
   featured?: boolean;
-  /** The case study. Without it, the page shows the summary only. */
-  overview?: string;
-  challenge?: string;
-  solution?: string;
-  outcome?: string;
+  /** Sorts projects within a discipline. Lower comes first, then newest first. */
+  order?: number;
   results?: Figure[];
-  /** Stand-ins for photography and video until real media arrives. */
-  gallery?: { art: GradientArtName; caption: string }[];
-  links?: { label: string; href: string }[];
+  links: { label: string; href: string }[];
+  /** Slugs of projects to suggest at the end of the page. */
+  related: string[];
+  /** The case study, as MDX. */
+  body: string;
 };
 
 /* A project, with `details` typed by its discipline. */
@@ -89,221 +95,102 @@ export const projectStatusLabels: Record<ProjectStatus, string> = {
   live: "Live",
 };
 
-export const projects: Project[] = [
-  {
-    slug: "interactive-property-showcase",
-    title: "Interactive property showcase",
-    discipline: "spatial-experiences",
-    summary: "A Gaussian-splat walkthrough of a country house, explorable in the browser.",
-    tags: ["Gaussian Splatting", "WebGL"],
-    art: "spatial",
-    featured: true,
-    type: "prototype",
-    status: "in-development",
-    overview:
-      "A country house and its grounds, captured from the air and on foot, then rebuilt as a photorealistic scene that anyone can walk through in a browser, with no app or headset needed.",
-    challenge:
-      "Photos and floor plans don't give buyers a feel for a large property. Traditional 3D tours look synthetic and struggle with gardens, glass and fine detail.",
-    solution:
-      "Drone and ground capture reconstructed with Gaussian splatting, which keeps real lighting and texture. The scene is optimised to stream on the web, with guided stops and free exploration.",
-    outcome:
-      "A walkthrough that feels like being there, ready to embed in a listing page or share as a link.",
-    details: {
-      capture: [
-        { value: "Drone + ground", label: "Capture" },
-        { value: "Gaussian splats", label: "Reconstruction" },
-        { value: "Browser", label: "Runs in" },
-        { value: "Inside + out", label: "Coverage" },
-      ],
-      pipeline: [
-        { title: "Capture", text: "Aerial passes for the grounds, then room-by-room capture on foot." },
-        { title: "Reconstruct", text: "Train Gaussian splats, then clean up floaters and stray points." },
-        { title: "Optimise", text: "Compress and split the scene so it streams quickly on any device." },
-        { title: "Present", text: "Add guided stops, hotspots and a simple floor-plan navigator." },
-      ],
-    },
-    gallery: [
-      { art: "spatial", caption: "Aerial capture of the house and grounds" },
-      { art: "horizon", caption: "Reconstructed scene in the browser" },
-    ],
-  },
-  {
-    slug: "3d-product-viewer",
-    title: "3D product viewer",
-    discipline: "spatial-experiences",
-    summary: "A configurable 3D product presentation for an online shop.",
-    tags: ["Commerce", "Three.js"],
-    art: "horizon",
-    type: "client",
-    status: "concept",
-  },
-  {
-    slug: "farm-monitor",
-    title: "AI-enabled farm monitor",
-    discipline: "hardware-electronics",
-    summary: "Solar-powered sensors and cameras that watch crops and livestock remotely.",
-    tags: ["Sensors", "AI", "IoT"],
-    art: "hardware",
-    featured: true,
-    type: "prototype",
-    status: "in-development",
-    overview:
-      "Self-contained monitoring stations that sit in a field for months, measuring conditions and spotting problems with on-device computer vision, then reporting back over long-range radio.",
-    challenge:
-      "Remote fields have no mains power and patchy mobile signal, and checking them in person takes hours a week.",
-    solution:
-      "Low-power boards with solar charging, environmental sensors and a camera running a small vision model at the edge. Only results and alerts are sent, so the battery lasts.",
-    outcome:
-      "Conditions and alerts on a phone, without driving out to check.",
-    details: {
-      specs: [
-        { label: "Controller", value: "ESP32 + edge AI module" },
-        { label: "Power", value: "Solar, LiPo battery" },
-        { label: "Sensors", value: "Soil moisture, temperature, humidity, light" },
-        { label: "Vision", value: "Camera with on-device detection" },
-        { label: "Connectivity", value: "LoRa to a farm gateway" },
-        { label: "Enclosure", value: "3D-printed, weatherproofed" },
-      ],
-      system: [
-        { title: "Sense", text: "Sensors and camera sample on a schedule, then sleep." },
-        { title: "Decide", text: "The device runs detection locally and keeps only what matters." },
-        { title: "Send", text: "Readings and alerts travel over LoRa to a gateway on the farm." },
-        { title: "Act", text: "A dashboard shows trends and sends alerts to a phone." },
-      ],
-    },
-    gallery: [
-      { art: "hardware", caption: "Monitoring station in the field" },
-      { art: "dusk", caption: "Bench prototype and enclosure" },
-    ],
-  },
-  {
-    slug: "digital-pos-installation",
-    title: "Digital POS installation",
-    discipline: "hardware-electronics",
-    summary: "An interactive in-store touchscreen display with custom hardware.",
-    tags: ["Touchscreen", "Software"],
-    art: "dusk",
-    type: "client",
-    status: "concept",
-  },
-  {
-    slug: "bettersearch",
-    title: "BetterSearch, AI-powered search",
-    discipline: "ai-automation",
-    summary: "Preference-driven search that understands what people mean, not just what they type.",
-    tags: ["AI", "Search", "Product"],
-    art: "ai",
-    featured: true,
-    type: "product",
-    status: "in-development",
-    overview:
-      "A search engine that starts from what people want rather than from keywords. You describe what matters to you, and it finds, ranks and explains the best matches.",
-    challenge:
-      "Filters and keyword search make people translate their needs into the site's categories. Most give up or settle for the first page of results.",
-    solution:
-      "A language model turns a plain description into structured preferences, searches the catalogue, and explains why each result fits. The same engine powers vertical products such as CarSearch and CareerSearch.",
-    outcome:
-      "Shorter searches, and results people understand and trust.",
-    details: {
-      conversation: [
-        {
-          from: "user",
-          text: "A small family car, good on fuel, easy to park in town, under £15k.",
-        },
-        {
-          from: "assistant",
-          text: "Here are three hatchbacks that fit. The first is the most economical and has parking sensors as standard.",
-        },
-        { from: "user", text: "Which has the biggest boot?" },
-        {
-          from: "assistant",
-          text: "The second one, by about 60 litres. It's still under budget.",
-        },
-      ],
-      flow: [
-        { title: "Understand", text: "Turn a plain description into structured preferences." },
-        { title: "Search", text: "Query the catalogue and score every candidate against them." },
-        { title: "Explain", text: "Rank the results and say why each one fits." },
-        { title: "Refine", text: "Follow-up questions adjust the preferences, not the keywords." },
-      ],
-    },
-  },
-  {
-    slug: "ai-smart-home",
-    title: "AI smart home assistant",
-    discipline: "ai-automation",
-    summary: "A conversational assistant controlling a whole HomeKit home, covered by The Verge.",
-    tags: ["LLM", "Voice", "HomeKit"],
-    art: "horizon",
-    type: "experiment",
-    status: "completed",
-  },
-  {
-    slug: "ai-voice-receptionist",
-    title: "AI voice receptionist",
-    discipline: "ai-automation",
-    summary: "A telephone agent that answers, books and routes calls around the clock.",
-    tags: ["Voice", "Telephony", "AWS"],
-    art: "dusk",
-    type: "product",
-    status: "concept",
-  },
-  {
-    slug: "react-component-library",
-    title: "React component library",
-    discipline: "software-engineering",
-    summary: "An accessible, themeable component library and design system for a product team.",
-    tags: ["UI", "Design Systems"],
-    art: "software",
-    featured: true,
-    type: "client",
-    status: "completed",
-    overview:
-      "A shared component library and design system that lets several product teams build consistent, accessible screens quickly, from one source of truth.",
-    challenge:
-      "Each team had built its own buttons, forms and layouts. The products looked different, accessibility was patchy, and every change had to be made several times.",
-    solution:
-      "Design tokens feed a typed React component library, documented in Storybook and tested for accessibility on every change. Teams install it as a package and theme it per product.",
-    outcome:
-      "One consistent look across products, and new screens built from tested parts.",
-    details: {
-      stack: [
-        { group: "Components", items: ["React", "TypeScript", "CSS Modules"] },
-        { group: "Design", items: ["Design tokens", "Figma", "Theming"] },
-        { group: "Quality", items: ["Storybook", "Testing Library", "axe", "Visual regression"] },
-        { group: "Delivery", items: ["Monorepo", "CI/CD", "Versioned releases"] },
-      ],
-      layers: [
-        { title: "Tokens", text: "Colour, type, spacing and motion, defined once and themed per product." },
-        { title: "Primitives", text: "Accessible building blocks: buttons, inputs, layout and typography." },
-        { title: "Patterns", text: "Forms, navigation, tables and dialogs assembled from the primitives." },
-        { title: "Products", text: "Each team installs the package and builds screens from tested parts." },
-      ],
-    },
-    gallery: [
-      { art: "software", caption: "Component documentation" },
-      { art: "horizon", caption: "Themes for two products" },
-    ],
-  },
-  {
-    slug: "white-blood-cell-game",
-    title: "White blood cell strategy game",
-    discipline: "software-engineering",
-    summary: "An educational real-time strategy game set inside the immune system.",
-    tags: ["Games", "Simulation"],
-    art: "dusk",
-    type: "experiment",
-    status: "concept",
-  },
-];
+/* Loading: every content/projects/<slug>.mdx file is a project, validated against the schema below. */
 
-/* One per discipline, in the disciplines' order. */
-export const featuredProjects = projects
-  .filter((p) => p.featured)
-  .sort((a, b) => disciplineSlugs.indexOf(a.discipline) - disciplineSlugs.indexOf(b.discipline));
+const projectsDir = path.join(process.cwd(), "content/projects");
+
+const step = z.object({ title: z.string(), text: z.string() });
+const figure = z.object({ value: z.string(), label: z.string() });
+
+const detailsSchemas = {
+  "spatial-experiences": z.object({ capture: z.array(figure), pipeline: z.array(step) }),
+  "hardware-electronics": z.object({
+    specs: z.array(z.object({ label: z.string(), value: z.string() })),
+    system: z.array(step),
+  }),
+  "ai-automation": z.object({
+    conversation: z.array(z.object({ from: z.enum(["user", "assistant"]), text: z.string() })),
+    flow: z.array(step),
+  }),
+  "software-engineering": z.object({
+    stack: z.array(z.object({ group: z.string(), items: z.array(z.string()) })),
+    layers: z.array(step),
+  }),
+} satisfies Record<DisciplineSlug, z.ZodType>;
+
+const frontmatter = z.object({
+  title: z.string(),
+  summary: z.string(),
+  discipline: z.enum(disciplineSlugs),
+  disciplines: z.array(z.enum(disciplineSlugs)).optional(),
+  tags: z.array(z.string()).default([]),
+  art: z.enum(["spatial", "hardware", "ai", "software", "horizon", "dusk"]).optional(),
+  type: z.enum(["client", "internal", "product", "prototype", "experiment"]),
+  status: z.enum(["concept", "in-development", "completed", "live"]),
+  year: z.coerce.string().optional(),
+  client: z.string().optional(),
+  role: z.string().optional(),
+  hero: z.object({ image: z.string(), alt: z.string() }).optional(),
+  featured: z.boolean().optional(),
+  order: z.number().optional(),
+  results: z.array(figure).optional(),
+  links: z.array(z.object({ label: z.string(), href: z.string() })).default([]),
+  related: z.array(z.string()).default([]),
+  details: z.unknown().optional(),
+});
+
+function loadProject(file: string): Project {
+  const slug = path.basename(file, ".mdx");
+  const { data, content } = matter(fs.readFileSync(path.join(projectsDir, file), "utf8"));
+  const parsed = frontmatter.safeParse(data);
+  if (!parsed.success) {
+    throw new Error(`content/projects/${file}: ${z.prettifyError(parsed.error)}`);
+  }
+  const { details, ...meta } = parsed.data;
+  const detailsResult = detailsSchemas[meta.discipline].optional().safeParse(details);
+  if (!detailsResult.success) {
+    throw new Error(`content/projects/${file} details: ${z.prettifyError(detailsResult.error)}`);
+  }
+  return {
+    ...meta,
+    slug,
+    art: meta.art ?? getDiscipline(meta.discipline).art,
+    details: detailsResult.data,
+    body: content,
+  } as Project;
+}
+
+const byOrderThenNewest = (a: Project, b: Project) =>
+  (a.order ?? Infinity) - (b.order ?? Infinity) || (b.year ?? "").localeCompare(a.year ?? "");
+
+export const projects: Project[] = fs
+  .readdirSync(projectsDir)
+  .filter((file) => file.endsWith(".mdx"))
+  .map(loadProject)
+  .sort(byOrderThenNewest);
+
+for (const project of projects) {
+  for (const slug of project.related) {
+    if (!projects.some((p) => p.slug === slug)) {
+      throw new Error(`content/projects/${project.slug}.mdx: unknown related project "${slug}"`);
+    }
+  }
+}
 
 export const projectsFor = (slug: DisciplineSlug) => projects.filter((p) => p.discipline === slug);
 
+/* The first featured project from each discipline, in the disciplines' order. */
+export const featuredProjects = disciplineSlugs
+  .map((slug) => projectsFor(slug).find((p) => p.featured))
+  .filter((p): p is Project => Boolean(p));
+
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+
+/* The project's own picks, topped up from its discipline. */
+export function relatedProjects(project: Project, count = 3) {
+  const picks = project.related.map((slug) => getProject(slug)!);
+  const fill = projectsFor(project.discipline).filter((p) => p !== project && !picks.includes(p));
+  return [...picks, ...fill].slice(0, count);
+}
 
 export const projectHref = (slug: string) => `/projects/${slug}/`;

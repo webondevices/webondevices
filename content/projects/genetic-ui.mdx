@@ -1,0 +1,64 @@
+---
+title: "Genetic UI: letting interfaces evolve"
+summary: "A 2018 experiment that treats a UI component as DNA, generates a thousand random variants, and lets natural selection find the one that works."
+discipline: software-engineering
+disciplines: [software-engineering, ai-automation]
+tags: [Genetic Algorithms, UX, Optimisation, React, Experiment]
+type: experiment
+status: completed
+year: "2018"
+hero:
+  image: /media/genetic-ui/evolved.png
+  alt: "The surviving variant after 998 rounds: short headline, strong contrast, a big call-to-action"
+links:
+  - { label: "Source code on GitHub", href: "https://github.com/webondevices/genetic-ui" }
+related: [llm-driven-apps, stracciatella-vanilla-js, research-agent]
+---
+
+What if you didn't design a banner? What if you bred one?
+
+That was the question behind Genetic UI, a small experiment we built in 2018 with two colleagues, Liran and Binu.
+
+## Design as DNA
+
+Every visual decision in a component can be written down as a gene:
+
+- Width, height and position
+- Background colour and transparency
+- Font size and font colour
+- Copy length and the copy itself
+- Call-to-action width, height, background and text colour
+
+Generate random values for every gene and you've got one random UI. Do it a thousand times and you've got a population, most of it hideous.
+
+![Early on: random genes produce chaos. Long gibberish copy, low contrast, a narrow column](/media/genetic-ui/early.png)
+
+## Survival of the fittest
+
+Each variant gets a fitness score. In the prototype, the fitness function encodes basic design sense: readable font sizes, contrast between text and background, saturated but not garish colours, shorter copy, a call-to-action big enough to hit. Every round, the weakest variant is removed.
+
+We started with the full genetic toolkit: crossover between parents, random mutation for diversity. In the end, plain elimination gave cleaner, more predictable results, so that's what the final version uses.
+
+After 998 rounds, one survivor is left. A bold short headline, strong contrast, and a call-to-action that's impossible to miss. Not pretty (2018 us had no taste filter) but it's clearly *trying* to be good.
+
+## The idea that's still worth chasing
+
+The fitness function is where it gets interesting. Ours was hand-written rules. Swap it for **real behaviour** (clicks, sign-ups, purchases, time to complete a task) and you've got something far more powerful than A/B testing. Two variants become two hundred, continuously breeding towards whatever actually works for your audience.
+
+And today's tools make it practical in ways 2018 didn't:
+
+- **Language models** write sensible copy variants in place of random characters
+- **Design tokens and component libraries** keep every mutation on-brand
+- **Vision models** act as a first-pass critic, catching ugly or inaccessible variants before a user ever sees them
+- **Bandit algorithms** shift traffic to winners quickly, so few people see the duds
+
+## Where it fits
+
+Landing pages, onboarding flows, checkout steps, email layouts and in-app prompts. Anywhere small design decisions add up to real money and you have the traffic to learn from.
+
+We like experiments that are a bit ahead of their time, and we know how to turn the good ones into production systems with sensible guardrails. If you're curious what evolving your interface could look like, [let's talk](/contact/).
+
+## More on this project
+
+- [Source code on GitHub](https://github.com/webondevices/genetic-ui)
+- [LLM Wizard: interfaces generated from plain English](/projects/llm-driven-apps/)

@@ -1,0 +1,104 @@
+---
+title: "React IoT: building electronics like we build websites"
+summary: "Two ideas for bringing web-style structure to hardware: a markup language for physical devices, and React components that switch real lights and read real sensors."
+discipline: software-engineering
+disciplines: [software-engineering, hardware-electronics]
+tags: [React, IoT, Architecture, Johnny-Five, Arduino]
+type: experiment
+status: completed
+year: "2017–2021"
+hero:
+  image: /media/react-iot/demo.gif
+  alt: "A React app switching an LED on as the light sensor gets covered"
+links:
+  - { label: "Source code on GitHub", href: "https://github.com/webondevices/react-iot" }
+  - { label: "Part 1 on Medium: XML and CSS for electronics", href: "https://matemarschalko.medium.com/standardising-iot-projects-1-markup-and-styling-e18e8e25f726" }
+  - { label: "Part 2 on Medium: React for electronics", href: "https://matemarschalko.medium.com/standardising-iot-projects-2-react-iot-174cff154875" }
+  - { label: "React Hooks with real sensors on Medium", href: "https://matemarschalko.medium.com/using-react-and-react-hooks-to-switch-electric-lights-and-read-sensors-8ee08ca2cf76" }
+related: [stracciatella-vanilla-js, esp8266-web-server-ai, ai-talking-plant]
+---
+
+Web developers have spent twenty years learning how to keep big projects tidy. Separate content from styling from behaviour. Build small, reusable components. Let state drive the UI.
+
+Hardware projects mostly ignore all of that. Every build starts from scratch, and the logic ends up in one long loop that only its author understands.
+
+We wanted to fix that. So we tried two very different approaches.
+
+![George, the JavaScript talking plant, one of the projects that kicked this off](/media/react-iot/george.jpeg)
+
+## Idea one: markup and stylesheets for physical things
+
+HTML describes documents. SVG describes graphics. Why not a markup language for devices?
+
+We sketched **IOTML**. Rooms, sensors, lights and motors become elements, with their relationships and state as attributes:
+
+```xml
+<room type="bedroom" class="kids-room">
+  <light type="led" colors="rgb" dimmable />
+  <sensor type="temperature" scale="celsius" />
+</room>
+```
+
+Then a CSS-like layer for behaviour, with environment queries in place of media queries:
+
+```css
+@environment (max-temp: 18c) {
+  thermostat { power: on; }
+}
+
+.romantic { brightness: 45%; color: #882211; }
+```
+
+You can read the whole system at a glance. What's in which room, what's on, what reacts to what. The same reason HTML works.
+
+## Idea two: React, minus the DOM
+
+React was never really about browsers. React Native, React Three Fiber and React VR all prove the point. So we ran React in Node.js and pointed it at an Arduino.
+
+Each electronic part becomes a component. Sensors push readings into state. State flows down as props. Components switch real circuits in response.
+
+```jsx
+const World = () => {
+  const [lightLevel, setLightLevel] = useState(0);
+
+  return (
+    <>
+      <Led pin="6" poweredOn={lightLevel < 100} />
+      <LightSensor pin="A0" onChange={setLightLevel} />
+    </>
+  );
+};
+```
+
+Cover the sensor and the LED comes on. That's the whole program.
+
+![The breadboard behind the demo](/media/react-iot/circuit.jpeg)
+
+A couple of tricks made it work. `react-test-renderer` keeps the component tree alive in Node, re-rendering on every state change, where server-side rendering would just spit out a string. And Johnny-Five does the talking to the board over USB. Each component holds its hardware instance in a ref and returns `null`. There's nothing to draw, only things to switch.
+
+## Why it's more than a party trick
+
+Once hardware speaks React, home automation reads like a UI:
+
+```jsx
+<Bathroom>
+  <MotionSensor pin="4" onChange={setMotion} />
+  <Light pin="6" poweredOn={motion && lightLevel < 50} />
+</Bathroom>
+```
+
+Every React developer on your team can now read, test and change device logic. Components get reused across products, and the patterns you trust for web apps carry straight over to firmware.
+
+![The finished setup](/media/react-iot/setup.jpeg)
+
+## What this says about how we work
+
+We like to borrow good ideas from one field and drop them into another. It's how you end up with systems that are easier to maintain, quicker to extend and less dependent on one person's head. If your connected product has outgrown its spaghetti, [we should talk](/contact/).
+
+## More on this project
+
+- [Source code on GitHub](https://github.com/webondevices/react-iot)
+- [Part 1 on Medium: using XML and CSS for electronic projects](https://matemarschalko.medium.com/standardising-iot-projects-1-markup-and-styling-e18e8e25f726)
+- [Part 2 on Medium: using React for electronic projects](https://matemarschalko.medium.com/standardising-iot-projects-2-react-iot-174cff154875)
+- [React Hooks with real lights and sensors on Medium](https://matemarschalko.medium.com/using-react-and-react-hooks-to-switch-electric-lights-and-read-sensors-8ee08ca2cf76)
+- [The original React IoT post on this site](/react-iot-standardising-iot-projects/)

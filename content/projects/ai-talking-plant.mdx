@@ -1,0 +1,71 @@
+---
+title: "George II: a talking plant that sees, listens and remembers you"
+summary: "A desk plant with real sensors, face recognition, voice and memory. Cloud AI services stitched together into one character."
+discipline: ai-automation
+disciplines: [ai-automation, hardware-electronics]
+tags: [Voice, Computer Vision, AWS, Arduino, Sensors]
+type: experiment
+status: completed
+year: "2020"
+hero:
+  image: /media/ai-talking-plant/george.png
+  alt: "George II, the talking plant, with its sensors and camera"
+links:
+  - { label: "Watch the demo on YouTube", href: "https://www.youtube.com/watch?v=U90M_kEJjVE" }
+  - { label: "Source code on GitHub", href: "https://github.com/webondevices/geroge-ii" }
+  - { label: "Full write-up on Medium", href: "https://matemarschalko.medium.com/building-a-javascript-ai-talking-plant-with-facial-recognition-and-real-sensors-74364f005ae5" }
+related: [ai-home-voice-assistant, react-iot, solar-energy-shield]
+---
+
+"Yes, I recognise you. You're Mate! I haven't seen you for three days."
+
+That's a houseplant talking. It knows who's standing in front of it, how thirsty it is, how warm the room is, and whether you look happy or tired.
+
+<Video youtube="U90M_kEJjVE" title="George II, the AI talking plant" />
+
+## What George can do
+
+- **Hold a conversation.** Ask how it's feeling, what time it is, or whether it likes the room.
+- **Read its own sensors.** Soil moisture, light and temperature come from real probes wired to an Arduino.
+- **See.** A camera plus face recognition tells it who you are, roughly how old you are, and what mood you're in.
+- **Remember.** It keeps track of who it's met and when, so greetings change over time.
+- **Speak.** Every answer is synthesised and played out loud.
+
+## How it's put together
+
+The trick with a project like this is to stop seeing one giant problem. We split it into three smaller ones, built a quick proof of concept for each, then joined them up.
+
+**Voice and intent.** Amazon Lex turns speech into intents like `tellSoilComfort` or `recogniseMe`. You give it example sentences and it works out what people mean, even when they phrase things differently.
+
+![Defining intents in Amazon Lex](/media/ai-talking-plant/lex.png)
+
+**Getting the cloud to talk to a plant.** The cloud can't see a soil probe on a desk. So a Lambda function forwards local intents as MQTT messages through AWS IoT. The Node.js app on the plant subscribes, runs the matching handler and answers.
+
+**Senses.** The Arduino handles the physical side: moisture probe, light sensor, thermometer, a button and status LEDs, all for under £10 of parts. AWS Rekognition handles faces, emotions and objects. Polly gives George its voice.
+
+Each service sits behind a small, clean wrapper (`camera.captureImage()`, `rekognition.findPerson()`, `polly.speak()`), so the main app reads almost like a script:
+
+```js
+const image = await camera.captureImage();
+const name = await robot.recognisePersonOnPhoto(image);
+await polly.speak(name ? `Hello ${name}!` : "Hello stranger!");
+```
+
+Once the plumbing exists, the fun part is combining features into personality.
+
+## Why a plant?
+
+Because it's a friendly way to show something that applies far beyond houseplants. Real-world sensors, voice, vision and memory, all working together in one physical object. Swap the plant for a retail display, a reception desk, a museum exhibit or a piece of equipment that explains its own status, and the architecture barely changes.
+
+It's also an honest lesson in pragmatism. Most of the heavy lifting came from existing cloud services. The value was in the integration, the character and the hardware. That's usually where the value is.
+
+If you've got an idea that needs hardware, AI and a bit of personality, [get in touch](/contact/).
+
+## More on this project
+
+- [Demo video on YouTube](https://www.youtube.com/watch?v=U90M_kEJjVE)
+- [Source code on GitHub](https://github.com/webondevices/geroge-ii)
+- [The full write-up on Medium](https://matemarschalko.medium.com/building-a-javascript-ai-talking-plant-with-facial-recognition-and-real-sensors-74364f005ae5)
+- [George I: the smiling-face Arduino plant](/smiling-face-arduino-smart-talking-plant/)
+- [The plant with JavaScript voice recognition](/the-arduino-plant-with-javascript-voice-recognition/)
+- [Our book, JavaScript Electronics, which builds a talking plant step by step](/projects/books-and-publications/)

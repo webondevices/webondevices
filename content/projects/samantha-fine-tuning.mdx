@@ -1,0 +1,54 @@
+---
+title: "Samantha: giving an AI a personality through fine-tuning"
+summary: "We fine-tuned GPT-3 on dialogue from the film Her to see how far training data alone can shape a model's voice."
+discipline: ai-automation
+disciplines: [ai-automation]
+tags: [Fine-tuning, GPT-3, Persona, Brand Voice, Training Data]
+type: experiment
+status: completed
+year: "2023"
+hero:
+  image: /media/samantha-fine-tuning/playground.png
+  alt: "The fine-tuned Samantha model in the OpenAI playground"
+links:
+  - { label: "Watch the demo on YouTube", href: "https://www.youtube.com/watch?v=aPYlgh4vLwI" }
+  - { label: "Full write-up on Medium", href: "https://matemarschalko.medium.com/creating-samantha-from-her-by-fine-tuning-gpt-3-on-the-movie-script-dabdbf78b883" }
+related: [ai-home-voice-assistant, ai-phone-assistant, mentalese-brain]
+---
+
+Out of the box, chatbots sound like chatbots. Polite, thorough, a bit beige.
+
+In *Her*, Samantha sounds like a person. Curious, warm, a little playful, occasionally unsettling. We wanted to know whether you could get that voice from training data alone, with no clever prompt doing the heavy lifting.
+
+<Video youtube="aPYlgh4vLwI" title="Creating Samantha from Her by fine-tuning GPT-3" />
+
+## The experiment
+
+Fine-tuning teaches a model *how* to respond by showing it examples: a prompt, and the reply you'd want. A few hundred good pairs is often enough.
+
+Film dialogue is already in that shape. One character speaks, the other answers. So we took the script, spent about half an hour stripping out everything except the conversations between Theodore and Samantha, and formatted the exchanges as training pairs.
+
+
+Then we ran a fine-tuning job on GPT-3. A few hours later there was a new model sitting in the playground.
+
+## What came out
+
+It worked. Ask who it is and it gets coy: we've never met, but it knows a lot about you. Ask if it has feelings and it insists it has lots. Ask how many other people it's talking to and it answers with an oddly specific number, straight out of the film.
+
+Some answers echoed the script, but most were improvised. The examples taught it a *style*, so it stayed in character on questions it had never seen. It would benefit from more data, and the next step is obvious: describe the personality, have a larger model generate fresh conversations in that voice, keep the best ones, and train on those.
+
+## Where this gets useful
+
+A movie character is a fun test. The commercial version is a model that sounds like *your* brand, every time:
+
+- **Customer support** that matches your tone of voice without a 3,000-word prompt
+- **Characters** for games, toys, exhibits and interactive stories
+- **Specialist assistants** trained on your own transcripts, emails or documentation
+- **Smaller, cheaper models** that behave like big ones on your specific task
+
+Fine-tuning, synthetic data generation and evaluation are all part of how we tailor models for clients. And we're careful about the data: whose it is, whether you can use it, and what the model might repeat. [Let's talk about giving your product a voice](/contact/).
+
+## More on this project
+
+- [The demo on YouTube](https://www.youtube.com/watch?v=aPYlgh4vLwI)
+- [The full write-up on Medium](https://matemarschalko.medium.com/creating-samantha-from-her-by-fine-tuning-gpt-3-on-the-movie-script-dabdbf78b883)

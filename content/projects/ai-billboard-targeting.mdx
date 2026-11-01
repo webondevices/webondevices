@@ -1,0 +1,67 @@
+---
+title: "Billboards that read the room"
+summary: "A vision model looks at who's walking past a digital billboard, then picks the ads most likely to land. Online-style targeting, out on the street."
+discipline: ai-automation
+disciplines: [ai-automation, spatial-experiences]
+tags: [Computer Vision, GPT-4 Vision, Digital Signage, Advertising, Retail]
+type: prototype
+status: completed
+year: "2024"
+hero:
+  image: /media/ai-billboard-targeting/thumbnail.jpg
+  alt: "AI vision analysis of pedestrians in front of a digital billboard"
+links:
+  - { label: "Watch the demo on YouTube", href: "https://www.youtube.com/watch?v=K0SmqMw50P4" }
+related: [kinect-gesture-interfaces, ai-talking-plant, ai-agent-dev-team]
+---
+
+Online ads know a scary amount about you. A billboard knows where it is and what time it is. That's about it.
+
+We wanted to close that gap.
+
+<Video youtube="K0SmqMw50P4" title="Predict interests and demographics with GPT-4 Vision for smarter ad targeting" />
+
+## How it works
+
+A camera faces the audience. Every few seconds, a frame goes to a vision model along with the location and the time. The model describes who's there: how many people, rough ages, what they're wearing, what they're carrying, what they seem to be doing, and how they relate to each other. Then it ranks a library of 50 ads and the screen shows the top three.
+
+Like online advertising, the ranking could weigh relevance against what each advertiser bids.
+
+## What it picked
+
+We tested it on real street footage and photos from around the UK.
+
+**Two casually dressed men, 4pm, outside a London Tube station.** It suggested an affordable fashion chain, a burger chain and a bakery chain. Errands and a cheap bite.
+
+**A businessman on London Bridge, 9am.** A premium car brand, an upmarket department store and an experience-gift company. Morning commute, high earner, probably.
+
+**Four teenagers, Saturday lunchtime in Birmingham.** A football video game, a trend-led fashion brand and a quick lunch. It spotted that they were style-conscious, which shifted the fashion pick away from the budget option.
+
+**A man walking a dog.** A pet store, a ride-hailing app and experience days. The dog was the giveaway.
+
+**School children with lanyards.** A toy brand, a family holiday park and a budget meal.
+
+## What surprised us
+
+- It worked on low-resolution, poor-quality images.
+- It read relationships: friends, families, colleagues.
+- It picked up context like commuting, shopping or a day out.
+- It noticed what people were holding. Carrying a competitor's shopping bag or a particular coffee? Targeting gets sharper still.
+
+## The responsible version
+
+Anything involving cameras and people has to be designed carefully, and we'd build it that way from day one. Process frames on the device, keep no images, store no identities, and work with aggregate, anonymous descriptions only. Signage, clear notices and a privacy assessment come as standard. Relevance is the goal. Surveillance never is.
+
+## Where it fits
+
+- **Digital out-of-home networks** that want online-grade relevance and reporting
+- **Retail screens** that adapt to who's in store right now
+- **Venues, stations and malls** measuring footfall, dwell time and audience mix
+- **Brand activations** where the screen responds to the crowd
+
+We build vision pipelines, the screen experience and the analytics behind them. [Let's talk about your screens](/contact/).
+
+## More on this project
+
+- [The demo on YouTube](https://www.youtube.com/watch?v=K0SmqMw50P4)
+- [Touch-free screens with Kinect gesture tracking](/projects/kinect-gesture-interfaces/)

@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { GradientArt } from "@/components/GradientArt/GradientArt";
+import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
 import type { Project, SoftwareDetails } from "@/content/projects";
 import { HeroText } from "./HeroText";
@@ -22,7 +22,7 @@ export function SoftwareHero({ project }: { project: SoftwareProject }) {
             <span className={styles.address}>{project.slug}</span>
           </div>
           <div className={styles.windowBody}>
-            <GradientArt name={project.art} />
+            <ProjectMedia project={project} />
           </div>
         </figure>
       </div>

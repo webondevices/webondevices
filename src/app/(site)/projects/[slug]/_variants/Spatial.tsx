@@ -1,5 +1,5 @@
-import { GradientArt } from "@/components/GradientArt/GradientArt";
 import { Icon } from "@/components/Icon/Icon";
+import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
 import type { Project, SpatialDetails } from "@/content/projects";
 import { HeroText } from "./HeroText";
@@ -17,14 +17,16 @@ export function SpatialHero({ project }: { project: SpatialProject }) {
     <section className={styles.hero} aria-labelledby="project-title">
       <div className={shared.container}>
         <div className={styles.stage} data-theme="dark">
-          <GradientArt name={project.art} className={styles.scene} />
+          <ProjectMedia project={project} className={styles.scene} />
           <span className={styles.corners} aria-hidden />
-          <span className={styles.viewerLabel}>
-            <Icon name="play" />
-            <Typography variant="caption" as="span">
-              3D scene
-            </Typography>
-          </span>
+          {!project.hero && (
+            <span className={styles.viewerLabel}>
+              <Icon name="play" />
+              <Typography variant="caption" as="span">
+                3D scene
+              </Typography>
+            </span>
+          )}
           <div className={styles.stageText}>
             <HeroText project={project} />
           </div>

@@ -1,0 +1,158 @@
+/* Long-form prose from MDX: case studies now, writing later. */
+
+.prose {
+  display: flow-root;
+  max-width: 68ch;
+  color: var(--color-text-muted);
+  font-size: var(--text-body-lg);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.prose > * {
+  margin-block: 0;
+}
+
+.prose > * + * {
+  margin-top: var(--space-5);
+}
+
+.prose h2,
+.prose h3 {
+  color: var(--color-text);
+  font-weight: var(--weight-regular);
+  text-wrap: balance;
+}
+
+.prose h2 {
+  margin-top: var(--space-8);
+  font-size: var(--text-heading-2);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.prose h3 {
+  margin-top: var(--space-7);
+  font-size: var(--text-heading-4);
+  font-weight: var(--weight-medium);
+  line-height: 1.3;
+}
+
+.prose h2 + *,
+.prose h3 + * {
+  margin-top: var(--space-4);
+}
+
+.prose strong {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+.prose a {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.2em;
+}
+
+.prose a:hover {
+  text-decoration-color: currentColor;
+}
+
+.prose ul,
+.prose ol {
+  display: grid;
+  gap: var(--space-2);
+  padding-left: 1.25em;
+}
+
+.prose li::marker {
+  color: var(--color-text-subtle);
+}
+
+.prose blockquote {
+  padding-left: var(--space-5);
+  border-left: 2px solid var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.prose :not(pre) > code {
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  color: var(--color-text);
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Media runs a little wider than the text column on large screens. */
+
+.figure,
+.video {
+  margin-inline: 0;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-subtle);
+}
+
+.figure figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--text-caption);
+  line-height: 1.45;
+  color: var(--color-text-subtle);
+}
+
+.video {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-inverse);
+}
+
+.video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Code */
+
+.code {
+  overflow-x: auto;
+  padding: var(--space-5);
+  border-radius: var(--radius-md);
+  background: var(--color-bg-subtle);
+  font-family: var(--font-mono);
+  font-size: var(--text-body-sm);
+  line-height: 1.6;
+  color: var(--color-text);
+  --sh-class: var(--brand-ocean);
+  --sh-identifier: var(--color-text);
+  --sh-sign: var(--color-text-subtle);
+  --sh-property: var(--brand-ocean);
+  --sh-entity: var(--brand-dusk);
+  --sh-jsxliterals: var(--brand-dusk);
+  --sh-string: color-mix(in srgb, var(--brand-ember) 55%, var(--brand-ink));
+  --sh-keyword: var(--brand-dusk);
+  --sh-comment: var(--color-text-subtle);
+}
+
+:global([data-theme="dark"]) .code {
+  --sh-class: var(--brand-sky);
+  --sh-property: var(--brand-sky);
+  --sh-entity: var(--brand-sun);
+  --sh-jsxliterals: var(--brand-sun);
+  --sh-keyword: var(--brand-sun);
+  --sh-string: var(--brand-ember);
+}

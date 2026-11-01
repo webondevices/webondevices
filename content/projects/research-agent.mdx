@@ -1,0 +1,62 @@
+---
+title: "An AI research agent that scouts business ideas while we sleep"
+summary: "Every morning a headless browser reads hundreds of Reddit complaints, an AI shortlists the real opportunities, researches the competition, and emails a digest."
+discipline: ai-automation
+disciplines: [ai-automation, software-engineering]
+tags: [AI Agents, Web Research, Playwright, Automation, Market Research]
+type: internal
+status: live
+year: "2026"
+links: []
+related: [ai-agent-dev-team, mentalese-brain, genetic-ui]
+---
+
+"I'm so tired of fake remote jobs."
+"Why is there no obligation to mention the fabric?"
+"After 13 months, I'm fed up with Adobe Acrobat."
+
+Every complaint online is a tiny market signal. Somebody has a problem, and nobody has solved it well enough yet. The trouble is that there are millions of them, and most are just people having a bad day.
+
+So we built an agent to read them for us.
+
+## What it does
+
+Every morning at 8am a scheduled job wakes up and goes hunting:
+
+1. **Search.** A headless browser runs targeted Reddit searches for complaint-shaped phrases: *"why is there no"*, *"is there an app that"*, *"I would pay for"*, *"I'm fed up with"*. It also sweeps subreddits where people moan for a living.
+2. **Triage.** A language model scans each page of titles in one go and shortlists the handful with genuine product potential. Rants, memes and one-offs are dropped.
+3. **Deep dive.** Each shortlisted post gets its own investigation, with web search switched on. Is the pain real and repeated? What exists already? Where's the gap? What would the product actually be?
+4. **Remember.** Every post it has ever seen goes into a ledger, so nothing is evaluated or emailed twice.
+5. **Report.** If anything new passed, a digest lands in the inbox. If not, silence. No noise.
+
+## What it found
+
+It has run daily since July. It has read over a thousand posts and kept 64 ideas, each with a concrete product concept and notes on the competition. A few favourites:
+
+- **A scam checker for remote job seekers** that scores job ads, recruiter emails and onboarding documents for fraud signals before anyone hands over personal data
+- **An AI PDF copilot for small law firms** that ingests messy claim bundles, labels evidence, redacts sensitive data and assembles court-ready bundles
+- **A listing assistant for clothing resellers** that reads garment photos and care labels to suggest fabric composition, cutting down disputes over incomplete listings
+
+Not all 64 are winners. That's fine. The value is a steady, filtered stream of real problems in real people's words, delivered with a first round of research already done.
+
+## How it's built
+
+Deliberately boring, and that's a compliment. Each job is a plain Node.js script with its own config file, triggered by the operating system's scheduler. Nothing runs between jobs. Playwright handles the browsing, a small, fast model handles triage, and the deep dives use web search. Adding a new research job means one folder and one JSON file.
+
+Two stages instead of one was the key design decision. Cheap, broad triage first, then expensive, careful research only on the few posts that deserve it. Cost stays low and quality stays high.
+
+## Where this pattern pays off
+
+Swap Reddit for the sources that matter to you and the same agent becomes:
+
+- **Competitor monitoring**: pricing pages, changelogs and job ads, summarised weekly
+- **Customer voice**: reviews, support tickets and forums, clustered into themes
+- **Lead generation**: tenders, planning applications or funding announcements matched to your offer
+- **Market research**: a standing brief that gets a little smarter every day
+
+Autonomous research agents are one of the most practical uses of AI right now, and among our favourite things to build. [Tell us what you'd want yours to watch](/contact/).
+
+## More on this project
+
+- [An AI dev team that works from Jira tickets](/projects/ai-agent-dev-team/)
+- [Mentalese: an AI mind that keeps thinking](/projects/mentalese-brain/)

@@ -1,4 +1,5 @@
 import { GradientArt } from "@/components/GradientArt/GradientArt";
+import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
 import type { AiDetails, Project } from "@/content/projects";
 import { HeroText } from "./HeroText";
@@ -7,7 +8,7 @@ import styles from "./ai.module.css";
 
 type AiProject = Extract<Project, { discipline: "ai-automation" }>;
 
-/* AI: centred text in a soft glow, nothing mechanical. The conversation below carries the page. */
+/* AI: centred text in a soft glow, nothing mechanical, with the lead image beneath it. */
 export function AiHero({ project }: { project: AiProject }) {
   return (
     <section className={styles.hero} aria-labelledby="project-title">
@@ -16,6 +17,11 @@ export function AiHero({ project }: { project: AiProject }) {
       </div>
       <div className={`${shared.container} ${styles.heroContent}`}>
         <HeroText project={project} centered />
+        {project.hero && (
+          <figure className={styles.cover}>
+            <ProjectMedia project={project} />
+          </figure>
+        )}
       </div>
     </section>
   );
