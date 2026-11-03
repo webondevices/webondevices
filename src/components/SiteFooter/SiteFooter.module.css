@@ -61,6 +61,11 @@
   border-top: 1px solid var(--color-border);
 }
 
+.legal {
+  display: flex;
+  gap: var(--space-4);
+}
+
 @media (min-width: 900px) {
   .inner {
     grid-template-columns: 1fr 1.6fr;

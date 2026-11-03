@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...disciplineSlugs.map((slug) => ({ url: `${SITE}${disciplineHref(slug)}`, priority: 0.8 })),
     ...projects.map((p) => ({ url: `${SITE}${projectHref(p.slug)}`, priority: 0.7 })),
     { url: `${SITE}/writing/`, priority: 0.4 },
+    { url: `${SITE}/privacy/`, priority: 0.1 },
     ...posts.map((p) => ({ url: `${SITE}${postHref(p.slug)}`, lastModified: p.date, priority: 0.3 })),
   ];
 }

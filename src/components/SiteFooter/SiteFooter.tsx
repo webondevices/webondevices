@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ConsentSettingsButton } from "@/components/Analytics/Analytics";
 import { Typography } from "@/components/Typography/Typography";
 import { WodLogo } from "@/components/WodLogo/WodLogo";
 import { disciplineHref, disciplines } from "@/content/disciplines";
@@ -71,6 +72,10 @@ export function SiteFooter() {
         <div className={styles.bottom}>
           <Typography variant="caption">
             © {new Date().getFullYear()} Web on Devices Ltd · {site.location}
+          </Typography>
+          <Typography variant="caption" className={styles.legal}>
+            <Link href="/privacy/">Privacy</Link>
+            <ConsentSettingsButton />
           </Typography>
         </div>
       </div>
