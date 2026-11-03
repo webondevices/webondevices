@@ -13,7 +13,8 @@
     "test": "node --test \"worker/**/*.test.ts\"",
     "cf-typegen": "wrangler types worker/worker-configuration.d.ts",
     "preview": "NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA next build && wrangler dev",
-    "deploy": "next build && wrangler deploy"
+    "deploy": "next build && node --test scripts/url-parity.test.ts && wrangler deploy",
+    "test:urls": "node --test scripts/url-parity.test.ts"
   },
   "dependencies": {
     "@mdx-js/mdx": "^3.1.1",

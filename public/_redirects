@@ -1,0 +1,9 @@
+# Old blog URLs, served by Cloudflare's static assets layer.
+# Tag and category pages became filters on the writing archive.
+/tags/:tag/ /writing/?tag=:tag 301
+/tags/:tag /writing/?tag=:tag 301
+/categories/* /writing/ 301
+# A Gatsby offline-plugin page, never meant to be visited.
+/offline-plugin-app-shell-fallback/ / 301
+# Temporary until the About page exists, so not cached as permanent.
+/about/ /#about 302

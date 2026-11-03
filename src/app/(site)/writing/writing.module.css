@@ -1,0 +1,85 @@
+/* The writing archive index: a header, topic chips and one column of posts. */
+
+.container {
+  width: 100%;
+  max-width: calc(68ch + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.header {
+  display: grid;
+  gap: var(--space-4);
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-7);
+}
+
+.intro {
+  text-wrap: pretty;
+}
+
+.list {
+  padding-bottom: var(--space-9);
+}
+
+/* Topic chips */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.tagChip {
+  padding: var(--space-1) var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-text-muted);
+  font-size: var(--text-body-sm);
+  text-decoration: none;
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+.tagChip:hover {
+  border-color: var(--color-text-subtle);
+  color: var(--color-text);
+}
+
+.tagChip[aria-current="page"] {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-text-inverse);
+}
+
+/* Posts */
+
+.posts {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.posts li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.post {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-6);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.postTitle {
+  text-wrap: balance;
+}
+
+.post:hover .postTitle {
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 0.2em;
+}

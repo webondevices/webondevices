@@ -24,13 +24,13 @@ function Video({ youtube, title }: { youtube: string; title: string }) {
   );
 }
 
-/* Markdown images stand on their own, with the alt text as the caption. */
-function Img({ src, alt = "" }: ComponentPropsWithoutRef<"img">) {
+/* Markdown images stand on their own, with the alt text as the caption unless captions are off. */
+function Img({ src, alt = "", caption = true }: ComponentPropsWithoutRef<"img"> & { caption?: boolean }) {
   return (
     <figure className={styles.figure}>
       {/* eslint-disable-next-line @next/next/no-img-element -- static export, images are pre-sized */}
       <img src={src as string} alt={alt} loading="lazy" />
-      {alt && <figcaption>{alt}</figcaption>}
+      {caption && alt && <figcaption>{alt}</figcaption>}
     </figure>
   );
 }
@@ -66,8 +66,14 @@ function Pre({ children }: ComponentPropsWithoutRef<"pre">) {
 
 const components: MDXComponents = { Video, img: Img, a: A, pre: Pre };
 
+/* The old blog's alt text is short labels ("robot car"), not captions. */
+const uncaptioned: MDXComponents = {
+  ...components,
+  img: (props: ComponentPropsWithoutRef<"img">) => <Img {...props} caption={false} />,
+};
+
 /** Renders an MDX string with the site's prose styles and components. */
-export async function Mdx({ source }: { source: string }) {
+export async function Mdx({ source, captions = true }: { source: string; captions?: boolean }) {
   const { default: Content } = await evaluate(source, {
     ...runtime,
     remarkPlugins: [remarkGfm],
@@ -75,7 +81,7 @@ export async function Mdx({ source }: { source: string }) {
   });
   return (
     <div className={styles.prose}>
-      <Content components={components} />
+      <Content components={captions ? components : uncaptioned} />
     </div>
   );
 }

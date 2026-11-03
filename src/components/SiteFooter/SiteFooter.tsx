@@ -43,6 +43,10 @@ export function SiteFooter() {
                     <Link href={item.href}>{item.label}</Link>
                   </li>
                 ))}
+              {/* The old blog's archive lives here only, outside the main nav. */}
+              <li>
+                <Link href="/writing/">Writing</Link>
+              </li>
             </ul>
           </div>
           <div className={styles.column}>
