@@ -63,24 +63,29 @@
   overflow: hidden;
 }
 
-/* Static sunset glow until the motion graphic is revisited. */
+/* The homepage approach band's glow, at the same strength. */
 .heroGlow {
   position: absolute;
   inset: 0;
   background:
     radial-gradient(
-      45% 55% at 92% 8%,
-      color-mix(in srgb, var(--brand-ember) 45%, transparent),
+      40% 90% at 0% 10%,
+      color-mix(in srgb, var(--brand-sky) 68%, transparent),
       transparent 70%
     ),
     radial-gradient(
-      40% 45% at 72% 42%,
-      color-mix(in srgb, var(--brand-gold) 30%, transparent),
+      60% 90% at 100% 0%,
+      color-mix(in srgb, var(--brand-ocean) 63%, transparent),
       transparent 70%
     ),
     radial-gradient(
-      45% 50% at 5% 95%,
-      color-mix(in srgb, var(--brand-sky) 45%, transparent),
+      45% 80% at 80% 100%,
+      color-mix(in srgb, var(--brand-ember) 68%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 60% at 62% 40%,
+      color-mix(in srgb, var(--brand-coral) 48%, transparent),
       transparent 70%
     );
 }
@@ -308,10 +313,6 @@
   gap: 2px;
 }
 
-.disciplines article > div:first-child {
-  aspect-ratio: 4 / 5;
-}
-
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -320,9 +321,7 @@
 
 .placeholderSky,
 .placeholderDusk,
-.placeholderEmber,
-.placeholderSunset,
-.placeholderCurves {
+.placeholderSunset {
   width: 100%;
   height: 100%;
 }
@@ -337,21 +336,8 @@
   background: var(--brand-gradient-dusk);
 }
 
-.placeholderEmber {
-  background:
-    radial-gradient(70% 60% at 80% 20%, var(--brand-gold), transparent 70%),
-    linear-gradient(200deg, var(--brand-ember), var(--brand-midnight) 85%);
-}
-
 .placeholderSunset {
   background: var(--brand-gradient-sunset);
-}
-
-.placeholderCurves {
-  background:
-    radial-gradient(90% 70% at 100% 0%, var(--brand-sky), transparent 70%),
-    radial-gradient(80% 70% at 0% 100%, var(--brand-ember), transparent 70%),
-    linear-gradient(160deg, var(--brand-ocean), var(--brand-dusk));
 }
 
 /* "Our approach" band */
@@ -369,18 +355,23 @@
   inset: 0;
   background:
     radial-gradient(
-      60% 90% at 100% 0%,
-      color-mix(in srgb, var(--brand-ocean) 55%, transparent),
+      40% 90% at 0% 10%,
+      color-mix(in srgb, var(--brand-sky) 68%, transparent),
       transparent 70%
     ),
     radial-gradient(
-      45% 80% at 78% 100%,
-      color-mix(in srgb, var(--brand-ember) 50%, transparent),
+      60% 90% at 100% 0%,
+      color-mix(in srgb, var(--brand-ocean) 63%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      45% 80% at 80% 100%,
+      color-mix(in srgb, var(--brand-ember) 68%, transparent),
       transparent 70%
     ),
     radial-gradient(
       35% 60% at 62% 40%,
-      color-mix(in srgb, var(--brand-coral) 30%, transparent),
+      color-mix(in srgb, var(--brand-coral) 48%, transparent),
       transparent 70%
     );
 }

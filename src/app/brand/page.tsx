@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Button, IconButton } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
+import { DisciplineTile } from "@/components/DisciplineTile/DisciplineTile";
 import { Icon, iconNames } from "@/components/Icon/Icon";
 import { ThemeToggle } from "@/components/ThemeToggle/ThemeToggle";
 import { Tone, Typography, type TypographyVariant } from "@/components/Typography/Typography";
 import { WodLogo } from "@/components/WodLogo/WodLogo";
+import { type DisciplineSlug, disciplines, getDiscipline } from "@/content/disciplines";
 import { Swatch } from "./_components/Swatch";
 import styles from "./brand.module.css";
 
@@ -112,46 +114,20 @@ const typeSpecimens: { variant: TypographyVariant; sample: string; spec: string 
   },
 ];
 
-const disciplines = [
+/* Placeholder art per discipline, until the brand page uses real project photos. */
+const projects: { discipline: DisciplineSlug; title: string; media: React.ReactNode }[] = [
   {
-    eyebrow: "01",
-    title: "Spatial Experiences",
-    description: "3D capture, digital twins and immersive visualisation.",
-    media: <div className={styles.placeholderSky} />,
-  },
-  {
-    eyebrow: "02",
-    title: "Hardware & Electronics",
-    description: "Connected devices, sensors and real-world systems.",
-    media: <div className={styles.placeholderDusk} />,
-  },
-  {
-    eyebrow: "03",
-    title: "AI & Automation",
-    description: "AI applications, automations and smart solutions.",
-    media: <div className={styles.placeholderCurves} />,
-  },
-  {
-    eyebrow: "04",
-    title: "Software Engineering",
-    description: "Web applications, interfaces and scalable systems.",
-    media: <div className={styles.placeholderEmber} />,
-  },
-];
-
-const projects = [
-  {
-    eyebrow: "Spatial Experiences",
+    discipline: "spatial-experiences",
     title: "Interactive Property Showcase",
     media: <div className={styles.placeholderSky} />,
   },
   {
-    eyebrow: "Hardware & Electronics",
+    discipline: "hardware-electronics",
     title: "Farm Monitoring System",
     media: <div className={styles.placeholderSunset} />,
   },
   {
-    eyebrow: "AI & Automation",
+    discipline: "ai-automation",
     title: "AI-Powered Search Platform",
     media: <div className={styles.placeholderDusk} />,
   },
@@ -368,11 +344,40 @@ export default function BrandPage() {
 
             <div className={styles.componentBlock}>
               <Typography variant="eyebrow" as="h3">
+                Discipline badges
+              </Typography>
+              <div className={styles.icons}>
+                {disciplines.map((d) => (
+                  <div key={d.slug} className={styles.iconCell}>
+                    <DisciplineTile icon={d.icon} discipline={d.slug} />
+                    <Typography variant="mono">{d.slug}</Typography>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.componentBlock}>
+              <Typography variant="eyebrow" as="h3">
                 Discipline cards
               </Typography>
               <div className={styles.disciplines}>
-                {disciplines.map((d) => (
-                  <Card key={d.title} layout="media-bottom" href="#components" {...d} />
+                {disciplines.map((d, index) => (
+                  <Card
+                    key={d.slug}
+                    href="#components"
+                    action="Explore"
+                    layout="media-bottom"
+                    eyebrow={String(index + 1).padStart(2, "0")}
+                    title={
+                      <>
+                        {d.titleLines[0]}
+                        <br />
+                        {d.titleLines[1]}
+                      </>
+                    }
+                    description={d.short}
+                    badge={<DisciplineTile icon={d.icon} discipline={d.slug} />}
+                  />
                 ))}
               </div>
             </div>
@@ -383,7 +388,20 @@ export default function BrandPage() {
               </Typography>
               <div className={styles.projects}>
                 {projects.map((p) => (
-                  <Card key={p.title} href="#components" {...p} />
+                  <Card
+                    key={p.title}
+                    eyebrow={getDiscipline(p.discipline).title}
+                    title={p.title}
+                    media={p.media}
+                    action="View project"
+                    badge={
+                      <DisciplineTile
+                        icon={getDiscipline(p.discipline).icon}
+                        discipline={p.discipline}
+                      />
+                    }
+                    href="#components"
+                  />
                 ))}
               </div>
             </div>
