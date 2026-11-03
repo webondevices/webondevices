@@ -1,0 +1,24 @@
+// One Worker serves the static export in `out/` and the contact endpoint.
+// Setup steps that happen in the Cloudflare dashboard are in worker/README.md.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "webondevices",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    // Everything else is a static file; only the API runs the Worker.
+    "run_worker_first": ["/api/*"],
+  },
+  // Email Routing only delivers to verified addresses; this pins the binding to one.
+  "send_email": [{ "name": "SEND_EMAIL", "destination_address": "webondevices@gmail.com" }],
+  "vars": {
+    "CONTACT_TO": "webondevices@gmail.com",
+    // Must be an address on a domain with Email Routing enabled.
+    "CONTACT_FROM": "contact@webondevices.com",
+  },
+  // TURNSTILE_SECRET_KEY is a secret: `wrangler secret put TURNSTILE_SECRET_KEY`.
+  "observability": { "enabled": true },
+}

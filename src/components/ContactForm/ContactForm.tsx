@@ -6,11 +6,13 @@ import { Icon } from "@/components/Icon/Icon";
 import { Typography } from "@/components/Typography/Typography";
 import { site } from "@/lib/site";
 import styles from "./ContactForm.module.css";
+import { useTurnstile } from "./useTurnstile";
 
 /*
- * The site is a static export, so sending needs a small serverless endpoint
- * (planned: a Cloudflare Pages Function that emails the enquiry). Until it is
- * deployed, submitting shows the error state with a direct email fallback.
+ * The site is a static export, so the Cloudflare Worker in `worker/` answers this
+ * endpoint: it checks the Turnstile token and emails the enquiry. Wherever the
+ * Worker isn't running (plain `next dev`), submitting shows the error state with
+ * a direct email fallback.
  */
 const ENDPOINT = "/api/contact";
 
@@ -22,7 +24,7 @@ const topics = [
   "Not sure yet",
 ];
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "sent" | "error" | "verifying";
 type Field = "name" | "email" | "message";
 
 const messages: Record<Field, string> = {
@@ -35,6 +37,7 @@ export function ContactForm() {
   const id = useId();
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
+  const { container: turnstileContainer, ...turnstile } = useTurnstile();
 
   const validate = (form: HTMLFormElement) => {
     const next: Partial<Record<Field, string>> = {};
@@ -55,6 +58,13 @@ export function ContactForm() {
       return;
     }
 
+    // Turnstile usually finishes before anyone gets this far; if not, ask for a moment.
+    const turnstileToken = turnstile.token();
+    if (turnstile.enabled && !turnstileToken) {
+      setStatus("verifying");
+      return;
+    }
+
     const data = new FormData(form);
     setStatus("sending");
     try {
@@ -68,12 +78,14 @@ export function ContactForm() {
           topics: data.getAll("topics"),
           message: data.get("message"),
           website: data.get("website"), // Honeypot: real people leave it empty.
+          turnstileToken,
         }),
       });
       if (!response.ok) throw new Error(`Contact endpoint returned ${response.status}`);
       form.reset();
       setStatus("sent");
     } catch {
+      turnstile.reset();
       setStatus("error");
     }
   };
@@ -163,6 +175,9 @@ export function ContactForm() {
         <input id={`${id}-website`} name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
+      {/* Turnstile stays invisible unless it needs the visitor to tick a box. */}
+      <div ref={turnstileContainer} />
+
       <div className={styles.footer}>
         <Button type="submit" icon="arrow-up-right" disabled={status === "sending"}>
           {status === "sending" ? "Sending…" : "Send message"}
@@ -172,6 +187,11 @@ export function ContactForm() {
             <Typography variant="body-sm" className={styles.formError}>
               Sorry, that didn’t send. Please email me at{" "}
               <a href={`mailto:${site.email}`}>{site.email}</a>.
+            </Typography>
+          )}
+          {status === "verifying" && (
+            <Typography variant="body-sm" className={styles.formError}>
+              Still checking you’re not a bot. Please press Send again in a moment.
             </Typography>
           )}
         </div>

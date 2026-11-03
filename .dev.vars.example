@@ -1,0 +1,4 @@
+# Copy to .dev.vars for `wrangler dev`. This is Cloudflare's published Turnstile
+# test secret, which accepts any token; the real secret is set with
+# `wrangler secret put TURNSTILE_SECRET_KEY` and never committed.
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA

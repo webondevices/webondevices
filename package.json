@@ -8,8 +8,12 @@
     "build": "next build",
     "start": "npx serve out",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit",
-    "format": "prettier --write ."
+    "typecheck": "tsc --noEmit && tsc --noEmit -p worker",
+    "format": "prettier --write .",
+    "test": "node --test \"worker/**/*.test.ts\"",
+    "cf-typegen": "wrangler types worker/worker-configuration.d.ts",
+    "preview": "NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA next build && wrangler dev",
+    "deploy": "next build && wrangler deploy"
   },
   "dependencies": {
     "@mdx-js/mdx": "^3.1.1",
@@ -30,6 +34,7 @@
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.3",
     "prettier": "^3.9.10",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "wrangler": "^4.157.0"
   }
 }
