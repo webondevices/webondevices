@@ -1,12 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 412 412">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-12 -45.5 203 203">
+  <!-- The W from WodLogo's mark (179 × 112), centred in a square. -->
   <style>
     g { fill: #0e1217; }
     @media (prefers-color-scheme: dark) { g { fill: #f5f4f0; } }
   </style>
-  <g transform="translate(0 150)">
+  <g>
     <path d="M0 0H65L103 72.5L59.5 112Z" />
     <path d="M76 0H141L179 72.5L135.5 112Z" />
-    <circle cx="239" cy="56" r="56" />
-    <path d="M304 0H356A56 56 0 0 1 356 112H304Z" />
   </g>
 </svg>
