@@ -1,40 +1,7 @@
-import { Icon } from "@/components/Icon/Icon";
-import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
-import type { Project, SpatialDetails } from "@/content/projects";
-import { HeroText } from "./HeroText";
+import type { SpatialDetails } from "@/content/projects";
 import shared from "./hero.module.css";
 import styles from "./spatial.module.css";
-
-type SpatialProject = Extract<Project, { discipline: "spatial-experiences" }>;
-
-/*
- * Spatial: the scene is the hero. A dark, full-width stage framed like a 3D
- * viewer, with the title laid over it. The 3D embed will replace the artwork.
- */
-export function SpatialHero({ project }: { project: SpatialProject }) {
-  return (
-    <section className={styles.hero} aria-labelledby="project-title">
-      <div className={shared.container}>
-        <div className={styles.stage} data-theme="dark">
-          <ProjectMedia project={project} className={styles.scene} />
-          <span className={styles.corners} aria-hidden />
-          {!project.hero && (
-            <span className={styles.viewerLabel}>
-              <Icon name="play" />
-              <Typography variant="caption" as="span">
-                3D scene
-              </Typography>
-            </span>
-          )}
-          <div className={styles.stageText}>
-            <HeroText project={project} />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* The capture in numbers, then the pipeline from scan to screen, on a dark band. */
 export function SpatialSignature({ details }: { details: SpatialDetails }) {

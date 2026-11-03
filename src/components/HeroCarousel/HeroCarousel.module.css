@@ -1,0 +1,56 @@
+.carousel {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: 90% center;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.image[data-active="true"] {
+  opacity: 1;
+}
+
+/* A small frosted pill in the bottom corner, clear of faces. */
+.dots {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--space-6);
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--brand-paper) 72%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--brand-ink) 30%, transparent);
+  cursor: pointer;
+  transition:
+    width var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
+}
+
+.dot:hover {
+  background: color-mix(in srgb, var(--brand-ink) 60%, transparent);
+}
+
+.dot[aria-pressed="true"] {
+  width: 24px;
+  background: var(--brand-ink);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}

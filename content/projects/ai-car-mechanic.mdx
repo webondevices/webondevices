@@ -18,7 +18,7 @@ related: [ai-drive-thru, ai-home-voice-assistant, esp8266-web-server-ai]
 
 A friend's YouTube video showed how to disable the rev limiter. Now the car sounds like a racing car, and there's a P0219 code on the dash. Has the engine been damaged?
 
-Our AI mechanic explained the over-speed condition, politely pushed back when told the friend "knows loads about cars," and suggested a new exhaust as a safer way to get the sound. That's the kind of answer you'd want from a good mechanic.
+My AI mechanic explained the over-speed condition, politely pushed back when told the friend "knows loads about cars," and suggested a new exhaust as a safer way to get the sound. That's the kind of answer you'd want from a good mechanic.
 
 <Video youtube="OHogHpY-t8c" title="Diagnose car issues with an AI chat assistant" />
 
@@ -26,13 +26,13 @@ Our AI mechanic explained the over-speed condition, politely pushed back when to
 
 When a mechanic plugs a laptop into your car, they're reading fault codes from the OBD port. You can do the same with a £20 to £30 Bluetooth scanner and your phone. The missing piece is someone to explain what the code means for *your* car, and what to do next.
 
-We built that someone in under two days.
+I built that someone in under two days.
 
 ![An OBD scanner reads fault codes straight to your phone](/media/ai-car-mechanic/obd-scanner.png)
 
 ## How it works
 
-**A real knowledge base.** We collected a large dataset of OBD fault codes, each with a detailed technical explanation, likely causes and fixes.
+**A real knowledge base.** I collected a large dataset of OBD fault codes, each with a detailed technical explanation, likely causes and fixes.
 
 **Two ways in.** Start with a code and the app does a direct lookup. Start with a description ("I'm unable to cool my car") and it uses embeddings to search by *meaning*. It finds the air-con entries even though the word "cool" appears nowhere in them.
 
@@ -49,7 +49,7 @@ This is retrieval-augmented generation (RAG) with a hardware data source, and th
 - **Fleet operators**: telematics data triaged before a vehicle goes off the road
 - **Support teams**: first-line diagnosis that hands a complete summary to a human
 
-We build these end to end: data collection and cleaning, semantic search, prompt design, the chat interface and, where needed, the hardware that reads the data. [Tell us about your diagnostics problem](/contact/).
+I build these end to end: data collection and cleaning, semantic search, prompt design, the chat interface and, where needed, the hardware that reads the data. [Tell me about your diagnostics problem](/contact/).
 
 ## More on this project
 

@@ -1,0 +1,30 @@
+/* A small badge: the discipline's icon, white on its brand colour. */
+.tile {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.1875rem;
+  height: 2.1875rem;
+  border-radius: var(--radius-sm);
+  color: var(--brand-paper);
+}
+
+.software-engineering {
+  background: var(--brand-dusk);
+}
+
+.ai-automation {
+  background: var(--brand-ocean);
+}
+
+.spatial-experiences {
+  background: var(--brand-ember);
+}
+
+.hardware-electronics {
+  background: var(--brand-gold);
+}
+
+.icon {
+  font-size: 1.25rem;
+}

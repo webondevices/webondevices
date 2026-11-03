@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ThemeToggle } from "@/components/ThemeToggle/ThemeToggle";
 import { Typography } from "@/components/Typography/Typography";
 import { WodLogo } from "@/components/WodLogo/WodLogo";
 import { disciplineHref, disciplines } from "@/content/disciplines";
@@ -69,7 +68,6 @@ export function SiteFooter() {
           <Typography variant="caption">
             © {new Date().getFullYear()} Web on Devices Ltd · {site.location}
           </Typography>
-          <ThemeToggle />
         </div>
       </div>
     </footer>

@@ -29,7 +29,7 @@
   }
 }
 
-/* Hero: the discipline's artwork fills the right side and fades under the text. */
+/* Hero: the discipline's photo runs full width, under a paper wash behind the text. */
 
 .hero {
   position: relative;
@@ -43,10 +43,21 @@
 
 .heroArt {
   position: absolute;
-  inset: 0 0 0 auto;
-  width: min(60%, 960px);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 35%);
-  mask-image: linear-gradient(to right, transparent, #000 35%);
+  inset: 0;
+  background: var(--color-bg-subtle);
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 90% center;
+}
+
+.heroArt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--brand-paper), transparent 75%);
+  pointer-events: none;
 }
 
 .heroContent {
@@ -76,10 +87,27 @@
   margin-top: var(--space-4);
 }
 
-@media (max-width: 767px) {
+/* Frosted so the outline button holds up over the busier parts of a photo. */
+.heroActions > a:last-child {
+  background: color-mix(in srgb, var(--brand-paper) 72%, transparent);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+/* Narrow screens: the photo would sit behind the text, so it stacks underneath instead. */
+@media (max-width: 899px) {
+  .hero {
+    min-height: 0;
+  }
+
   .heroArt {
-    width: 100%;
-    opacity: 0.35;
+    position: relative;
+    order: 1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .heroArt::after {
+    content: none;
   }
 }
 

@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
 import { CtaBand } from "@/components/CtaBand/CtaBand";
+import { DisciplineTile } from "@/components/DisciplineTile/DisciplineTile";
 import { Mdx } from "@/components/Mdx/Mdx";
 import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
@@ -18,10 +19,11 @@ import {
   projectTypeLabels,
   type Project,
 } from "@/content/projects";
-import { AiHero, AiSignature } from "./_variants/Ai";
-import { HardwareHero, HardwareSignature } from "./_variants/Hardware";
-import { SoftwareHero, SoftwareSignature } from "./_variants/Software";
-import { SpatialHero, SpatialSignature } from "./_variants/Spatial";
+import { AiSignature } from "./_variants/Ai";
+import { HardwareSignature } from "./_variants/Hardware";
+import { ProjectHero } from "./_variants/ProjectHero";
+import { SoftwareSignature } from "./_variants/Software";
+import { SpatialSignature } from "./_variants/Spatial";
 import styles from "./project.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -42,20 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-/* The discipline decides the hero and the signature section. Everything else is shared. */
-function Hero({ project }: { project: Project }) {
-  switch (project.discipline) {
-    case "spatial-experiences":
-      return <SpatialHero project={project} />;
-    case "hardware-electronics":
-      return <HardwareHero project={project} />;
-    case "ai-automation":
-      return <AiHero project={project} />;
-    case "software-engineering":
-      return <SoftwareHero project={project} />;
-  }
-}
-
+/* Every project shares one hero; the discipline decides the signature section. */
 function Signature({ project }: { project: Project }) {
   switch (project.discipline) {
     case "spatial-experiences":
@@ -91,7 +80,7 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <article data-discipline={project.discipline}>
-      <Hero project={project} />
+      <ProjectHero project={project} />
 
       {/* Key facts */}
       <div className={styles.container}>
@@ -194,6 +183,13 @@ export default async function ProjectPage({ params }: Props) {
                   title={p.title}
                   description={p.summary}
                   media={<ProjectMedia project={p} />}
+                  action="View project"
+                  badge={
+                    <DisciplineTile
+                      icon={getDiscipline(p.discipline).icon}
+                      discipline={p.discipline}
+                    />
+                  }
                   href={projectHref(p.slug)}
                 />
               ))}

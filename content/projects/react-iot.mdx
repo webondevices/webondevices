@@ -8,8 +8,8 @@ type: experiment
 status: completed
 year: "2017–2021"
 hero:
-  image: /media/react-iot/demo.gif
-  alt: "A React app switching an LED on as the light sensor gets covered"
+  image: /media/react-iot/hero.jpg
+  alt: "A breadboard with an LED and light sensor wired to an Arduino, beside a laptop"
 links:
   - { label: "Source code on GitHub", href: "https://github.com/webondevices/react-iot" }
   - { label: "Part 1 on Medium: XML and CSS for electronics", href: "https://matemarschalko.medium.com/standardising-iot-projects-1-markup-and-styling-e18e8e25f726" }
@@ -22,7 +22,7 @@ Web developers have spent twenty years learning how to keep big projects tidy. S
 
 Hardware projects mostly ignore all of that. Every build starts from scratch, and the logic ends up in one long loop that only its author understands.
 
-We wanted to fix that. So we tried two very different approaches.
+I wanted to fix that. So I tried two very different approaches.
 
 ![George, the JavaScript talking plant, one of the projects that kicked this off](/media/react-iot/george.jpeg)
 
@@ -30,7 +30,7 @@ We wanted to fix that. So we tried two very different approaches.
 
 HTML describes documents. SVG describes graphics. Why not a markup language for devices?
 
-We sketched **IOTML**. Rooms, sensors, lights and motors become elements, with their relationships and state as attributes:
+I sketched **IOTML**. Rooms, sensors, lights and motors become elements, with their relationships and state as attributes:
 
 ```xml
 <room type="bedroom" class="kids-room">
@@ -53,7 +53,7 @@ You can read the whole system at a glance. What's in which room, what's on, what
 
 ## Idea two: React, minus the DOM
 
-React was never really about browsers. React Native, React Three Fiber and React VR all prove the point. So we ran React in Node.js and pointed it at an Arduino.
+React was never really about browsers. React Native, React Three Fiber and React VR all prove the point. So I ran React in Node.js and pointed it at an Arduino.
 
 Each electronic part becomes a component. Sensors push readings into state. State flows down as props. Components switch real circuits in response.
 
@@ -91,9 +91,9 @@ Every React developer on your team can now read, test and change device logic. C
 
 ![The finished setup](/media/react-iot/setup.jpeg)
 
-## What this says about how we work
+## What this says about how I work
 
-We like to borrow good ideas from one field and drop them into another. It's how you end up with systems that are easier to maintain, quicker to extend and less dependent on one person's head. If your connected product has outgrown its spaghetti, [we should talk](/contact/).
+I like to borrow good ideas from one field and drop them into another. It's how you end up with systems that are easier to maintain, quicker to extend and less dependent on one person's head. If your connected product has outgrown its spaghetti, [let's talk](/contact/).
 
 ## More on this project
 

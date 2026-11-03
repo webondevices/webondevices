@@ -9,8 +9,8 @@ status: completed
 year: "2015"
 featured: true
 hero:
-  image: /posts/kinect-2-skeleton.jpg
-  alt: "Kinect 2 skeleton tracking data visualised on screen"
+  image: /media/kinect-gesture-interfaces/hero.jpg
+  alt: "A person raising a hand in front of a wall screen, with a Kinect sensor on top tracking their skeleton in the browser"
 links:
   - { label: "Watch the gesture demo on YouTube", href: "https://www.youtube.com/watch?v=Iad5BmZYUy8" }
   - { label: "Original write-up: gesture tracking", href: "/xbox-kinect-2-javascript-gesture-tracking/" }
@@ -24,11 +24,11 @@ Walk up to a screen. Raise a hand. The cursor follows. Swipe and the content mov
 
 ## How it works
 
-A Kinect 2 sensor tracks up to six people at once, 25 joints each, thirty times a second. We read that stream in Node.js, packaged every frame as JSON and pushed it over WebSockets. Any browser on the network could subscribe, including a Mac across the room that had no idea a Kinect was involved.
+A Kinect 2 sensor tracks up to six people at once, 25 joints each, thirty times a second. I read that stream in Node.js, packaged every frame as JSON and pushed it over WebSockets. Any browser on the network could subscribe, including a Mac across the room that had no idea a Kinect was involved.
 
 ![What the sensor sees: depth and skeleton data](/posts/kinect1.png)
 
-From there it's just web development. The browser gets hand positions, head position and body pose, and we turn those into gestures: point, grab, swipe, wave, step closer, walk away.
+From there it's just web development. The browser gets hand positions, head position and body pose, and I turn those into gestures: point, grab, swipe, wave, step closer, walk away.
 
 That last part matters. Because the interface is HTML, CSS and JavaScript, it can be anything a website can be. Video, 3D, live data, animation. And it runs full screen on whatever display you've got.
 
@@ -48,9 +48,9 @@ That last part matters. Because the interface is HTML, CSS and JavaScript, it ca
 
 ## Today's version
 
-The Kinect itself has been retired, but the idea is stronger than ever. Depth cameras, webcams with on-device pose estimation, and AI vision models now do the same job with smaller, cheaper hardware. We'd also add things that weren't practical in 2015: recognising what people are holding, estimating crowd size and dwell time, or adapting content to who's actually standing there.
+The Kinect itself has been retired, but the idea is stronger than ever. Depth cameras, webcams with on-device pose estimation, and AI vision models now do the same job with smaller, cheaper hardware. I'd also add things that weren't practical in 2015: recognising what people are holding, estimating crowd size and dwell time, or adapting content to who's actually standing there.
 
-We build the full stack for this: sensor integration, real-time data plumbing, and the interface people actually see. If you've got a space and a screen and want them to do more, [let's talk](/contact/).
+I build the full stack for this: sensor integration, real-time data plumbing, and the interface people actually see. If you've got a space and a screen and want them to do more, [let's talk](/contact/).
 
 ## More on this project
 

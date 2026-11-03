@@ -16,9 +16,9 @@ links:
 related: [genetic-ui, ai-home-voice-assistant, stracciatella-vanilla-js]
 ---
 
-Language models can call functions and return clean JSON. So we asked the obvious, slightly reckless question: could you outsource an app's entire business logic to one?
+Language models can call functions and return clean JSON. So I asked the obvious, slightly reckless question: could you outsource an app's entire business logic to one?
 
-We built it in three levels to find out.
+I built it in three levels to find out.
 
 ## Level 1: replace functions with a sentence
 
@@ -52,7 +52,7 @@ The model returns a JSON tree of Ant Design components, with event handlers and 
 
 ## Level 3: let the model run the app
 
-Here's where it gets strange. We built a todo app with **no application logic at all**.
+Here's where it gets strange. I built a todo app with **no application logic at all**.
 
 You give a `useLLMOrchestrator` hook the app's goals, its current state and the actions it's allowed to take. Then the UI just narrates what happened:
 
@@ -67,7 +67,7 @@ The model decides what to do. Click "Add Todo" and it opens the modal and clears
 
 ![A new task saved, field cleared and modal closed, all by the model](/media/llm-driven-apps/todo-done.png)
 
-With GPT-4o-mini the whole round trip took under a second in our tests. Models are getting faster and cheaper every few months.
+With GPT-4o-mini the whole round trip took under a second in my tests. Models are getting faster and cheaper every few months.
 
 ## Should you build apps like this?
 
@@ -77,7 +77,7 @@ Not wholesale, not yet. But pieces of it are ready today, and they're powerful:
 - Interfaces that adapt to each user or task
 - Natural-language control over an existing product, layered on top of the actions it already has
 
-Knowing where an LLM earns its keep and where plain code is still the right answer is the hard part. That's exactly the kind of call we help teams make, then build. [Let's talk about yours](/contact/).
+Knowing where an LLM earns its keep and where plain code is still the right answer is the hard part. That's exactly the kind of call I help teams make, then build. [Let's talk about yours](/contact/).
 
 ## More on this project
 

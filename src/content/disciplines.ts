@@ -1,4 +1,5 @@
 import type { GradientArtName } from "@/components/GradientArt/GradientArt";
+import type { IconName } from "@/components/Icon/Icon";
 
 /* The four disciplines. Each gets a page at /expertise/[slug]/, and every project belongs to one. */
 
@@ -19,6 +20,10 @@ export type Discipline = {
   /** One line for tiles, menus and the footer. */
   short: string;
   art: GradientArtName;
+  /** Line icon on the discipline badge. */
+  icon: IconName;
+  /** The photo for the homepage hero carousel and the discipline page's hero. */
+  heroImage: string;
   /** The page's headline, from the brief's positioning line. */
   headline: string;
   intro: string;
@@ -34,9 +39,11 @@ export const disciplines: Discipline[] = [
     titleLines: ["Software", "Engineering"],
     short: "Web applications, interfaces and scalable systems.",
     art: "software",
+    icon: "software",
+    heroImage: "/media/hero/software.jpg",
     headline: "Robust, polished digital products, from interface to infrastructure.",
     intro:
-      "The professional core behind everything else. We architect and build fast, accessible web applications and the design systems behind them, for teams that need them to last.",
+      "The professional core behind everything else. I architect and build fast, accessible web applications and the design systems behind them, for teams that need them to last.",
     capabilities: [
       "Full-stack application development",
       "React, Next.js and TypeScript",
@@ -91,9 +98,11 @@ export const disciplines: Discipline[] = [
     titleLines: ["AI &", "Automation"],
     short: "AI applications, automations and smart solutions.",
     art: "ai",
+    icon: "ai",
+    heroImage: "/media/hero/ai.jpg",
     headline: "AI and automation that make complicated processes simpler.",
     intro:
-      "Practical applications and working products, not AI for its own sake. We build assistants, search and automations that plug into the systems you already use and save real time.",
+      "Practical applications and working products, not AI for its own sake. I build assistants, search and automations that plug into the systems you already use and save real time.",
     capabilities: [
       "AI agents and assistants",
       "AI-powered search and recommendations",
@@ -148,9 +157,11 @@ export const disciplines: Discipline[] = [
     titleLines: ["Spatial", "Experiences"],
     short: "3D capture, digital twins and immersive visualisation.",
     art: "spatial",
+    icon: "spatial",
+    heroImage: "/media/hero/spatial.jpg",
     headline: "Real places and objects, turned into interactive digital experiences.",
     intro:
-      "We capture buildings, rooms and products in 3D, then build them into experiences people can explore in a browser or a headset. From a single product viewer to a full property walkthrough.",
+      "I capture buildings, rooms and products in 3D, then build them into experiences people can explore in a browser or a headset. From a single product viewer to a full property walkthrough.",
     capabilities: [
       "Gaussian splatting and photorealistic 3D reconstruction",
       "Interior and exterior 3D property scanning",
@@ -205,9 +216,11 @@ export const disciplines: Discipline[] = [
     titleLines: ["Hardware &", "Electronics"],
     short: "Connected devices, sensors and real-world systems.",
     art: "hardware",
+    icon: "hardware",
+    heroImage: "/media/hero/hardware.jpg",
     headline: "Bringing intelligence and connectivity into the physical world.",
     intro:
-      "Real devices, real sensors, real installations. We design and build electronics that measure, monitor and respond to the world around them, and the software that makes them useful.",
+      "Real devices, real sensors, real installations. I design and build electronics that measure, monitor and respond to the world around them, and the software that makes them useful.",
     capabilities: [
       "Custom electronics and prototyping",
       "Arduino, ESP32 and Raspberry Pi applications",

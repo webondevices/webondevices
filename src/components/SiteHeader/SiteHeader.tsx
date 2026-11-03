@@ -87,7 +87,7 @@ export function SiteHeader() {
     <header className={styles.header} data-open={open || undefined}>
       <div className={styles.inner}>
         <Link href="/" className={styles.home} aria-label="Web on Devices, home" onClick={close}>
-          <WodLogo height={28} title="" />
+          <WodLogo variant="lockup" height={44} title="" />
         </Link>
 
         <nav className={styles.nav} aria-label="Main">

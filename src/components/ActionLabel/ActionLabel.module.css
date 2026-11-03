@@ -1,0 +1,48 @@
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-weight: var(--weight-regular);
+  line-height: 1;
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.md {
+  --bubble-size: 3rem;
+  font-size: var(--text-body-sm);
+}
+
+.sm {
+  --bubble-size: 2.25rem;
+  gap: var(--space-3);
+  font-size: var(--text-caption);
+}
+
+.bubble {
+  display: grid;
+  place-items: center;
+  width: var(--bubble-size);
+  height: var(--bubble-size);
+  border-radius: 50%;
+  background: var(--color-action-bg);
+  color: var(--color-action-text);
+  font-size: 1.5em;
+  transition:
+    background-color var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.secondary .bubble {
+  border: 1px solid var(--color-text);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+:global([data-action]):hover .bubble {
+  transform: scale(1.06);
+}
+
+:global([data-action]):hover .primary .bubble {
+  background: var(--color-action-bg-hover);
+}

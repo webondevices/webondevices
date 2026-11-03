@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
 import { CtaBand } from "@/components/CtaBand/CtaBand";
-import { GradientArt } from "@/components/GradientArt/GradientArt";
+import { DisciplineTile } from "@/components/DisciplineTile/DisciplineTile";
 import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
 import {
@@ -51,7 +52,14 @@ export default async function DisciplinePage({ params }: Props) {
       {/* Hero */}
       <section className={styles.hero} aria-labelledby="discipline-title">
         <div className={styles.heroArt}>
-          <GradientArt name={discipline.art} />
+          <Image
+            src={discipline.heroImage}
+            alt=""
+            fill
+            sizes="100vw"
+            priority
+            className={styles.heroImage}
+          />
         </div>
         <div className={`${styles.container} ${styles.heroContent}`}>
           <Typography variant="eyebrow" rule>
@@ -82,7 +90,7 @@ export default async function DisciplinePage({ params }: Props) {
         <div className={`${styles.container} ${styles.split}`}>
           <div className={styles.sectionTitle}>
             <Typography variant="eyebrow" rule>
-              What we do
+              What I do
             </Typography>
             <Typography variant="display" as="h2" id="capabilities-title">
               Capabilities
@@ -105,10 +113,10 @@ export default async function DisciplinePage({ params }: Props) {
         <div className={styles.container}>
           <div className={styles.sectionTitle}>
             <Typography variant="eyebrow" rule>
-              How we work
+              How I work
             </Typography>
             <Typography variant="display" as="h2" id="approach-title">
-              Our approach
+              My approach
             </Typography>
           </div>
           <ol className={styles.steps}>
@@ -174,6 +182,7 @@ export default async function DisciplinePage({ params }: Props) {
                 title={p.title}
                 description={p.summary}
                 media={<ProjectMedia project={p} />}
+                action="View project"
                 href={projectHref(p.slug)}
               />
             ))}
@@ -195,7 +204,9 @@ export default async function DisciplinePage({ params }: Props) {
                 eyebrow={String(disciplines.indexOf(d) + 1).padStart(2, "0")}
                 title={d.title}
                 description={d.short}
+                badge={<DisciplineTile icon={d.icon} discipline={d.slug} />}
                 href={disciplineHref(d.slug)}
+                action="Explore"
                 headingLevel="h3"
               />
             ))}

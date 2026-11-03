@@ -32,7 +32,7 @@ One orchestrator app listens to Jira and GitHub. Behind it sit four agents, each
 
 **QA agent.** Read-only by design. It runs the tests, checks types, compares the code against the ticket, and posts a detailed report in Jira. Failures go back to the developer agent. Passes get pushed to GitHub.
 
-**Tech lead agent.** A GitHub Action opens a pull request for any branch with the AI prefix, and the tech lead reviews it against the ticket and the team's standards. In the demo we planted a bug: a screen density tool that should return `low`, `medium` or `high` returned a boolean instead. The tech lead caught it, tagged the AI user on the PR, the developer agent fixed it on the same branch, and the tech lead approved the new commit.
+**Tech lead agent.** A GitHub Action opens a pull request for any branch with the AI prefix, and the tech lead reviews it against the ticket and the team's standards. In the demo I planted a bug: a screen density tool that should return `low`, `medium` or `high` returned a boolean instead. The tech lead caught it, tagged the AI user on the PR, the developer agent fixed it on the same branch, and the tech lead approved the new commit.
 
 ## Why it's built this way
 
@@ -47,7 +47,7 @@ Any model can write a circle class. The clever bit is the process wrapped around
 
 Bug backlogs, small features, dependency upgrades and test coverage: the steady stream of well-defined work that eats senior developers' time. An agent workflow like this can take the first pass at all of it, while your people review and steer.
 
-We design agent systems around real team processes, with sensible guardrails, permissions and costs. If you'd like to see what a setup like this would look like on your codebase, [let's talk](/contact/).
+I design agent systems around real team processes, with sensible guardrails, permissions and costs. If you'd like to see what a setup like this would look like on your codebase, [let's talk](/contact/).
 
 ## More on this project
 

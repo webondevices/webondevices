@@ -1,14 +1,16 @@
 import Image from "next/image";
+import { Fragment } from "react";
 import { Button } from "@/components/Button/Button";
 import { Card } from "@/components/Card/Card";
 import { ContactForm } from "@/components/ContactForm/ContactForm";
-import { GradientArt } from "@/components/GradientArt/GradientArt";
+import { DisciplineTile } from "@/components/DisciplineTile/DisciplineTile";
+import { HeroCarousel } from "@/components/HeroCarousel/HeroCarousel";
 import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Tone, Typography } from "@/components/Typography/Typography";
 import { disciplineHref, disciplines, getDiscipline } from "@/content/disciplines";
 import { founderFacts, founderHighlights, testimonials } from "@/content/home";
 import { featuredProjects, projectHref } from "@/content/projects";
-import { contactHref, site } from "@/lib/site";
+import { author, contactHref, site } from "@/lib/site";
 import styles from "./home.module.css";
 
 export default function HomePage() {
@@ -16,13 +18,8 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className={styles.hero} aria-labelledby="hero-title">
-        <div className={styles.heroArt} aria-hidden>
-          <div className={styles.heroCaption}>
-            <Typography variant="eyebrow">3D spatial experiences</Typography>
-            <Typography variant="body-sm">
-              From reality to interactive digital experiences.
-            </Typography>
-          </div>
+        <div className={styles.heroArt}>
+          <HeroCarousel slides={disciplines.map((d) => ({ image: d.heroImage, title: d.title }))} />
         </div>
         <div className={styles.heroContent}>
           <Typography variant="eyebrow">Creative technology studio</Typography>
@@ -30,12 +27,12 @@ export default function HomePage() {
             Software, hardware and intelligence <Tone muted>working together.</Tone>
           </Typography>
           <Typography variant="body-lg" className={styles.heroLead}>
-            We design, build and deploy real-world technology. From physical devices to intelligent
+            I design, build and deploy real-world technology. From physical devices to intelligent
             software and immersive digital experiences.
           </Typography>
           <div className={styles.heroActions}>
             <Button variant="text" icon="arrow-up-right" href="#projects">
-              Explore our work
+              Explore my work
             </Button>
             <Button variant="secondary" icon="arrow-up-right" href={contactHref}>
               Let&apos;s build
@@ -53,6 +50,7 @@ export default function HomePage() {
           <Card
             key={d.slug}
             href={disciplineHref(d.slug)}
+            action="Explore"
             layout="media-bottom"
             eyebrow={String(index + 1).padStart(2, "0")}
             title={
@@ -63,7 +61,7 @@ export default function HomePage() {
               </>
             }
             description={d.short}
-            media={<GradientArt name={d.art} />}
+            badge={<DisciplineTile icon={d.icon} discipline={d.slug} />}
           />
         ))}
       </section>
@@ -93,6 +91,10 @@ export default function HomePage() {
               eyebrow={getDiscipline(p.discipline).title}
               title={p.title}
               media={<ProjectMedia project={p} />}
+              action="View project"
+              badge={
+                <DisciplineTile icon={getDiscipline(p.discipline).icon} discipline={p.discipline} />
+              }
               href={projectHref(p.slug)}
             />
           ))}
@@ -110,7 +112,7 @@ export default function HomePage() {
               Nearly 20 years of turning new technology <Tone muted>into things people use.</Tone>
             </Typography>
             <figure className={styles.portrait}>
-              <Image src="/matemarschalko.jpg" alt="" width={160} height={160} />
+              <Image src={author.portrait} alt="" width={160} height={160} />
               <figcaption>
                 <Typography variant="body-sm" as="span" className={styles.portraitName}>
                   Mate Marschalko
@@ -124,11 +126,11 @@ export default function HomePage() {
 
           <div className={styles.founderBody}>
             <Typography variant="body-lg">
-              Web on Devices is led by Mate Marschalko, a creative technologist and lead engineer.
-              He has built products used by millions for media, finance, travel and retail
-              companies, and experiments that found an audience of their own. Every project gets the
-              same senior engineering, whether it ships to millions of browsers or to a single
-              sensor in a field.
+              I&apos;m Mate Marschalko, a creative technologist and lead engineer, and Web on
+              Devices is my studio. I&apos;ve built products used by millions for media, finance,
+              travel and retail companies, and experiments that found an audience of their own.
+              Every project gets the same senior engineering, whether it ships to millions of
+              browsers or to a single sensor in a field.
             </Typography>
 
             <dl className={styles.facts}>
@@ -150,9 +152,17 @@ export default function HomePage() {
 
             <ul className={styles.highlights}>
               {founderHighlights.map((item) => (
-                <li key={item}>
+                <li key={item.text}>
                   <Typography variant="body-sm" as="span">
-                    {item}
+                    {item.text}
+                    {item.links?.map((link, i, all) => (
+                      <Fragment key={link.href}>
+                        {i === 0 ? " " : i === all.length - 1 ? " and " : ", "}
+                        <a href={link.href} target="_blank" rel="noopener noreferrer">
+                          {link.label}
+                        </a>
+                      </Fragment>
+                    ))}
                   </Typography>
                 </li>
               ))}
@@ -162,7 +172,7 @@ export default function HomePage() {
 
         <div className={`${styles.container} ${styles.quotes}`}>
           {testimonials.map((t) => (
-            <figure key={t.name} className={styles.quote}>
+            <figure key={t.name} className={`${styles.quote} ${t.wide ? styles.quoteWide : ""}`}>
               <blockquote>
                 <Typography variant="heading-4" as="p">
                   “{t.quote}”
@@ -187,7 +197,7 @@ export default function HomePage() {
         <div className={`${styles.container} ${styles.bandContent}`}>
           <div className={styles.sectionTitle}>
             <Typography variant="eyebrow" rule>
-              Our approach
+              My approach
             </Typography>
             <Typography variant="display" as="h2" id="approach-title">
               Practical technology <Tone muted>for a more interesting world.</Tone>
@@ -195,8 +205,8 @@ export default function HomePage() {
           </div>
           <div className={styles.bandAside}>
             <Typography variant="body">
-              We combine engineering, creativity and emerging technologies to solve real problems
-              and create new possibilities. One studio, from the circuit board to the cloud.
+              I combine engineering, creativity and emerging technologies to solve real problems and
+              create new possibilities. One pair of hands, from the circuit board to the cloud.
             </Typography>
             <Button variant="text" icon="arrow-down" href="#contact">
               Start a project
@@ -217,7 +227,7 @@ export default function HomePage() {
             </Typography>
             <Typography variant="body-lg">
               A product idea, an engineering challenge or a prototype that needs to work in the real
-              world. Tell us about it and we&apos;ll get back to you.
+              world. Tell me about it and I&apos;ll get back to you.
             </Typography>
             <Typography variant="body-sm">
               Prefer email? <a href={`mailto:${site.email}`}>{site.email}</a>

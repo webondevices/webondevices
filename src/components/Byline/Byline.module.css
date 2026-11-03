@@ -1,0 +1,36 @@
+/* Matches the founder portrait on the homepage, at a smaller size. */
+
+.byline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.byline img {
+  flex: none;
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: grayscale(1) contrast(1.05);
+  box-shadow:
+    0 0 0 2px var(--color-bg),
+    0 0 0 3px var(--brand-ember);
+}
+
+.text {
+  display: grid;
+  gap: 2px;
+}
+
+.name {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+  transition: color var(--duration-base) var(--ease-out);
+}
+
+.byline:hover .name {
+  color: var(--color-accent);
+}

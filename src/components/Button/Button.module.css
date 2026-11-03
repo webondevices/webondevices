@@ -71,25 +71,6 @@
   font-weight: var(--weight-regular);
 }
 
-.bubble {
-  display: grid;
-  place-items: center;
-  width: var(--button-height);
-  height: var(--button-height);
-  border-radius: 50%;
-  background: var(--color-action-bg);
-  color: var(--color-action-text);
-  font-size: 1.5em;
-  transition:
-    background-color var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
-}
-
-.text:hover .bubble {
-  background: var(--color-action-bg-hover);
-  transform: scale(1.06);
-}
-
 .iconButton {
   display: inline-grid;
   place-items: center;

@@ -1,34 +1,8 @@
 import type { CSSProperties } from "react";
-import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
-import type { Project, SoftwareDetails } from "@/content/projects";
-import { HeroText } from "./HeroText";
+import type { SoftwareDetails } from "@/content/projects";
 import shared from "./hero.module.css";
 import styles from "./software.module.css";
-
-type SoftwareProject = Extract<Project, { discipline: "software-engineering" }>;
-
-/* Software: clean and precise. The work shown in an application window beside the text. */
-export function SoftwareHero({ project }: { project: SoftwareProject }) {
-  return (
-    <section className={styles.hero} aria-labelledby="project-title">
-      <div className={`${shared.container} ${styles.heroGrid}`}>
-        <HeroText project={project} />
-        <figure className={styles.window} aria-hidden>
-          <div className={styles.windowBar}>
-            <span />
-            <span />
-            <span />
-            <span className={styles.address}>{project.slug}</span>
-          </div>
-          <div className={styles.windowBody}>
-            <ProjectMedia project={project} />
-          </div>
-        </figure>
-      </div>
-    </section>
-  );
-}
 
 /* The architecture as stacked layers, then the stack grouped by job. */
 export function SoftwareSignature({ details }: { details: SoftwareDetails }) {

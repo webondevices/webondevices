@@ -1,40 +1,9 @@
 import { Fragment } from "react";
 import { Icon } from "@/components/Icon/Icon";
-import { ProjectMedia } from "@/components/ProjectMedia/ProjectMedia";
 import { Typography } from "@/components/Typography/Typography";
-import type { HardwareDetails, Project } from "@/content/projects";
-import { HeroText } from "./HeroText";
+import type { HardwareDetails } from "@/content/projects";
 import shared from "./hero.module.css";
 import styles from "./hardware.module.css";
-
-type HardwareProject = Extract<Project, { discipline: "hardware-electronics" }>;
-
-/*
- * Hardware: an engineering drawing. The device sits on a blueprint grid,
- * labelled with callouts from its spec sheet.
- */
-export function HardwareHero({ project }: { project: HardwareProject }) {
-  const callouts = project.details?.specs.slice(0, 3) ?? [];
-  return (
-    <section className={styles.hero} aria-labelledby="project-title">
-      <div className={`${shared.container} ${styles.heroGrid}`}>
-        <HeroText project={project} />
-        <figure className={styles.blueprint} aria-hidden>
-          <div className={styles.device}>
-            <ProjectMedia project={project} />
-          </div>
-          {callouts.map((spec, index) => (
-            <span key={spec.label} className={styles.callout} data-index={index}>
-              <span className={styles.calloutNumber}>{String(index + 1).padStart(2, "0")}</span>
-              {spec.label}
-            </span>
-          ))}
-          <span className={styles.scale}>WOD · {project.slug.toUpperCase()}</span>
-        </figure>
-      </div>
-    </section>
-  );
-}
 
 /* A spec sheet, then the system as a chain from sensor to screen. */
 export function HardwareSignature({ details }: { details: HardwareDetails }) {

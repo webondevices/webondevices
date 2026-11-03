@@ -26,49 +26,52 @@
   transition: transform var(--duration-slow) var(--ease-out);
 }
 
-/* The image fades into the card above it, as in the mock's discipline tiles. */
-.media-bottom .media::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: 1;
-  height: 45%;
-  background: linear-gradient(var(--color-surface), transparent);
-  pointer-events: none;
+/* Discipline cards: a shorter, rounded tile inset from the card edges. */
+.media-bottom .media {
+  aspect-ratio: 16 / 10;
+  margin: 0 var(--space-5) var(--space-5);
+  border-radius: var(--radius-md);
+  background: none;
 }
 
+/* A column, so the action can sit at the bottom and line up across a row of cards. */
 .body {
   position: relative;
-  display: grid;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-3);
   padding: var(--space-5);
 }
 
 .media-top .body {
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  column-gap: var(--space-4);
-  row-gap: var(--space-2);
-}
-
-.media-top .body > :not(.arrow) {
-  grid-column: 1;
-}
-
-.media-top .arrow {
-  grid-column: 2;
-  grid-row: 1 / span 3;
+  gap: var(--space-2);
 }
 
 /* The text area takes the slack, so images line up across a row of cards. */
 .media-bottom .body {
-  flex: 1;
   padding-block: var(--space-6) var(--space-6);
-  align-content: start;
 }
 
 .media-bottom .description {
   max-width: 28ch;
+}
+
+/* Over the image on project cards. */
+.badge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 2;
+  display: flex;
+  pointer-events: none;
+}
+
+/* Above the number on discipline cards. */
+.badgeInline {
+  display: flex;
+  margin-bottom: var(--space-2);
 }
 
 .title {
@@ -100,28 +103,10 @@
   outline: none;
 }
 
-.arrow {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  border-radius: 50%;
-  border: 1px solid var(--color-border-strong);
-  font-size: 1.2rem;
-  transition:
-    background-color var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out),
-    color var(--duration-base) var(--ease-out);
-}
-
-.media-bottom .arrow {
-  margin-top: var(--space-3);
-}
-
-.interactive:hover .arrow {
-  background: var(--color-text);
-  border-color: var(--color-text);
-  color: var(--color-bg);
+.action {
+  display: flex;
+  margin-top: auto;
+  padding-top: var(--space-3);
 }
 
 .interactive:hover .media > * {

@@ -1,21 +1,16 @@
 import Link from "next/link";
+import { Byline } from "@/components/Byline/Byline";
 import { Icon } from "@/components/Icon/Icon";
 import { Typography } from "@/components/Typography/Typography";
 import { disciplineHref, getDiscipline } from "@/content/disciplines";
 import { projectStatusLabels, type Project } from "@/content/projects";
 import styles from "./hero.module.css";
 
-type HeroTextProps = {
-  project: Project;
-  /** Centre the text, for heroes without a side panel. */
-  centered?: boolean;
-};
-
-/** The text every project hero shares: the way back, the title, the summary and the status. */
-export function HeroText({ project, centered = false }: HeroTextProps) {
+/** The text every project hero shares: the way back, the title, the summary, the byline and the status. */
+export function HeroText({ project }: { project: Project }) {
   const discipline = getDiscipline(project.discipline);
   return (
-    <div className={[styles.text, centered && styles.centered].filter(Boolean).join(" ")}>
+    <div className={styles.text}>
       <Link href={disciplineHref(discipline.slug)} className={styles.back}>
         <Icon name="arrow-left" />
         <Typography variant="eyebrow" as="span">
@@ -28,11 +23,14 @@ export function HeroText({ project, centered = false }: HeroTextProps) {
       <Typography variant="body-lg" tone="muted" className={styles.summary}>
         {project.summary}
       </Typography>
-      <span className={styles.status} data-status={project.status}>
-        <Typography variant="caption" as="span">
-          {projectStatusLabels[project.status]}
-        </Typography>
-      </span>
+      <div className={styles.meta}>
+        <Byline />
+        <span className={styles.status} data-status={project.status}>
+          <Typography variant="caption" as="span">
+            {projectStatusLabels[project.status]}
+          </Typography>
+        </span>
+      </div>
     </div>
   );
 }

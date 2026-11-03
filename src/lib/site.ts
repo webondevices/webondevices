@@ -10,6 +10,13 @@ export const site = {
   ],
 } as const;
 
+/* The person behind the work, shown as the byline on every project page. */
+export const author = {
+  name: "Mate Marschalko",
+  role: "Founder & Consultant",
+  portrait: "/mate-marschalko.png",
+} as const;
+
 /*
  * The header adds the Expertise menu (the four discipline pages) after Home.
  * Until the projects and about pages exist, those links point at homepage sections.

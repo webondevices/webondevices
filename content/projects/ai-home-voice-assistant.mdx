@@ -1,5 +1,5 @@
 ---
-title: "The smartest home assistant we could build"
+title: "The smartest home assistant I could build"
 summary: "From a ChatGPT-powered Siri Shortcut to a real-time voice assistant that runs a whole HomeKit house, reads the calendar and checks the cameras."
 discipline: ai-automation
 disciplines: [ai-automation, hardware-electronics]
@@ -21,13 +21,13 @@ related: [ai-talking-plant, esp8266-web-server-ai, llm-driven-apps]
 
 "Just noticed I'm recording this video in the dark in the office. Can you do something about that?"
 
-Siri would shrug. Our assistant turned the office light on and said so.
+Siri would shrug. My assistant turned the office light on and said so.
 
 <Video youtube="8O9crbbbPjI" title="World's smartest AI home assistant with advanced voice mode" />
 
 ## Version one: plain English as the program
 
-Our house runs on HomeKit. Dozens of lights, thermostats, underfloor heating, ventilation and cameras. In January 2023 we replaced Siri's brain with GPT-3, and we did it without writing a line of conventional code.
+My house runs on HomeKit. Dozens of lights, thermostats, underfloor heating, ventilation and cameras. In January 2023 I replaced Siri's brain with GPT-3, and I did it without writing a line of conventional code.
 
 The whole thing is a prompt. It tells the model it's the brain of the house, lists the rooms and devices, gives it the time and location, and asks for every reply as structured JSON in one of four categories:
 
@@ -40,13 +40,13 @@ An Apple Shortcut sends the spoken request, parses the JSON and fires the right 
 
 ![The plain-English prompt that runs the house](/media/ai-home-voice-assistant/prompt.png)
 
-What surprised us was the judgement. "My son's reading for another 20 minutes, switch his light off when it's time to sleep" came back with the bedroom light, `off`, and a timestamp twenty minutes ahead. "Set the bedroom to a temperature that'll help me sleep" came back as 19°C. Nobody wrote a rule for either.
+What surprised me was the judgement. "My son's reading for another 20 minutes, switch his light off when it's time to sleep" came back with the bedroom light, `off`, and a timestamp twenty minutes ahead. "Set the bedroom to a temperature that'll help me sleep" came back as 19°C. Nobody wrote a rule for either.
 
 The article hit around 3,000 claps on Medium, and the reaction was the same everywhere. Why can't the big assistants do this?
 
 ## Version two: real conversation, real access
 
-By late 2024 OpenAI's Realtime API made natural, interruptible voice possible. So we rebuilt it properly. The assistant now talks to a small Node.js server, and every capability is its own API endpoint:
+By late 2024 OpenAI's Realtime API made natural, interruptible voice possible. So I rebuilt it properly. The assistant now talks to a small Node.js server, and every capability is its own API endpoint:
 
 - Switch lights and report their state
 - Read and set the heating per room, with temperature and humidity
@@ -64,7 +64,7 @@ The server translates each call into an Apple Shortcut, runs it, and hands the r
 
 Strip away the house and you've got a pattern for any voice or chat interface that needs to *do* things: a natural-language front end, a model that turns intent into structured actions, and a thin, secure API layer onto real systems. Booking platforms, field-service tools, internal ops dashboards and hotel rooms all fit.
 
-We design and build these end to end, including the dull-but-critical parts: authentication, permissions, cost control and keeping the model's actions predictable. [Tell us what you'd want yours to do](/contact/).
+I design and build these end to end, including the dull-but-critical parts: authentication, permissions, cost control and keeping the model's actions predictable. [Tell me what you'd want yours to do](/contact/).
 
 ## More on this project
 

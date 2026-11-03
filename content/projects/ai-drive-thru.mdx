@@ -19,25 +19,25 @@ related: [ai-recruitment-screening, ai-car-mechanic, ai-home-voice-assistant]
 
 "For the Big Mac can I have some fruit and white coffee. But I changed my mind, I want the chicken one large. Can I have water and fries with that? No pickles on the Big Mac, extra mayo on the chicken. Actually, make that a black coffee for the first menu."
 
-Every drive-thru worker has heard an order like that. Most software would fall over. Ours untangled it and read the order back with a total, no-pickles, extra mayo and coffee swap included.
+Every drive-thru worker has heard an order like that. Most software would fall over. Mine untangled it and read the order back with a total, no-pickles, extra mayo and coffee swap included.
 
 <Video youtube="XL2MulO9LSA" title="Can ChatGPT take drive-thru orders?" />
 
-## Why we built it
+## Why I built it
 
-The big fast-food chains have spent tens of millions on AI ordering. We wanted to know how close an independent team could get with GPT-4, the then-new function calling API and a few hours of focused work.
+The big fast-food chains have spent tens of millions on AI ordering. I wanted to know how close one independent developer could get with GPT-4, the then-new function calling API and a few hours of focused work.
 
 Answer: close enough to be interesting.
 
 ## How it works
 
-**Personality from the staff handbook.** We pulled the rules, responsibilities and tone straight out of a real new-employee manual. Friendly, efficient, never pushy. (We skipped the section on uniforms.)
+**Personality from the staff handbook.** I pulled the rules, responsibilities and tone straight out of a real new-employee manual. Friendly, efficient, never pushy. (I skipped the section on uniforms.)
 
 **Grounded in the real menu.** Every item, price, option and meal size went in, along with opening hours, location and breakfast times. So when someone asks for a breakfast muffin at 12:13, the assistant politely explains breakfast finished at 11.
 
 **Orders as data.** Function calling defines exactly what an order looks like: items, sizes, sides, drinks, modifications. The model keeps the conversation human while filling in that structure behind the scenes. What comes out the other end is clean JSON a kitchen screen or POS could consume directly.
 
-It handled upsells, totals, "actually, remove that," dietary tweaks and questions about what's in a burger. It was ready to test in less than a day, because it was built on our React AI assistant starter kit, which already had the chat interface and model connection in place.
+It handled upsells, totals, "actually, remove that," dietary tweaks and questions about what's in a burger. It was ready to test in less than a day, because it was built on my React AI assistant starter kit, which already had the chat interface and model connection in place.
 
 ## Beyond burgers
 
@@ -48,7 +48,7 @@ The same recipe fits anywhere people order, book or configure something by talki
 - **Hospitality**: room service, bookings and upgrades
 - **Field services**: turning a customer's rambling description into a structured job ticket
 
-The pattern is always the same. Brand voice and rules, grounded data, a strict output schema. The hard part is making it reliable at volume, with sensible fallbacks to a human, and that's the part we focus on. [Let's talk about your use case](/contact/).
+The pattern is always the same. Brand voice and rules, grounded data, a strict output schema. The hard part is making it reliable at volume, with sensible fallbacks to a human, and that's the part I focus on. [Let's talk about your use case](/contact/).
 
 ## More on this project
 

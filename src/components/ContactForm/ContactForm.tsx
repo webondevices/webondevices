@@ -26,9 +26,9 @@ type Status = "idle" | "sending" | "sent" | "error";
 type Field = "name" | "email" | "message";
 
 const messages: Record<Field, string> = {
-  name: "Please tell us your name.",
+  name: "Please tell me your name.",
   email: "Please enter a valid email address.",
-  message: "A sentence or two about the project helps us reply properly.",
+  message: "A sentence or two about the project helps me reply properly.",
 };
 
 export function ContactForm() {
@@ -93,7 +93,7 @@ export function ContactForm() {
           Thanks, your message is on its way.
         </Typography>
         <Typography variant="body">
-          We usually reply within two working days. Speak soon.
+          I usually reply within two working days. Speak soon.
         </Typography>
         <Button variant="secondary" onClick={() => setStatus("idle")}>
           Send another message
@@ -141,7 +141,7 @@ export function ContactForm() {
       </div>
 
       <fieldset className={styles.topics}>
-        <legend>What can we help with?</legend>
+        <legend>What can I help with?</legend>
         <div className={styles.chips}>
           {topics.map((topic) => (
             <label key={topic} className={styles.chip}>
@@ -153,7 +153,7 @@ export function ContactForm() {
       </fieldset>
 
       <div className={styles.field}>
-        <label htmlFor={`${id}-message`}>Tell us about the project</label>
+        <label htmlFor={`${id}-message`}>Tell me about the project</label>
         <textarea rows={5} required minLength={10} {...fieldProps("message")} />
         {error("message")}
       </div>
@@ -170,7 +170,7 @@ export function ContactForm() {
         <div aria-live="polite">
           {status === "error" && (
             <Typography variant="body-sm" className={styles.formError}>
-              Sorry, that didn’t send. Please email us at{" "}
+              Sorry, that didn’t send. Please email me at{" "}
               <a href={`mailto:${site.email}`}>{site.email}</a>.
             </Typography>
           )}

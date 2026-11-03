@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import { ActionLabel } from "@/components/ActionLabel/ActionLabel";
 import { Icon, type IconName } from "@/components/Icon/Icon";
 import styles from "./Button.module.css";
 
@@ -10,7 +11,7 @@ type CommonProps = {
   /**
    * primary: solid pill ("Let's build ↗")
    * secondary: outlined pill ("View all projects ↗")
-   * text: icon in a filled circle, then the label ("↗ Explore our work")
+   * text: icon in a filled circle, then the label ("↗ Explore my work")
    */
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -50,16 +51,12 @@ export function Button({
     .filter(Boolean)
     .join(" ");
 
+  const action = variant === "text" ? true : undefined;
   const content =
-    variant === "text" ? (
-      <>
-        {icon && (
-          <span className={styles.bubble}>
-            <Icon name={icon} />
-          </span>
-        )}
-        <span>{children}</span>
-      </>
+    variant === "text" && icon ? (
+      <ActionLabel icon={icon} size={size}>
+        {children}
+      </ActionLabel>
     ) : (
       <>
         <span>{children}</span>
@@ -71,13 +68,13 @@ export function Button({
     const anchorProps = rest as AnchorRest;
     if (isExternal(href)) {
       return (
-        <a className={classes} href={href} {...anchorProps}>
+        <a className={classes} href={href} data-action={action} {...anchorProps}>
           {content}
         </a>
       );
     }
     return (
-      <Link className={classes} href={href} {...anchorProps}>
+      <Link className={classes} href={href} data-action={action} {...anchorProps}>
         {content}
       </Link>
     );
@@ -85,7 +82,7 @@ export function Button({
 
   const buttonProps = rest as ButtonRest;
   return (
-    <button className={classes} type="button" {...buttonProps}>
+    <button className={classes} type="button" data-action={action} {...buttonProps}>
       {content}
     </button>
   );
