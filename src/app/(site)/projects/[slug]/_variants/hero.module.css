@@ -117,3 +117,8 @@
 .status[data-status="live"]::before {
   background: var(--color-accent);
 }
+
+/* The way into a hosted demo, under the byline. */
+.demo {
+  align-self: flex-start;
+}

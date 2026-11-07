@@ -12,3 +12,6 @@ next-env.d.ts
 # Content planning workspace (source material, transcripts, drafts) — not committed
 /content-plan/
 .dev.vars
+
+# Built from demos/*/ by `npm run build:demos`
+/public/demos/

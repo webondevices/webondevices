@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/Button/Button";
 import { Byline } from "@/components/Byline/Byline";
 import { Icon } from "@/components/Icon/Icon";
 import { Typography } from "@/components/Typography/Typography";
@@ -31,6 +32,11 @@ export function HeroText({ project }: { project: Project }) {
           </Typography>
         </span>
       </div>
+      {project.demo && (
+        <Button href={project.demo} icon="arrow-right" className={styles.demo}>
+          Launch the live demo
+        </Button>
+      )}
     </div>
   );
 }

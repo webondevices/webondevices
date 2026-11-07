@@ -1,0 +1,44 @@
+/* ------------------------------------------------------------------
+   Quechua MH500 tokens — from the reference mockup: warm off-white
+   paper, ink-navy type, one forest-green accent.
+------------------------------------------------------------------- */
+:root {
+  --paper: #f3f1ec;
+  --paper-2: #ebe8e1;
+  --card: #ffffff;
+  --ink: #101820;
+  --ink-2: #2b3640;
+  --muted: #5d6873;
+  --faint: #8b949c;
+  --line: rgba(16, 24, 32, 0.1);
+  --line-2: rgba(16, 24, 32, 0.18);
+
+  --blue: #24603a;
+  --blue-600: #1a4a2c;
+  --blue-050: #e6f0e8;
+  --blue-glow: rgba(36, 96, 58, 0.38);
+  --tan: #c8892f;
+
+  --font-display: 'Inter Tight', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --fs-eyebrow: 0.75rem;
+  --fs-small: 0.8125rem;
+  --fs-body: 1rem;
+  --fs-lead: 1.0625rem;
+  --fs-h2: clamp(2rem, 3.6vw, 3.25rem);
+  --fs-display: clamp(2.75rem, 7vw, 6.5rem);
+  --fs-h1: clamp(2.75rem, 5.2vw, 4.75rem);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow: 0 1px 2px rgba(16, 24, 32, 0.05), 0 12px 32px -12px rgba(16, 24, 32, 0.18);
+
+  --max-w: 1440px;
+  --gutter: clamp(16px, 4vw, 56px);
+  --nav-h: 64px;
+  --bar-h: 52px;
+}

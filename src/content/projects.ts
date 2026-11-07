@@ -69,6 +69,8 @@ type ProjectBase = {
   order?: number;
   results?: Figure[];
   links: { label: string; href: string }[];
+  /** A live demo hosted on this site (under /demos/), opened from the hero. */
+  demo?: string;
   /** Slugs of projects to suggest at the end of the page. */
   related: string[];
   /** The case study, as MDX. */
@@ -135,6 +137,7 @@ const frontmatter = z.object({
   order: z.number().optional(),
   results: z.array(figure).optional(),
   links: z.array(z.object({ label: z.string(), href: z.string() })).default([]),
+  demo: z.string().startsWith("/demos/").optional(),
   related: z.array(z.string()).default([]),
   details: z.unknown().optional(),
 });

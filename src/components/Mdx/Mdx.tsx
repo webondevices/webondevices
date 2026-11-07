@@ -43,6 +43,8 @@ function A({ href = "", children }: ComponentPropsWithoutRef<"a">) {
       </a>
     );
   }
+  // The hosted demos are their own apps, not Next pages, so they need a full page load.
+  if (href.startsWith("/demos/")) return <a href={href}>{children}</a>;
   return <Link href={href}>{children}</Link>;
 }
 

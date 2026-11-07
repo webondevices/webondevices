@@ -5,15 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:demos": "npm --prefix demos/3d-product-page ci --no-audit --no-fund && npm --prefix demos/3d-product-page run build",
+    "build": "npm run build:demos && next build",
     "start": "npx serve out",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit && tsc --noEmit -p worker",
     "format": "prettier --write .",
     "test": "node --test \"worker/**/*.test.ts\"",
     "cf-typegen": "wrangler types worker/worker-configuration.d.ts",
-    "preview": "NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA next build && wrangler dev",
-    "deploy": "next build && node --test scripts/url-parity.test.ts && wrangler deploy",
+    "preview": "NEXT_PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA npm run build && wrangler dev",
+    "deploy": "npm run build && node --test scripts/url-parity.test.ts && wrangler deploy",
     "test:urls": "node --test scripts/url-parity.test.ts"
   },
   "dependencies": {

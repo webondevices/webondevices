@@ -1,0 +1,83 @@
+---
+title: "A product page you scroll through in 3D"
+summary: "A hiking boot captured as a Gaussian splat, rendered live in the browser with PlayCanvas, and choreographed by the page's scroll. Try it yourself."
+discipline: spatial-experiences
+disciplines: [spatial-experiences, software-engineering]
+tags: [Gaussian Splatting, PlayCanvas, WebGL, React, E-commerce]
+type: prototype
+status: live
+year: "2026"
+featured: true
+hero:
+  image: /media/3d-product-page/hero.jpg
+  alt: "A photoreal hiking boot floating beside the product page's headline, rendered live as a Gaussian splat"
+demo: /demos/3d-product-page/
+links:
+  - { label: "The original 3D capture on SuperSplat", href: "https://superspl.at/scene/f83d530f" }
+related: [kinect-gesture-interfaces, genetic-ui, ai-billboard-targeting]
+details:
+  capture:
+    - { value: "84 MB", label: "Original splat (PLY)" }
+    - { value: "7.4 MB", label: "What the page loads (SOG)" }
+    - { value: "SH3", label: "View-dependent colour kept" }
+    - { value: "9", label: "Hotspots glued to the surface" }
+  pipeline:
+    - { title: "Capture", text: "A photoreal Gaussian splat of a real boot, captured by Christoph Schindelar and shared under CC BY 4.0." }
+    - { title: "Clean up", text: "Re-oriented, scaled to real metres and centred, so every camera shot is written in the shoe's own units." }
+    - { title: "Compress", text: "Packed from an 84 MB PLY into a 7.4 MB SOG file, keeping the spherical harmonics that make the leather catch the light." }
+    - { title: "Choreograph", text: "Camera shots tied to the page's layout, so scrolling drives the camera and the boot turns, rolls and zooms with the story." }
+---
+
+Product photos are flat. A turntable viewer is better, but it sits in a box on the page and most people never touch it.
+
+I wanted the product to *be* the page. Scroll, and the boot turns to show you the part you're reading about. Keep going and it rolls over to show you the grip. Stop, and you can pick it up and spin it yourself.
+
+**[Try the live demo](/demos/3d-product-page/)**, ideally on a laptop first, then on your phone.
+
+## Why a splat and not a 3D model
+
+A traditional 3D model of a boot is a mesh with textures. Getting nubuck, mesh panels, stitching and a scuffed rubber sole to look real takes an artist days, and it still tends to look like a game asset.
+
+A Gaussian splat is different. It's captured from photos and stores the object as millions of tiny, soft, coloured blobs. No polygons, no textures. The result looks like a photograph you can walk around, because that's more or less what it is.
+
+The catch has always been size and speed. The original capture of this boot is an 84 MB file. No product page can ask a shopper to download that.
+
+## Getting it down to 7.4 MB
+
+The page loads a single **SOG** file: the same splat, packed into compressed images. It comes in at **7.4 MB**, over ten times smaller than the original, and keeps third-order **spherical harmonics**. Those are what make the colour change with the viewing angle, so the leather picks up highlights as it turns.
+
+I tried a version without them. It was 4.6 MB, but the boot looked flat and painted. The extra 2.8 MB is what makes it look real.
+
+## The page drives the camera
+
+Everything is rendered with **PlayCanvas**, on a transparent canvas fixed behind the page. React handles the copy, buttons and layout as normal HTML.
+
+The trick is in how the two talk. I didn't write a timeline. Instead, any element on the page can be marked as a camera keyframe: "when this reaches the screen, look at the heel". The camera eases between them as you scroll. If the copy gets longer, or the layout changes on a phone, the camera follows the layout automatically.
+
+The story goes like this:
+
+- **Hero:** the boot spins slowly. Drag it and it stays where you leave it, then starts turning again after eight seconds.
+- **Features:** the section pins and the camera tours the lacing, heel, upper and midsole, one at a time.
+- **Grip:** the boot rolls over to show its sole, then the camera pushes in on the lugs.
+- **Explore:** free orbit. Tap a part and the boot turns to face you.
+- **Specs:** it settles beside the spec table and the buy box.
+
+To keep the boot to one side of the text without bending its perspective, the image is shifted with an off-centre projection rather than by moving the camera.
+
+## Hotspots that stay glued on
+
+The dots that label the lacing, the heel pull and the outsole are normal HTML, so they're crisp, accessible and easy to style. Getting them to stick to a model that's constantly moving took some care.
+
+I measured each anchor point on the shoe from orthographic renders on a 2 cm grid. Every frame, each one is projected through the real camera matrix and the dot is moved to that spot on screen. A dot hides when its part of the boot faces away from you. For parts that exist on both sides, like the collar and the midsole, it uses whichever side you can see.
+
+## Small things that mattered
+
+- **No lighting jumps.** PlayCanvas normally only refreshes view-dependent colour after the camera turns 10 degrees, which shows as flickers in the lighting while the boot spins. I set it to refresh on every frame.
+- **Phones get their own layout.** On a narrow screen the boot lives in a band at the top and the copy scrolls up underneath it, fading out before it reaches the boot.
+- **No React re-renders per frame.** The scroll position, drag state and hotspot positions live in one small shared object that the render loop reads directly.
+
+## What this is for
+
+This is a concept, not a real shop. The cart counts clicks and nothing more, and it isn't affiliated with the brand. The approach is what's real, though: any product you can photograph can be a page like this, and it loads about as fast as a hero video.
+
+*3D capture: "QUECHUA - Webviewer" by [Christoph Schindelar](https://superspl.at/user?id=schindelar3d), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Re-oriented, re-scaled and compressed for this demo.*

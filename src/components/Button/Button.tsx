@@ -31,8 +31,9 @@ type AsButton = CommonProps & { href?: never } & Omit<
 
 export type ButtonProps = AsLink | AsButton;
 
+/* Off-site links, and the hosted demos, which are their own apps rather than Next pages. */
 function isExternal(href: string) {
-  return /^(https?:)?\/\//.test(href) || href.startsWith("mailto:");
+  return /^(https?:)?\/\//.test(href) || href.startsWith("mailto:") || href.startsWith("/demos/");
 }
 
 type AnchorRest = Omit<AsLink, keyof CommonProps | "href">;
