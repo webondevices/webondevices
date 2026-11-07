@@ -12,8 +12,6 @@ hero:
   image: /media/3d-product-page/hero.jpg
   alt: "A photoreal hiking boot floating beside the product page's headline, rendered live as a Gaussian splat"
 demo: /demos/3d-product-page/
-links:
-  - { label: "The original 3D capture on SuperSplat", href: "https://superspl.at/scene/f83d530f" }
 related: [kinect-gesture-interfaces, genetic-ui, ai-billboard-targeting]
 details:
   capture:
@@ -22,7 +20,7 @@ details:
     - { value: "SH3", label: "View-dependent colour kept" }
     - { value: "9", label: "Hotspots glued to the surface" }
   pipeline:
-    - { title: "Capture", text: "A photoreal Gaussian splat of a real boot, captured by Christoph Schindelar and shared under CC BY 4.0." }
+    - { title: "Capture", text: "Hundreds of overlapping photos of the boot from every angle, solved into camera positions and trained into a photoreal Gaussian splat." }
     - { title: "Clean up", text: "Re-oriented, scaled to real metres and centred, so every camera shot is written in the shoe's own units." }
     - { title: "Compress", text: "Packed from an 84 MB PLY into a 7.4 MB SOG file, keeping the spherical harmonics that make the leather catch the light." }
     - { title: "Choreograph", text: "Camera shots tied to the page's layout, so scrolling drives the camera and the boot turns, rolls and zooms with the story." }
@@ -40,9 +38,17 @@ A traditional 3D model of a boot is a mesh with textures. Getting nubuck, mesh p
 
 A Gaussian splat is different. It's captured from photos and stores the object as millions of tiny, soft, coloured blobs. No polygons, no textures. The result looks like a photograph you can walk around, because that's more or less what it is.
 
-The catch has always been size and speed. The original capture of this boot is an 84 MB file. No product page can ask a shopper to download that.
+## How a capture is made
+
+You walk around the object with a camera, or turn it on a turntable, and take a few hundred overlapping photos: low, level and high, so every surface is seen from several angles. Soft, even light matters more than the camera. Hard shadows and reflections get baked into the result.
+
+Software then works out where the camera was for every photo, from the features the images share. With those positions known, a splat is trained: millions of blobs are nudged in position, size, colour and transparency until rendering them from each camera position reproduces the matching photo.
+
+The raw result needs cleaning. Stray blobs float around the object, the background comes along for the ride, and it all gets trimmed back to just the product. The scene also comes out at whatever angle and scale the software picked, so for this page I stood the boot upright on the ground, scaled it to real metres and centred it. That way every camera shot on the page can be written in the boot's own units.
 
 ## Getting it down to 7.4 MB
+
+The catch has always been size and speed. The original capture of this boot is an 84 MB file. No product page can ask a shopper to download that.
 
 The page loads a single **SOG** file: the same splat, packed into compressed images. It comes in at **7.4 MB**, over ten times smaller than the original, and keeps third-order **spherical harmonics**. Those are what make the colour change with the viewing angle, so the leather picks up highlights as it turns.
 
@@ -79,5 +85,3 @@ I measured each anchor point on the shoe from orthographic renders on a 2 cm gri
 ## What this is for
 
 This is a concept, not a real shop. The cart counts clicks and nothing more, and it isn't affiliated with the brand. The approach is what's real, though: any product you can photograph can be a page like this, and it loads about as fast as a hero video.
-
-*3D capture: "QUECHUA - Webviewer" by [Christoph Schindelar](https://superspl.at/user?id=schindelar3d), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Re-oriented, re-scaled and compressed for this demo.*
