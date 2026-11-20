@@ -1,0 +1,76 @@
+/* Ada's live log: two scrolling columns and nothing else. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  padding: 16px;
+  gap: 12px;
+  background: #f5f4f0;
+  color: #1d1d1b;
+}
+
+.status {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  color: #77756f;
+}
+
+.columns {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  border: 1px solid #e2e0d9;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.column h2 {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e2e0d9;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 16px 16px;
+}
+
+.thought,
+.message {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0eee8;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.meta {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  color: #8a877f;
+}
+
+.ada .meta {
+  color: #3a5bd9;
+}
+
+@media (max-width: 720px) {
+  .columns {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}

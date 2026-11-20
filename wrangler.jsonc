@@ -13,6 +13,8 @@
     "run_worker_first": ["/api/*"],
   },
   // Email Routing only delivers to verified addresses; this pins the binding to one.
+  // Ada's live log (/demos/ada-logs/), written by scripts/publish-ada-logs.ts every 2 minutes.
+  "kv_namespaces": [{ "binding": "ADA_LOGS", "id": "184d945bd7e54deebf4e7d6339a5f86d" }],
   "send_email": [{ "name": "SEND_EMAIL", "destination_address": "webondevices@gmail.com" }],
   "vars": {
     "CONTACT_TO": "webondevices@gmail.com",

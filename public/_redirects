@@ -7,3 +7,5 @@
 /offline-plugin-app-shell-fallback/ / 301
 # Temporary until the About page exists, so not cached as permanent.
 /about/ /#about 302
+# The demos live under /demos/; /demo/ is an easy slip.
+/demo/* /demos/:splat 301

@@ -52,10 +52,21 @@ async function contact(request: Request, env: Env): Promise<Response> {
   return json({ ok: true });
 }
 
+/* Ada's live log, put in KV by scripts/publish-ada-logs.ts. Browsers re-ask every couple of minutes. */
+async function adaLogs(request: Request, env: Env): Promise<Response> {
+  if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
+  const body = await env.ADA_LOGS.get("latest");
+  if (!body) return json({ error: "not_published" }, 404);
+  return new Response(body, {
+    headers: { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "public, max-age=30" },
+  });
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
     if (pathname === "/api/contact" || pathname === "/api/contact/") return contact(request, env);
+    if (pathname === "/api/ada-logs" || pathname === "/api/ada-logs/") return adaLogs(request, env);
     if (pathname.startsWith("/api/")) return json({ error: "not_found" }, 404);
     return env.ASSETS.fetch(request);
   },
