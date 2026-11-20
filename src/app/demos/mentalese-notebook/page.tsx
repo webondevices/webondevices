@@ -13,7 +13,7 @@ const caveat = Caveat({ subsets: ["latin"], weight: ["500", "700"], variable: "-
 const kalam = Kalam({ subsets: ["latin"], weight: ["300", "400", "700"], variable: "--font-kalam" });
 
 const ARTICLE = "/projects/mentalese-live/";
-const LIVE = "https://www.youtube.com/watch?v=psV5GeNMx2Q";
+const LIVE = "https://www.youtube.com/watch?v=mcm6hNGhJr4";
 
 export const metadata: Metadata = {
   title: "Ada's notebook",
