@@ -1,0 +1,397 @@
+/* Ada's notebook: loose sheets of paper on a dark desk. */
+
+.desk {
+  --line: 32px;
+  --ink: #23304f;
+  --ink-soft: #55607a;
+  --desk: #2a2724;
+  min-height: 100vh;
+  padding: 72px 16px 96px;
+  color: #efe9df;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgb(255 236 200 / 0.09), transparent 70%),
+    radial-gradient(circle at 20% 80%, rgb(0 0 0 / 0.25), transparent 50%),
+    var(--desk);
+  font-family: var(--font-sans);
+}
+
+/* ——— Intro ——— */
+
+.intro {
+  max-width: 680px;
+  margin: 0 auto 72px;
+  text-align: center;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 32px;
+  padding: 6px 14px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  border-radius: 999px;
+  color: rgb(255 255 255 / 0.75);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.back:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+
+.intro h1 {
+  font-family: var(--font-caveat);
+  font-size: clamp(56px, 11vw, 96px);
+  font-weight: 700;
+  line-height: 1;
+  color: #fff6e2;
+  transform: rotate(-2deg);
+}
+
+.lede {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgb(239 233 223 / 0.85);
+}
+
+.stats {
+  margin-top: 16px;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  color: rgb(239 233 223 / 0.5);
+}
+
+.live {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #fff6e2;
+  color: #2a2724;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.35);
+  transition: transform 0.2s;
+}
+
+.live:hover {
+  transform: translateY(-2px);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e5322d;
+  box-shadow: 0 0 0 0 rgb(229 50 45 / 0.6);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgb(229 50 45 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(229 50 45 / 0);
+  }
+}
+
+/* ——— The pile of sheets ——— */
+
+.pile {
+  display: grid;
+  gap: 64px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.sheet {
+  position: relative;
+  padding: 40px 48px 48px 88px;
+  color: var(--ink);
+  font-family: var(--font-kalam);
+  font-size: 19px;
+  font-weight: 300;
+  background: #fffdf6;
+  box-shadow:
+    0 1px 1px rgb(0 0 0 / 0.15),
+    0 6px 12px rgb(0 0 0 / 0.25),
+    0 24px 48px -8px rgb(0 0 0 / 0.45);
+  scroll-margin-top: 32px;
+}
+
+.sheet[data-tilt="0"] {
+  transform: rotate(-0.7deg);
+}
+.sheet[data-tilt="1"] {
+  transform: rotate(0.5deg);
+}
+.sheet[data-tilt="2"] {
+  transform: rotate(-0.2deg) translateX(6px);
+}
+
+/* A strip of tape holding each sheet down. */
+.sheet::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 120px;
+  height: 30px;
+  translate: -50% 0;
+  rotate: -3deg;
+  background: rgb(255 255 240 / 0.45);
+  border-left: 1px dashed rgb(0 0 0 / 0.06);
+  border-right: 1px dashed rgb(0 0 0 / 0.06);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.15);
+}
+
+.sheet[data-tilt="1"]::before {
+  left: 82%;
+  rotate: 6deg;
+}
+
+.head {
+  margin-bottom: var(--line);
+}
+
+.tag {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.tag a {
+  color: inherit;
+}
+
+.title {
+  margin-top: 4px;
+  font-family: var(--font-caveat);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #1b2541;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 12px 0 0;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.meta div {
+  display: flex;
+  gap: 6px;
+}
+
+.meta dt {
+  opacity: 0.7;
+}
+
+.meta dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+.body {
+  line-height: var(--line);
+  background-image: linear-gradient(transparent calc(var(--line) - 1px), var(--rule, #b9cbe6) 0);
+  background-size: 100% var(--line);
+  background-position: 0 -7px;
+}
+
+.body p + p {
+  margin-top: var(--line);
+}
+
+.body em {
+  font-style: normal;
+  text-decoration: underline wavy rgb(35 48 79 / 0.35);
+  text-underline-offset: 5px;
+}
+
+.body strong {
+  font-weight: 700;
+}
+
+/* Version buttons: V1, V2… with the one on the page circled in red pen. */
+.versions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.version {
+  min-width: 48px;
+  padding: 2px 10px 4px;
+  border: 1.5px solid rgb(35 48 79 / 0.35);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--font-caveat);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.version:hover {
+  background: rgb(35 48 79 / 0.06);
+  color: var(--ink);
+}
+
+.version[aria-pressed="true"] {
+  border-color: #b3362f;
+  background: rgb(179 54 47 / 0.08);
+  color: #b3362f;
+  cursor: default;
+}
+
+/* ——— Papers ——— */
+
+/* Yellow legal pad: blue rules, a red double margin. */
+.legal {
+  --rule: #a9c0de;
+  background:
+    linear-gradient(90deg, transparent 63px, #e7a3a0 63px 64px, transparent 64px 67px, #e7a3a0 67px 68px, transparent 68px),
+    #fdf3b8;
+}
+
+/* White ruled paper torn from a spiral notebook: punched holes down the left. */
+.ruled {
+  --rule: #c3d3ea;
+  background:
+    radial-gradient(circle at 28px 50%, var(--desk) 9px, rgb(0 0 0 / 0.12) 10px, transparent 11px) 0 0 / 100% 64px
+      repeat-y,
+    linear-gradient(90deg, transparent 67px, #f0b7b4 67px 68px, transparent 68px),
+    #fffefa;
+}
+
+/* Graph paper. */
+.grid {
+  --rule: transparent;
+  background:
+    linear-gradient(rgb(110 150 200 / 0.18) 1px, transparent 1px) 0 -4px / 16px 16px,
+    linear-gradient(90deg, rgb(110 150 200 / 0.18) 1px, transparent 1px) 0 0 / 16px 16px,
+    #fbfcfd;
+}
+
+/* Cream paper with a torn top edge. */
+.cream {
+  --rule: #dcd0b4;
+  background: #f6eedb;
+  clip-path: polygon(
+    0 6px, 4% 2px, 9% 7px, 14% 1px, 20% 6px, 26% 2px, 31% 8px, 37% 3px, 43% 6px, 49% 1px, 55% 7px, 61% 2px,
+    66% 6px, 72% 1px, 78% 7px, 84% 3px, 90% 8px, 95% 2px, 100% 6px, 100% 100%, 0 100%
+  );
+  filter: drop-shadow(0 10px 18px rgb(0 0 0 / 0.4));
+  box-shadow: none;
+}
+
+.cream::before {
+  display: none;
+}
+
+/* Her journal: a page from a bound diary, warmer and ruled in sepia. */
+.journal {
+  --rule: #d6c29b;
+  --ink: #3d2a1c;
+  --ink-soft: #7a6450;
+  padding-left: 48px;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 0.14), transparent 28px),
+    radial-gradient(ellipse at 70% 20%, rgb(255 255 255 / 0.35), transparent 60%),
+    #efe0c2;
+  border-radius: 2px 10px 10px 2px;
+}
+
+.journal .tag {
+  font-family: var(--font-caveat);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #6b3f26;
+}
+
+.journal .body {
+  font-weight: 400;
+}
+
+.foot {
+  margin-top: 96px;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(239 233 223 / 0.55);
+}
+
+.foot a {
+  color: inherit;
+}
+
+/* ——— Phones ——— */
+
+@media (max-width: 640px) {
+  .desk {
+    padding-top: 40px;
+  }
+
+  .pile {
+    gap: 48px;
+  }
+
+  .sheet {
+    --line: 30px;
+    padding: 32px 20px 36px 52px;
+    font-size: 17px;
+  }
+
+  .sheet[data-tilt] {
+    transform: rotate(0deg);
+  }
+
+  .legal {
+    background:
+      linear-gradient(90deg, transparent 37px, #e7a3a0 37px 38px, transparent 38px 41px, #e7a3a0 41px 42px, transparent 42px),
+      #fdf3b8;
+  }
+
+  .ruled {
+    background:
+      radial-gradient(circle at 18px 50%, var(--desk) 6px, rgb(0 0 0 / 0.12) 7px, transparent 8px) 0 0 / 100% 60px
+        repeat-y,
+      linear-gradient(90deg, transparent 39px, #f0b7b4 39px 40px, transparent 40px),
+      #fffefa;
+  }
+
+  .journal {
+    padding-left: 28px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    animation: none;
+  }
+}
